@@ -24,16 +24,16 @@ class Dashboard extends BaseController
                 return view('dashboards/systemAdmin', $this->viewData);
             break;
             case '2': // Office Head
-                return view('dashboards/systemAdmin', $this->viewData);
+                return view('dashboards/officeHead', $this->viewData);
             break;
             case '3': // Office Staff
                 return view('dashboards/officeStaff', $this->viewData);
             break;
             case '4': // Encoder
-                return view('dashboards/systemAdmin', $this->viewData);
+                return view('dashboards/encoderDashboard', $this->viewData);
             break;
             case '5': // Client
-                return view('dashboards/systemAdmin', $this->viewData);
+                return view('dashboards/clientDashbord', $this->viewData);
             break;
             
             default:
