@@ -7,7 +7,7 @@
                     <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
                 </div> -->
                 <span class = "d-flex flex-column align-self-end">
-                    <span class = "fw-bold fs-2"> <?= $departmentInfo[0]->dept_name?></span>
+                    <span class = "fw-bold fs-2"> <?= ($departmentInfo != false) ? $departmentInfo[0]->dept_name : 'City Information Desk'?></span>
                     <span class = "fs-8 text-gray-600"> Active</span>
                 </span>
             </div>
