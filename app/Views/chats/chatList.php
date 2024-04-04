@@ -33,74 +33,58 @@
                                 </tr>
                             </thead>
                             <tbody class = "p-3">
-                                <tr class = "rounded" data-status = "active">
-                                    <td class = "border rounded p-5 mb-1 d-flex flex-stack" >
+                                <tr class = "individual-chat-container" data-status = "active" >
+                                    <td class = "border-bottom rounded p-5 mb-1 d-flex flex-stack" >
                                         <div class = "d-flex flex-row ">
-                                            <img src="<?= base_url()?>/public/assets/media/avatars/default-avatar.png" class="w-60px ms-n1 border me-2 rounded " alt="" style = "white-space: nowrap; text-overflow: ellipsis;">
+                                            <img src="<?= base_url()?>/public/assets/media/avatars/default-avatar.png" class="w-60px ms-n1 border border-gray-600 me-2 rounded " alt="" style = "white-space: nowrap; text-overflow: ellipsis;">
                                             <span class = "d-flex flex-column align-self-end overflow-hidden">
-                                                <span class = "fw-bold fs-2 text-gray-700"> Egie Santos</span>
-                                                <span class = "fs-8 text-gray-600 w-50" style = "white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Lorem ipsum dolor sit amet conseelit minima ea.</span>
+                                                <span class = "fw-bold fs-2 "> Egie Santos</span>
+                                                <span class = "fs-8 w-50" style = "white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Lorem ipsum dolor sit amet conseelit minima ea.</span>
                                             </span>
                                         </div>
                                         <div class = "d-flex ">
                                             <span class = "d-flex flex-column align-self-end overflow-hidden align-self-end text-end">
-                                                <span class = "fw-semibold fs-7 text-gray-600"> 12:00</span>
-                                                <span class = "fw-semibold fs-8 text-gray-600"> 2024-01-01</span>
+                                                <span class = "fw-bold fs-7 "> 12:00PM</span>
+                                                <span class = "fw-semibold fs-8 "> 2024-01-01</span>
                                             </span>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class = "rounded">
-                                    <td class = "border rounded p-5 mb-1 d-flex flex-stack" >
+                                <tr class = "" data-status = "inactive">
+                                    <td class = "border-bottom rounded p-5 mb-1 d-flex flex-stack" >
                                         <div class = "d-flex flex-row ">
-                                            <img src="<?= base_url()?>/public/assets/media/avatars/default-avatar.png" class="w-60px ms-n1 border me-2 rounded " alt="" style = "white-space: nowrap; text-overflow: ellipsis;">
+                                            <img src="<?= base_url()?>/public/assets/media/avatars/default-avatar.png" class="w-60px ms-n1 border border-gray-600 me-2 rounded " alt="" style = "white-space: nowrap; text-overflow: ellipsis;">
                                             <span class = "d-flex flex-column align-self-end overflow-hidden">
-                                                <span class = "fw-bold fs-2 text-gray-700"> Egie Santos</span>
-                                                <span class = "fs-8 text-gray-600 w-50" style = "white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Lorem ipsum dolor sit amet conseelit minima ea.</span>
+                                                <span class = "fw-bold fs-2 "> Bianca Redge  Santos</span>
+                                                <span class = "fs-8 w-50" style = "white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Lorem ipsum dolor sit amet conseelit minima ea.</span>
                                             </span>
                                         </div>
                                         <div class = "d-flex ">
                                             <span class = "d-flex flex-column align-self-end overflow-hidden align-self-end text-end">
-                                                <span class = "fw-semibold fs-7 text-gray-600"> 12:00</span>
-                                                <span class = "fw-semibold fs-8 text-gray-600"> 2024-01-01</span>
+                                                <span class = "fw-bold fs-7 "> 12:00PM</span>
+                                                <span class = "fw-semibold fs-8 "> 2024-01-01</span>
                                             </span>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class = "rounded">
-                                    <td class = "border rounded p-5 mb-1 d-flex flex-stack" >
+                                <tr class = "" data-status = "inactive">
+                                    <td class = "border-bottom rounded p-5 mb-1 d-flex flex-stack" >
                                         <div class = "d-flex flex-row ">
-                                            <img src="<?= base_url()?>/public/assets/media/avatars/default-avatar.png" class="w-60px ms-n1 border me-2 rounded " alt="" style = "white-space: nowrap; text-overflow: ellipsis;">
+                                            <img src="<?= base_url()?>/public/assets/media/avatars/default-avatar.png" class="w-60px ms-n1 border border-gray-600 me-2 rounded " alt="" style = "white-space: nowrap; text-overflow: ellipsis;">
                                             <span class = "d-flex flex-column align-self-end overflow-hidden">
-                                                <span class = "fw-bold fs-2 text-gray-700"> Egie Santos</span>
-                                                <span class = "fs-8 text-gray-600 w-50" style = "white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Lorem ipsum dolor sit amet conseelit minima ea.</span>
+                                                <span class = "fw-bold fs-2 "> Jayson Kalbo Santos</span>
+                                                <span class = "fs-8 w-50" style = "white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Lorem ipsum dolor sit amet conseelit minima ea.</span>
                                             </span>
                                         </div>
                                         <div class = "d-flex ">
                                             <span class = "d-flex flex-column align-self-end overflow-hidden align-self-end text-end">
-                                                <span class = "fw-semibold fs-7 text-gray-600"> 12:00</span>
-                                                <span class = "fw-semibold fs-8 text-gray-600"> 2024-01-01</span>
+                                                <span class = "fw-bold fs-7 "> 12:00PM</span>
+                                                <span class = "fw-semibold fs-8 "> 2024-01-01</span>
                                             </span>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class = "rounded">
-                                    <td class = "border rounded p-5 mb-1 d-flex flex-stack" >
-                                        <div class = "d-flex flex-row ">
-                                            <img src="<?= base_url()?>/public/assets/media/avatars/default-avatar.png" class="w-60px ms-n1 border me-2 rounded " alt="" style = "white-space: nowrap; text-overflow: ellipsis;">
-                                            <span class = "d-flex flex-column align-self-end overflow-hidden">
-                                                <span class = "fw-bold fs-2 text-gray-700"> Egie Santos</span>
-                                                <span class = "fs-8 text-gray-600 w-50" style = "white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Lorem ipsum dolor sit amet conseelit minima ea.</span>
-                                            </span>
-                                        </div>
-                                        <div class = "d-flex ">
-                                            <span class = "d-flex flex-column align-self-end overflow-hidden align-self-end text-end">
-                                                <span class = "fw-semibold fs-7 text-gray-600"> 12:00</span>
-                                                <span class = "fw-semibold fs-8 text-gray-600"> 2024-01-01</span>
-                                            </span>
-                                        </div>
-                                    </td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -194,7 +178,6 @@
                         </button>
                     </span>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -203,12 +186,26 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('css'); ?>
+<style>
+    tr[data-status = "active"] td{
+        background-color: var(--bs-primary);
+        text: var(--bs-white);
+    }
 
+    tr[data-status = "inactive"] td:hover{
+        background-color: var(--kt-primary-light);
+    }
+
+</style>
+    
 <?= $this->endSection(); ?>
 <?= $this->section('javascript'); ?>
 <script>
     $(document).ready(function(){
-        // $('#chat-modal').modal('show');
+        $(document).on('click', '.individual-chat-container', function(){
+
+            $('#chat-modal').modal('show');
+        });
     })
 </script>
       

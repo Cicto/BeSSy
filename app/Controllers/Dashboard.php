@@ -33,6 +33,8 @@ class Dashboard extends BaseController
                 return view('dashboards/encoderDashboard', $this->viewData);
             break;
             case '5': // Client
+                $activeDepartments = $this->masterModel->get('departments', 'dept_id, dept_alias, dept_name', ['is_visible' => 1]);
+                $this->viewData['activeDepartments'] = (!$activeDepartments['error']) ? $activeDepartments['data'] : false;
                 return view('dashboards/clientDashbord', $this->viewData);
             break;
             
