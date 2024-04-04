@@ -81,9 +81,17 @@ class BaseController extends Controller
         return (!$roles['error'] ? $roles['data'] : false);
     }
 
-    public function getDepartments(){
+    public function getDepartments($deptId = 0){
+
+        $conditions = [
+            'deleted_at' => null
+        ];
+        if($deptId != 0){
+            $conditions['dept_id'] = $deptId;
+        }
         $dept = $this->masterModel->get('departments', //tablename
-             'dept_id, dept_alias, dept_name' //columns
+             'dept_id, dept_alias, dept_name', //columns
+             $conditions, //conditions
         );
         return (!$dept['error'] ? $dept['data'] : false);
     }

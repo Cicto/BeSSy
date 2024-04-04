@@ -7,7 +7,7 @@
                     <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
                 </div> -->
                 <span class = "d-flex flex-column align-self-end">
-                    <span class = "fw-bold fs-2"> City Hall Information Desk</span>
+                    <span class = "fw-bold fs-2"> <?= $departmentInfo[0]->dept_name?></span>
                     <span class = "fs-8 text-gray-600"> Active</span>
                 </span>
             </div>
@@ -34,7 +34,6 @@
                     <div class="me-3 d-flex flex-column text-end">
                         <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary ms-1">You</a>
                         <span class="text-muted fs-8 mb-1">2 Hours</span>
-                        
                     </div>
                     <div class="symbol symbol-40px">
                         <img alt="Pic" src="<?= base_url()?>/public/assets/media/avatars/300-1.jpg">
