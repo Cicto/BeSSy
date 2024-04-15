@@ -24,7 +24,7 @@ class App extends BaseConfig
      * @var string
      */
     // public $baseURL = 'http://localhost:8080/';
-    public $baseURL = 'http://localhost:8888/baliwag/hris';
+    public $baseURL = 'http://localhost/hris';
 
     // App Name
     public $appName = 'Human Resource Information System | City of Baliwg';
