@@ -31,7 +31,6 @@
 <div class="d-flex flex-column flex-column-fluid mb-5">
     <div id="kt_app_content_container" class="app-container container-fluid h-100">
         
-        </div>
     </div>
 </div>
 <?= $this->endSection(); ?>
