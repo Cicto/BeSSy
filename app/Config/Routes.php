@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/profile', 'Dashboard::profile');
 $routes->get('/dashboard', 'Dashboard::index');
 
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
