@@ -40,7 +40,6 @@
             <!--end::Menu wrapper-->
             <!--begin::Navbar-->
             <div class="app-navbar flex-shrink-0">
-
                 <!--begin::Theme mode-->
                 <div class="app-navbar-item ms-1 ms-lg-3">
                     <!--begin::Menu toggle-->

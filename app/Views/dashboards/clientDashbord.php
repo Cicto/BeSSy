@@ -24,7 +24,7 @@
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <?php if($activeDepartments): ?>
                     <?php foreach($activeDepartments as $department): ?>
-                        <a href="<?= base_url()?>/services/<?= $department->dept_id?>">
+                        <a href="<?= base_url()?>/services/departmentServices/<?= $department->dept_id?>">
                             <div class = "p-5 rounded bg-city-blue mb-3 hover-elevate-up">
                                 <div class = "d-flex flex-row w-100 ">
                                     <div class="symbol symbol-50px me-3 d-flex flex-center">
