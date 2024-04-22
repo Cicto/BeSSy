@@ -13,9 +13,11 @@
         justify-content: space-evenly;
         gap: 0.25rem;
     }
+
     .kanban-container .kanban-board-header{
         cursor: all-scroll;
     }
+    
     .kanban-container::after{
         display: none;
     }
@@ -81,7 +83,7 @@
 
     #rejected-applications-drawer{
         background-color: var(--kt-app-bg-color);
-        background-image: linear-gradient(0deg, rgba(var(--kt-danger-rgb),0.2) 0%, var(--kt-app-bg-color) 30%);
+        background-image: linear-gradient(0deg, rgba(var(--kt-danger-rgb),0.15) 0%, var(--kt-app-bg-color) 30%);
     }
 </style>
 
@@ -303,6 +305,49 @@
 </div>
 <!--  -->
 
+<!-- View Building Permit Application Modal -->
+<div class="modal fade" id="view-building-permit-application-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Building Permit Application</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="view-building-permit-application-form">
+            <div class="mb-10">
+                <label for="first-name" class="required form-label">Applicant Name</label>
+                <input type="text" class="form-control form-control-solid mb-2 pointer-default" name="first_name" placeholder="First Name" readonly/>
+                <input type="text" class="form-control form-control-solid mb-2 pointer-default" name="middle_name" placeholder="Middle Name" readonly/>
+                <input type="text" class="form-control form-control-solid mb-1 pointer-default" name="last_name" placeholder="Last Name" readonly/>
+            </div>
+    
+            <div class="mb-10">
+                <label for="contact-number" class="required form-label">Contact Number</label>
+                <div class="input-group input-group-solid mb-5">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile-alt"></i></span>
+                    <input type="text" class="form-control form-control-solid pointer-default" name="contact_number" placeholder="09__-___-____" readonly/>
+                </div>
+    
+            </div>
+            
+            <div class="">
+                <label for="application-description" class="form-label">Description</label>
+                <textarea class="form-control form-control-solid pointer-default" name="application_description" data-kt-autosize="true" placeholder="Brief description..." maxlength="500" readonly></textarea>
+                <div class="text-end pt-1">
+                    <span class="rounded fs-7 p-1 px-2 text-gray-500 fw-semibold" style="background: #f5f8fa;" id="application-description-length-counter">0/500</span>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+
 <!-- Finished Applications Offcanvas -->
 <div id="finished-applications-drawer" class="flex-column border-bottom border-success border-2"
     data-kt-drawer="true"
@@ -447,13 +492,13 @@
         renderOngoingApplications()
 
         const buidling_permit_application_modal = bootstrap.Modal.getOrCreateInstance("#building-permit-application-modal");
+        const view_buidling_permit_application_modal = bootstrap.Modal.getOrCreateInstance("#view-building-permit-application-modal");
+    //
 
+    // Finished Applications
+        
         const finished_applications_drawer = KTDrawer.getInstance($("#finished-applications-drawer")[0]);
         finished_applications_drawer.on("kt.drawer.hide", function(){
-            $("#return-to-board-container").hide();
-        })
-        const rejected_applications_drawer = KTDrawer.getInstance($("#rejected-applications-drawer")[0]);
-        rejected_applications_drawer.on("kt.drawer.hide", function(){
             $("#return-to-board-container").hide();
         })
 
@@ -494,6 +539,7 @@
                                 <i class="bi bi-three-dots"></i>
                             </button>
                             <ul class="dropdown-menu" style="">
+                                <li><a class="dropdown-item view-application" data-bpa_id="${data}" href="#">View</a></li>
                                 <li><a class="dropdown-item return-application" data-bpa_id="${data}" href="#">Return to board</a></li>
                                 <li><a class="dropdown-item text-danger delete-application" data-bpa_id="${data}" href="#">Delete</a></li>
                             </ul>
@@ -501,6 +547,25 @@
                     }
                 },
             ]
+        }).on('xhr.dt', function (e, settings, json, xhr) {
+            finished_permits_table_data = json.data;
+        })
+
+        $("#finished-permits-table, #rejected-permits-table").on("click", ".view-application", function(){
+            const bpa_id = $(this).data("bpa_id");
+            let building_permit_application_data = searchArrayById(finished_permits_table_data, bpa_id, "bpa_id");
+            if(!building_permit_application_data){
+                building_permit_application_data = searchArrayById(rejected_permits_table_data, bpa_id, "bpa_id");
+                console.log(building_permit_application_data)
+            }
+            resetForm("#view-building-permit-application-form");
+            for (const name in building_permit_application_data) {
+                if (Object.hasOwnProperty.call(building_permit_application_data, name)) {
+                    const value = building_permit_application_data[name];
+                    $("#view-building-permit-application-form").find(`[name="${name}"]`).val(value).trigger("change")
+                }
+            }
+            view_buidling_permit_application_modal.show();
         });
 
         $("#finished-permits-table, #rejected-permits-table").on("click", ".return-application", function(){
@@ -572,6 +637,15 @@
             reloadDataTable(finished_permits_table)
         })
 
+    //
+
+    // Rejected Applications
+
+        const rejected_applications_drawer = KTDrawer.getInstance($("#rejected-applications-drawer")[0]);
+        rejected_applications_drawer.on("kt.drawer.hide", function(){
+            $("#return-to-board-container").hide();
+        })
+
         rejected_permits_table = $("#rejected-permits-table").DataTable({
             processing : true,
             serverSide : true,
@@ -622,6 +696,7 @@
                                 <i class="bi bi-three-dots"></i>
                             </button>
                             <ul class="dropdown-menu" style="">
+                                <li><a class="dropdown-item view-application" data-bpa_id="${data}" href="#">View</a></li>
                                 <li><a class="dropdown-item return-application" data-bpa_id="${data}" href="#">Return to board</a></li>
                                 <li><a class="dropdown-item text-danger delete-application d-none" data-bpa_id="${data}" href="#">Delete</a></li>
                             </ul>
@@ -629,8 +704,10 @@
                     }
                 },
             ]
+        }).on('xhr.dt', function (e, settings, json, xhr) {
+            rejected_permits_table_data = json.data;
         });
-
+        
         $("#rejected-application-search-bar").keyup(function (e) { 
             rejected_permits_table.search(this.value).draw();
         });

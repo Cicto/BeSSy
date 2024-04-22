@@ -16,6 +16,10 @@
     cursor: pointer !important;
 }
 
+.pointer-default{
+    cursor: default !important;
+}
+
 .pointer-events-none{
     pointer-events: none !important;
 }
