@@ -13,11 +13,9 @@ class Services extends BaseController
     public function departmentServices($deptID)
     {   
         $services = $this->masterModel->get('services', 'service_id, dept_id, service_alias, service_name, service_view', ['deleted_at'  => null, 'dept_id' => $deptID]);
-        $convoInfo = $this->getConvoInfo(user_id(), $deptID, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
         $this->viewData['title'] = 'Department Services';
         $this->viewData['services'] = (!$services['error']) ? $services['data'] : false;
         $this->viewData['departmentInfo'] = $this->getDepartments($deptID);
-        $this->viewData['convoInfo'] = $convoInfo;
 
         return view('services/departmentServices', $this->viewData);
     }
@@ -25,9 +23,11 @@ class Services extends BaseController
     public function serviceView($serviceId)
     {   
         $service = $this->masterModel->get('services', 'service_id, dept_id, service_alias, service_name, service_view', ['deleted_at'  => null, 'service_id' => $serviceId]);
+        $convoInfo = $this->getConvoInfo(user_id(), $service['data'][0]->dept_id, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
         $this->viewData['service'] = (!$service['error']) ? $service['data'][0] : false;
         $this->viewData['departmentInfo'] = $this->getDepartments($service['data'][0]->dept_id);
         $this->viewData['title'] = $service['data'][0]->service_name;
+        $this->viewData['convoInfo'] = $convoInfo;
         return view('services/'.$service['data'][0]->service_view, $this->viewData);
     }
 
@@ -40,6 +40,4 @@ class Services extends BaseController
         return view('departments/departmentEmployees', $this->viewData);
         
     }
-
-
 }
