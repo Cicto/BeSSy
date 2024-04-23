@@ -24,10 +24,10 @@
 
 <div class="d-flex flex-column flex-column-fluid mb-5">
     <div id="kt_app_content_container" class="app-container container-fluid h-100">
-        <div class="row h-100">
-            <div class="col-md-6 col-sm-6 col-xs-6">
-                <?php if($services): ?>
-                    <?php foreach($services as $service): ?>
+        <div class="row">
+            <?php if($services): ?> 
+                <?php foreach($services as $service): ?>
+                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6"> 
                         <a href="<?= base_url()?>/services/serviceView/<?= $service->service_id?>">
                             <div class = "p-5 rounded bg-city-blue mb-3 hover-elevate-up">
                                 <div class = "d-flex flex-row w-100 ">
@@ -46,12 +46,9 @@
                                 </div>
                             </div>
                         </a>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6">
-                <?= $this->include('partials/chatBox', $departmentInfo);?>
-            </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>
