@@ -25,7 +25,7 @@
 <div class="d-flex flex-column flex-column-fluid mb-5">
     <div id="kt_app_content_container" class="app-container container-fluid h-100">
         <div class="row">
-            <?php if($services): ?>
+            <?php if($services): ?> 
                 <?php foreach($services as $service): ?>
                     <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6"> 
                         <a href="<?= base_url()?>/services/serviceView/<?= $service->service_id?>">
