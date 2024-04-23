@@ -20,7 +20,7 @@ let confirm = (title, message, icon, url, type, formData, callBack) => {
     Swal.fire({
         icon: icon,
         iconColor: 'var(--kt-white)',
-        title: '<span class = "fw-semibold fs-1">CONFIRM</span>',
+        title: '<span class = "fw-semibold fs-1">'+title+'</span>',
         html: '<span class = "text-gray-600">'+message+'</span>',
         background: `var(--kt-white)`,
         customClass: {
