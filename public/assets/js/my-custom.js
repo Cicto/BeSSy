@@ -16,7 +16,7 @@ let sendToForm = async(object) => {
     return true;
 }
 
-let confirm = (title, message, icon, url, type, formData, callBack) => {
+let confirm = (title="Caution", message="Are you sure you would like to proceed?", icon="warning", url, type, formData, callBack) => {
     Swal.fire({
         icon: icon,
         iconColor: 'var(--kt-white)',
@@ -27,7 +27,7 @@ let confirm = (title, message, icon, url, type, formData, callBack) => {
             icon: 'shadow-md m-0 fs-2 mt-5',
             confirmButton: "btn btn-warning",
             cancelButton: 'btn btn-light-warning',
-            header: 'p-0 m-0 bg-warning pt-7 pb-5',
+            header: 'p-0 m-0 bg-warning pt-7 pb-5 rounded',
             title: 'w-100 m-0 text-white flex-center pt-3 pb-10',
             loader: 'pt-20',
             content: 'pt-5',
@@ -54,7 +54,7 @@ let confirm = (title, message, icon, url, type, formData, callBack) => {
     })
 }
 
-let successAlert = (title, message, icon) => {
+let successAlert = (title="Success", message="Operation successfully completed", icon="success") => {
     Swal.fire({
         icon: icon,
         iconColor: 'var(--kt-white)',
@@ -63,13 +63,13 @@ let successAlert = (title, message, icon) => {
         <path d="M7.89557 13.4982L5.79487 11.2651C5.26967 10.7068 4.38251 10.7068 3.85731 11.2651C3.37559 11.7772 3.37559 12.5757 3.85731 13.0878L7.74989 17.2257C8.14476 17.6455 8.81176 17.6455 9.20663 17.2257L16.1427 9.85252C16.6244 9.34044 16.6244 8.54191 16.1427 8.02984C15.6175 7.47154 14.7303 7.47154 14.2051 8.02984L9.06096 13.4982C8.74506 13.834 8.21146 13.834 7.89557 13.4982Z" fill="currentColor"/>
         </svg>
         </span>`,
-        title: '<span class = "fw-semibold fs-1">SUCCESS</span>',
+        title: '<span class = "fw-semibold fs-1">'+title+'</span>',
         html: '<span class = "text-gray-600">'+message+'</span>',
         background: `var(--kt-white)`,
         customClass: {
             icon: 'shadow-md m-0 fs-2 mt-5',
             confirmButton: "btn btn-success w-50",
-            header: 'p-0 m-0 bg-success pt-7 pb-5',
+            header: 'p-0 m-0 bg-success pt-7 pb-5 rounded',
             title: 'w-100 m-0 text-white flex-center pt-3 pb-10',
             loader: 'pt-20',
             content: 'pt-5',
@@ -80,17 +80,17 @@ let successAlert = (title, message, icon) => {
     });
 }
 
-let errorAlert = (title, message, icon) => {
+let errorAlert = (title="Error", message="Something went wrong", icon="error") => {
     Swal.fire({
         icon: icon,
         iconColor: 'var(--kt-white)',
-        title: '<span class = "fw-semibold fs-1">ERROR</span>',
+        title: '<span class = "fw-semibold fs-1">'+title+'</span>',
         html: '<span class = "text-gray-600">'+message+'</span>',
         background: `var(--kt-white)`,
         customClass: {
             icon: 'shadow-md m-0 fs-2 mt-5',
             confirmButton: "btn btn-danger w-50",
-            header: 'p-0 m-0 bg-danger pt-7 pb-5',
+            header: 'p-0 m-0 bg-danger pt-7 pb-5 rounded',
             title: 'w-100 m-0 text-white flex-center pt-3 pb-10',
             loader: 'pt-20',
             content: 'pt-5',
@@ -102,18 +102,63 @@ let errorAlert = (title, message, icon) => {
 }
 
 let ajaxRequest = (url, type, formData, callBack) => {
-    $.ajax({
+    const loading_timeout = setTimeout(function(){
+        isLoading(true);
+    }, 500)
+
+    return $.ajax({
         url: url,
         type: type,
         dataType: 'json',
         data: formData,
+        complete: () => {
+            isLoading(false);
+            clearTimeout(loading_timeout);
+        },
         success: (data) => {
-            callBack(data);
+            if(callBack){
+                callBack(data);
+            }
+            return data;
         },
         error: (error) => {
             return error;
-        }
-    });
+        },
+
+    }).then(data => data);
+}
+
+let isLoading = (bool = true) => {
+    if(bool){
+        $("#loading-overlay").show();
+        return;
+    }
+    $("#loading-overlay").hide();
+}
+
+let resetForm = (form) => {
+    if(typeof form == "string"){
+      if(form.charAt(0) !== "#"){
+        form = "#"+form;
+      }
+      $(`${form}`)[0].reset();
+      $(`${form} select`).val(null).trigger("change");
+    }else{
+      $(form)[0].reset();
+      $(form).find("select").val(null).trigger("change");
+    }
+}
+
+function reloadDataTable(dataTable, url = false) {
+    if (url) {
+      dataTable.ajax.url(url).load();
+    } else {
+      dataTable.ajax.reload();
+    }
+}
+
+function searchArrayById(array, id, id_name = "id") {
+    return array.find((array_item) => array_item[id_name] == id);
 }
 
 // DATATABLES BUTTONS HOOK START
