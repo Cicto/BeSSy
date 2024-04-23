@@ -20,12 +20,12 @@
 
 <div class="d-flex flex-column flex-column-fluid mb-5">
     <div id="kt_app_content_container" class="app-container container-fluid h-100">
-        <div class="row h-100">
-            <div class="col-md-6 col-sm-6 col-xs-6">
-                <?php if($activeDepartments): ?>
-                    <?php foreach($activeDepartments as $department): ?>
+        <div class="row">
+            <?php if($activeDepartments): ?>
+                <?php foreach($activeDepartments as $department): ?>
+                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 mb-3">
                         <a href="<?= base_url()?>/services/departmentServices/<?= $department->dept_id?>">
-                            <div class = "p-5 rounded bg-city-blue mb-3 hover-elevate-up">
+                            <div class = "p-5 rounded bg-city-blue mb-3 hover-elevate-up h-100 ">
                                 <div class = "d-flex flex-row w-100 ">
                                     <div class="symbol symbol-50px me-3 d-flex flex-center">
                                         <span class="svg-icon svg-icon-muted svg-icon-3hx svg-icon-light">
@@ -42,12 +42,10 @@
                                 </div>
                             </div>
                         </a>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6">
-                <?= $this->include('partials/chatBox');?>
-            </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
         </div>
     </div>
 </div>
