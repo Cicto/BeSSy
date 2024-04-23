@@ -42,12 +42,9 @@
                                 </div>
                             </div>
                         </a>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6">
-                <?= $this->include('partials/chatBox');?>
-            </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>
