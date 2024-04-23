@@ -23,7 +23,7 @@ class Services extends BaseController
     public function serviceView($serviceId)
     {   
         $service = $this->masterModel->get('services', 'service_id, dept_id, service_alias, service_name, service_view', ['deleted_at'  => null, 'service_id' => $serviceId]);
-        $this->viewData['services'] = (!$service['error']) ? $service['data'] : false;
+        $this->viewData['service'] = (!$service['error']) ? $service['data'][0] : false;
         $this->viewData['departmentInfo'] = $this->getDepartments($service['data'][0]->dept_id);
         $this->viewData['title'] = $service['data'][0]->service_name;
         return view('services/'.$service['data'][0]->service_view, $this->viewData);
@@ -38,4 +38,6 @@ class Services extends BaseController
         return view('departments/departmentEmployees', $this->viewData);
         
     }
+
+
 }
