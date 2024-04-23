@@ -18,24 +18,27 @@ let leaveChat = (room) => {
 const plotMessages = (data, activeUser, element) => {
     let sender = data.senderPhoto;
     let fetchedData = data.data;
-    fetchedData.sort(function(a, b) {
-        return a.chat_id - b.chat_id;
-    });
-    data.data.forEach(data => {
-        let messageData = {
-            'actor': data.actor,
-            'senderPhoto': sender,
-            'data': data
-        };
-
-        if(data.created_by != activeUser){
-            receivedMessage(messageData);
-        }
-        else{
-            myMessage(messageData);
-        }
-    })
-    scrollMsgBottom();
+    if(fetchedData != false){
+        fetchedData.sort(function(a, b) {
+            return a.chat_id - b.chat_id;
+        });
+        data.data.forEach(data => {
+            let messageData = {
+                'actor': data.actor,
+                'senderPhoto': sender,
+                'data': data
+            };
+    
+            if(data.created_by != activeUser){
+                receivedMessage(messageData);
+            }
+            else{
+                myMessage(messageData);
+            }
+        })
+        scrollMsgBottom();
+    }
+    
 }
 
 const myMessage = (data) => {
