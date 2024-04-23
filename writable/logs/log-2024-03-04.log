@@ -1,0 +1,14 @@
+ERROR - 2024-03-04 10:47:22 --> Column 'created_by' cannot be null
+ERROR - 2024-03-04 10:47:25 --> Column 'created_by' cannot be null
+CRITICAL - 2024-03-04 11:01:19 --> Class "App\Controllers\Password" not found
+#0 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Users->addUser()
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-03-04 11:02:21 --> Class "App\Controllers\TemplateLib" not found
+#0 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Users->addUser()
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}

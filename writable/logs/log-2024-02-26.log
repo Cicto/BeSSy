@@ -1,0 +1,52 @@
+CRITICAL - 2024-02-26 11:07:00 --> Undefined variable $roles
+#0 /Applications/MAMP/htdocs/baliwag/hris/app/Views/systemLogs/systemLogs.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 146)
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('systemLogs/syst...', Array, true)
+#4 /Applications/MAMP/htdocs/baliwag/hris/app/Controllers/SystemLogs.php(17): view('systemLogs/syst...', Array)
+#5 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\SystemLogs->index()
+#6 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SystemLogs))
+#7 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2024-02-26 11:33:45 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0, `log_details`, `log_data`, `actor`, `created_by`) VALUES (:0:, :log_details:,' at line 1
+CRITICAL - 2024-02-26 11:41:38 --> Class "App\Controllers\LogsModel" not found
+#0 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Users->updateUser()
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-02-26 11:42:20 --> Attempt to read property "email" on array
+#0 /Applications/MAMP/htdocs/baliwag/hris/app/Controllers/Users.php(152): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read...', '/Applications/M...', 152)
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Users->updateUser()
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-02-26 11:43:18 --> Attempt to read property "email" on array
+#0 /Applications/MAMP/htdocs/baliwag/hris/app/Controllers/Users.php(152): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read...', '/Applications/M...', 152)
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Users->updateUser()
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-02-26 11:51:49 --> Attempt to read property "userInformation" on array
+#0 /Applications/MAMP/htdocs/baliwag/hris/app/Controllers/Users.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read...', '/Applications/M...', 127)
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Users->updateUser()
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-02-26 11:52:04 --> Attempt to read property "userInformation" on array
+#0 /Applications/MAMP/htdocs/baliwag/hris/app/Controllers/Users.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read...', '/Applications/M...', 127)
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Users->updateUser()
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-02-26 11:52:26 --> Cannot use object of type stdClass as array
+#0 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Users->updateUser()
+#1 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 /Applications/MAMP/htdocs/baliwag/hris/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/hris/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
