@@ -49,6 +49,7 @@
         </div>
     </div>
     
+    <?= $this->include('partials/chatDrawer')?>
     <?= $this->include('partials/jsLibraries')?>
     <?= $this->renderSection('javascript'); ?>
 </body>
