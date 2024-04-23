@@ -27,9 +27,9 @@
         <div class="row">
             <?php if($services): ?> 
                 <?php foreach($services as $service): ?>
-                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6"> 
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 mb-3"> 
                         <a href="<?= base_url()?>/services/serviceView/<?= $service->service_id?>">
-                            <div class = "p-5 rounded bg-city-blue mb-3 hover-elevate-up">
+                            <div class = "p-5 rounded bg-city-blue mb-3 hover-elevate-up h-100">
                                 <div class = "d-flex flex-row w-100 ">
                                     <div class="symbol symbol-50px me-3 d-flex flex-center">
                                         <span class="svg-icon svg-icon-muted svg-icon-3hx svg-icon-light">
