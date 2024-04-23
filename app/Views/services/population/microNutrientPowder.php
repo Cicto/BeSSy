@@ -207,7 +207,7 @@
 
                     <div class="d-flex flex-column">
                         <h4 class="mb-1 text-primary">REQUIREMENTS: </h4>
-                        <span> Requirements for requesting Nutrition Counseling:</span>
+                        <span> Requirements for requesting Micro Nutrient Powder:</span>
                         <div class="d-flex flex-column">
                             <li class="d-flex align-items-center py-2">
                                 <span class="bullet bg-primary me-5"></span>
