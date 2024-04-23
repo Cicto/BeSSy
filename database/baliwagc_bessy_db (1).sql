@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 02, 2024 at 06:45 AM
+-- Generation Time: Apr 23, 2024 at 06:42 AM
 -- Server version: 5.7.34
 -- PHP Version: 8.0.8
 
@@ -708,7 +708,39 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (617, '::1', 'egie.santos@baliwag.gov.ph', 1, '2024-03-21 14:03:59', 1),
 (618, '::1', 'egie.santos@baliwag.gov.ph', 1, '2024-03-21 14:32:18', 1),
 (619, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-03-21 14:35:12', 1),
-(620, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-03-21 15:22:24', 1);
+(620, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-03-21 15:22:24', 1),
+(621, '::1', 'client@baliwag.gov.ph', 11, '2024-04-02 14:49:26', 1),
+(622, '::1', 'egie.santos@baliwag.gov.ph', 1, '2024-04-02 14:49:37', 1),
+(623, '::1', 'encoder@baliwag.gov.ph', 10, '2024-04-02 14:49:50', 1),
+(624, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-04-02 14:50:07', 1),
+(625, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-04-02 14:59:47', 1),
+(626, '::1', 'office.head', NULL, '2024-04-02 15:00:00', 0),
+(627, '::1', 'office.head@baliwag.gov.ph', 9, '2024-04-02 15:00:10', 1),
+(628, '::1', 'client@baliwag.gov.ph', 11, '2024-04-02 15:04:04', 1),
+(629, '::1', 'client@baliwag.gov.ph', 11, '2024-04-03 14:58:45', 1),
+(630, '::1', 'client', NULL, '2024-04-04 14:27:09', 0),
+(631, '::1', 'client@baliwag.gov.ph', 11, '2024-04-04 14:27:13', 1),
+(632, '::1', 'client@baliwag.gov.ph', 11, '2024-04-15 14:36:01', 1),
+(633, '::1', 'client@baliwag.gov.ph', 11, '2024-04-16 10:16:21', 1),
+(634, '::1', 'client', NULL, '2024-04-16 13:46:25', 0),
+(635, '::1', 'client@baliwag.gov.ph', 11, '2024-04-16 13:46:37', 1),
+(636, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-04-16 15:48:58', 1),
+(637, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-04-17 09:42:19', 1),
+(638, '::1', 'client@baliwag.gov.ph', 11, '2024-04-17 10:22:22', 1),
+(639, '::1', 'client@baliwag.gov.ph', 11, '2024-04-17 13:59:51', 1),
+(640, '::1', 'client@baliwag.gov.ph', 11, '2024-04-17 16:48:59', 1),
+(641, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-04-17 16:49:08', 1),
+(642, '::1', 'office.staff', NULL, '2024-04-18 09:56:02', 0),
+(643, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-04-18 09:56:08', 1),
+(644, '::1', 'client@baliwag.gov.ph', 11, '2024-04-18 09:56:35', 1),
+(645, '127.0.0.1', 'office.staff@baliwag.gov.ph', 8, '2024-04-18 10:33:31', 1),
+(646, '::1', 'client@baliwag.gov.ph', 11, '2024-04-18 13:58:21', 1),
+(647, '::1', 'office.staff@baliwag.gov.ph', 8, '2024-04-22 09:29:57', 1),
+(648, '127.0.0.1', 'office.staff@baliwag.gov.ph', 8, '2024-04-22 10:43:02', 1),
+(649, '::1', 'client@baliwag.gov.ph', 11, '2024-04-22 10:43:18', 1),
+(650, '::1', 'client@baliwag.gov.ph', 11, '2024-04-23 12:57:39', 1),
+(651, '::1', 'egie.santos@baliwag.gov.ph', 1, '2024-04-23 14:27:02', 1),
+(652, '::1', 'client@baliwag.gov.ph', 11, '2024-04-23 14:40:07', 1);
 
 -- --------------------------------------------------------
 
@@ -765,6 +797,167 @@ CREATE TABLE `auth_users_permissions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `birth_cert_request`
+--
+
+CREATE TABLE `birth_cert_request` (
+  `bc_id` int(11) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
+  `birth_place` varchar(255) NOT NULL,
+  `birth_date` date NOT NULL,
+  `mothers_first_name` varchar(255) NOT NULL,
+  `mothers_middle_name` varchar(255) NOT NULL,
+  `mothers_last_name` varchar(255) NOT NULL,
+  `fathers_first_name` varchar(255) NOT NULL,
+  `fathers_middle_name` varchar(255) NOT NULL,
+  `fathers_last_name` varchar(255) NOT NULL,
+  `requester` int(11) NOT NULL COMMENT '1 = Document Owner 2 = Spouse 3 = Parent 4 = Sons / Daughters 5 = Authorized Representative of the Owner',
+  `purpose` varchar(255) NOT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `birth_cert_request`
+--
+
+INSERT INTO `birth_cert_request` (`bc_id`, `last_name`, `first_name`, `middle_name`, `birth_place`, `birth_date`, `mothers_first_name`, `mothers_middle_name`, `mothers_last_name`, `fathers_first_name`, `fathers_middle_name`, `fathers_last_name`, `requester`, `purpose`, `remarks`, `created_at`) VALUES
+(1, 'Hyde', 'Chancellor', 'Camille Willis', 'Nemo reiciendis omni', '2004-05-04', 'Bruno', 'Otto Strickland', 'Mcdowell', 'Dai', 'Hedda Macias', 'Taylor', 0, 'Quis provident cill', 'Debitis accusamus se', '2024-04-18 06:26:17'),
+(2, 'Harris', 'Alan', 'Joy Mercer', 'Aut non obcaecati re', '1992-03-21', 'Cheyenne', 'Caleb Gregory', 'Aguilar', 'Thomas', 'Callum Young', 'Bowen', 0, 'Aliquam sit nemo in ', 'Quia saepe praesenti', '2024-04-18 06:26:44'),
+(3, 'Dalton', 'Cedric', 'Marvin Washington', 'Omnis in sint invent', '2020-05-16', 'Wilma', 'Mira Odom', 'Lowe', 'Pamela', 'Finn Mathis', 'Schultz', 4, 'Laborum molestias qu', 'Sit qui earum sit c', '2024-04-18 06:38:28'),
+(4, 'Pearson', 'Zelda', 'Sydnee Grimes', 'Natus rem dolores cu', '1983-04-21', 'Adele', 'Jesse Goodman', 'Woodard', 'Sandra', 'Robert Parks', 'Mcpherson', 4, 'Earum sunt explicab', 'Velit et ipsam expli', '2024-04-18 06:53:05'),
+(5, 'Wallace', 'Kellie', 'Ignatius Cannon', 'Impedit facere aute', '1986-04-17', 'Honorato', 'Chloe Raymond', 'Martin', 'Pearl', 'Talon Stark', 'Kennedy', 2, 'Velit sint ad dolori', 'Anim minim nostrud e', '2024-04-18 06:53:58'),
+(6, 'Roberts', 'Jordan', 'Cullen Stewart', 'Sapiente aliqua Imp', '1972-05-27', 'Trevor', 'Jada Cotton', 'Huff', 'Dillon', 'Hedley Hess', 'Shannon', 3, 'At maiores natus ea ', 'Eius reprehenderit ', '2024-04-22 07:53:21'),
+(7, 'Cruz', 'Tarik', 'Forrest Collins', 'Earum non et tempori', '2013-11-12', 'Nicole', 'Noble Sims', 'Wiley', 'Beau', 'Brynne Robertson', 'Mcknight', 1, 'Aliquip excepturi ex', 'Odio excepturi perfe', '2024-04-22 07:54:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `building_permit_applications`
+--
+
+CREATE TABLE `building_permit_applications` (
+  `bpa_id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `contact_number` varchar(15) NOT NULL,
+  `application_description` varchar(500) DEFAULT NULL,
+  `current_department` varchar(255) NOT NULL DEFAULT 'bplo',
+  `rejected_at` datetime DEFAULT NULL,
+  `finished_at` datetime DEFAULT NULL,
+  `actor` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` int(11) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `building_permit_applications`
+--
+
+INSERT INTO `building_permit_applications` (`bpa_id`, `first_name`, `middle_name`, `last_name`, `contact_number`, `application_description`, `current_department`, `rejected_at`, `finished_at`, `actor`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 'Juan', 'Bautista', 'Dela Cruz', '0900-000-0000', '', 'fire-department', '2024-04-18 08:44:51', NULL, '', '2024-04-17 14:34:34', 0, NULL, 0, NULL),
+(2, 'Jason', 'Tasha Montoya', 'Young', '0952-9__-____', 'Rerum et ut esse labore \"\'quibusdam voluptatibus aut eveniet sunt voluptas magni rerum', 'bplo', NULL, NULL, '', '2024-04-17 14:37:12', 0, '2024-04-18 15:15:39', 2, NULL),
+(3, 'Odessa', 'Lester Parks', 'Oliver', '0912-5__-____', 'Quibusdam error provident sequi aliquam aut ducimus rerum', 'finished', NULL, '2024-04-18 15:02:35', '', '2024-04-17 14:38:37', 0, '2024-04-18 15:02:35', 2, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chats`
+--
+
+CREATE TABLE `chats` (
+  `chat_id` int(11) NOT NULL,
+  `convo_id` int(11) NOT NULL,
+  `message` varchar(2500) NOT NULL,
+  `file` varchar(1000) DEFAULT NULL,
+  `file_size` varchar(50) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` int(11) NOT NULL,
+  `actor` varchar(250) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `chats`
+--
+
+INSERT INTO `chats` (`chat_id`, `convo_id`, `message`, `file`, `file_size`, `created_at`, `created_by`, `actor`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 2, 'Paedit po!', NULL, NULL, '2024-04-18 15:02:37', 8, 'Office Staff', NULL, NULL, NULL),
+(2, 2, '', 'Egie-profile.jpeg', '0.213', '2024-04-18 15:02:46', 8, 'Office Staff', NULL, NULL, NULL),
+(3, 2, 'JHey!', NULL, NULL, '2024-04-18 15:12:07', 8, 'Office Staff', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `convo_list`
+--
+
+CREATE TABLE `convo_list` (
+  `convo_id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `office_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` int(11) NOT NULL,
+  `actor` varchar(250) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `convo_list`
+--
+
+INSERT INTO `convo_list` (`convo_id`, `client_id`, `office_id`, `created_at`, `created_by`, `actor`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 11, 0, '2024-04-16 14:27:06', 11, 'Client Client', NULL, NULL, NULL),
+(2, 11, 10, '2024-04-16 14:27:09', 11, 'Client Client', NULL, NULL, NULL),
+(3, 11, 17, '2024-04-23 13:21:50', 11, 'Client Client', NULL, NULL, NULL),
+(4, 11, 3, '2024-04-23 13:21:53', 11, 'Client Client', NULL, NULL, NULL),
+(5, 11, 5, '2024-04-23 13:22:54', 11, 'Client Client', NULL, NULL, NULL),
+(6, 11, 21, '2024-04-23 13:37:34', 11, 'Client Client', NULL, NULL, NULL),
+(7, 11, 14, '2024-04-23 13:38:55', 11, 'Client Client', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `death_cert_request`
+--
+
+CREATE TABLE `death_cert_request` (
+  `dc_id` int(11) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
+  `place_of_death` varchar(255) NOT NULL,
+  `date_of_death` date NOT NULL,
+  `requester_name` varchar(255) NOT NULL,
+  `relationship` int(11) NOT NULL COMMENT '1 = Document Owner\r\n2 = Spouse\r\n3 = Parent\r\n4 = Sons / Daughter',
+  `purpose` varchar(255) NOT NULL,
+  `remarks` varchar(255) NOT NULL,
+  `datetime_accomplished` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `death_cert_request`
+--
+
+INSERT INTO `death_cert_request` (`dc_id`, `last_name`, `first_name`, `middle_name`, `place_of_death`, `date_of_death`, `requester_name`, `relationship`, `purpose`, `remarks`, `datetime_accomplished`) VALUES
+(1, 'Knowles', 'Laith', 'Lysandra Mason', 'Cum nihil asperiores', '1980-09-25', 'Amber Duke', 4, 'Odio quo rerum rerum', 'Laboris molestiae sa', '2024-04-18 14:49:34'),
+(2, 'Bryan', 'Luke', 'Jared Hutchinson', 'Quis est voluptates ', '1973-06-16', 'Quin Bauer', 1, 'Ut et libero enim iu', 'Illo facere laboris ', '2024-04-18 14:52:20'),
+(3, 'Chase', 'Rahim', 'Keely Schmidt', 'Tenetur ut dolorem n', '2007-06-06', 'Rudyard Morse', 3, 'Dolore assumenda err', 'Commodo iste quibusd', '2024-04-18 14:52:28'),
+(4, 'Vinson', 'Oscar', 'Chiquita Vincent', 'Debitis ipsum porro ', '1973-08-20', 'Castor Daugherty', 4, 'Earum fuga Sit et ', 'Ullam ea magna exped', '2024-04-22 15:57:49');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `departments`
 --
 
@@ -785,27 +978,27 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`dept_id`, `dept_alias`, `dept_name`, `is_visible`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
-(1, 'MICTO', 'OFFICE OF THE CITY INFORMATION AND COMMUNICATION TECHNOLOGY OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
-(2, 'PIO', 'OFFICE OF THE PUBLIC INFORMATION OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
-(3, 'GSO', 'CITY GENERAL SERVICES OFFICE', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(1, 'MICTO', 'OFFICE OF THE CITY INFORMATION AND COMMUNICATION TECHNOLOGY OFFICER', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(2, 'PIO', 'OFFICE OF THE PUBLIC INFORMATION OFFICER', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(3, 'GSO', 'CITY GENERAL SERVICES OFFICE', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (4, 'ACCOUNTING', 'OFFICE OF THE CITY ACCOUNTANT', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
-(5, 'LCR', 'OFFICE OF THE LOCAL CIVIL REGISTRAR', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(5, 'LCR', 'OFFICE OF THE LOCAL CIVIL REGISTRAR', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (6, 'RHU I', 'CITY HEALTH OFFICE - RHU 1', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (7, 'RHU II', 'CITY HEALTH OFFICE - RHU 2', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (8, 'RHU III', 'CITY HEALTH OFFICE - RHU 3', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (9, 'RHU IV', 'CITY HEALTH OFFICE - RHU 4', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
-(10, 'MAYORS', 'OFFICE OF THE CITY MAYOR', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(10, 'MAYORS', 'Office of the City Mayor', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (11, 'S.B', 'SANGGUNIANG PANLUNGSOD', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (12, 'MLO', 'OFFICE OF THE CITY LEGAL OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (13, 'HRMO', 'OFFICE OF THE CITY HUMAN RESOURCE MANAGEMENT OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
-(14, 'POPCOM/NUT', 'CITY POPULATION OFFICE', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(14, 'POPCOM/NUT', 'CITY POPULATION OFFICE', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (15, 'CAO', 'COMMUNITY AFFAIRS OFFICE', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (16, 'BUDGET', 'OFFICE OF THE CITY BUDGET OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
-(17, 'ENGINEERIN', 'OFFICE OF THE CITY ENGINEER', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(17, 'ENG', 'OFFICE OF THE CITY ENGINEER', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (18, 'ASSESOR', 'OFFICE OF THE CITY ASSESSOR’S OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
-(19, 'MPDC', 'OFFICE OF THE CITY PLANNING AND DEVELOPMENT OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(19, 'CPDC', 'OFFICE OF THE CITY PLANNING AND DEVELOPMENT OFFICER', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (20, 'TREASURY', 'OFFICE OF THE CITY TREASURER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
-(21, 'BPLO', 'BUSINESS PERMIT AND LICENSING OFFICE', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
+(21, 'BPLO', 'BUSINESS PERMIT AND LICENSING OFFICE', 1, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (22, 'MSWDO', 'OFFICE OF THE CITY SOCIAL WELFARE AND DEVELOPMENT OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (23, 'MEEM', 'OFFICE OF THE CITY ENTERPRISE AND ECONOMIC AFFAIRS OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (24, 'MHO', 'OFFICE OF THE CITY HEALTH OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
@@ -820,6 +1013,78 @@ INSERT INTO `departments` (`dept_id`, `dept_alias`, `dept_name`, `is_visible`, `
 (33, 'MDRRMO', 'OFFICE OF THE CITY DISASTER RISK REDUCTION AND MANAGEMENT OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (34, 'MENRO', 'OFFICE OF THE CITY ENVIRONMENT AND NATURAL RESOURCES OFFICER', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL),
 (35, 'TOURISM', 'TOURISM OFFICE', 0, '2024-02-14 12:00:00', 1, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `marriage_cert_request`
+--
+
+CREATE TABLE `marriage_cert_request` (
+  `mrg_id` int(11) NOT NULL,
+  `husbands_last_name` varchar(255) NOT NULL,
+  `husbands_first_name` varchar(255) NOT NULL,
+  `husbands_middle_name` varchar(255) NOT NULL,
+  `wifes_last_name` varchar(255) NOT NULL,
+  `wifes_first_name` varchar(255) NOT NULL,
+  `wifes_middle_name` varchar(255) NOT NULL,
+  `place_of_marriage` varchar(255) NOT NULL,
+  `date_of_marriage` varchar(255) NOT NULL,
+  `requester` int(255) NOT NULL COMMENT '1 = Document Owner\r\n2 = Spouse\r\n3 = Parent\r\n4 = Sons / Daughter\r\n5 = Authorized Representative of the Owner',
+  `purpose` varchar(255) NOT NULL,
+  `remarks` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `marriage_cert_request`
+--
+
+INSERT INTO `marriage_cert_request` (`mrg_id`, `husbands_last_name`, `husbands_first_name`, `husbands_middle_name`, `wifes_last_name`, `wifes_first_name`, `wifes_middle_name`, `place_of_marriage`, `date_of_marriage`, `requester`, `purpose`, `remarks`, `created_at`) VALUES
+(1, 'Keith', 'Joel', 'Brody Pitts', 'Simpson', 'Wyatt', 'Florence Carpenter', 'Odit totam perspicia', '1998-05-28', 5, 'Doloremque ullam ali', 'Odio magnam enim nih', '2024-04-22 00:55:38'),
+(2, 'Rich', 'Jeanette', 'Harding Washington', 'Bryan', 'Quynn', 'Roanna Cunningham', 'Eiusmod praesentium ', '1972-07-27', 2, 'Mollit aute cupidata', 'Dignissimos sint vo', '2024-04-22 07:59:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mayors_clearance_application`
+--
+
+CREATE TABLE `mayors_clearance_application` (
+  `mca_id` int(11) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `purpose_of_request` varchar(255) NOT NULL,
+  `type_of_request` tinyint(1) NOT NULL COMMENT '0 = New\r\n1 = Renewal',
+  `company` varchar(255) DEFAULT NULL,
+  `position_applied` varchar(255) DEFAULT NULL,
+  `starting_date` date DEFAULT NULL,
+  `present_position` varchar(255) DEFAULT NULL,
+  `date_of_renewal` date DEFAULT NULL,
+  `police_nbi_number` varchar(255) NOT NULL,
+  `police_nbi_date` date DEFAULT NULL,
+  `police_nbi_place` varchar(255) NOT NULL,
+  `ctc_number` int(11) NOT NULL,
+  `ctc_date` date DEFAULT NULL,
+  `ctc_place` varchar(255) NOT NULL,
+  `or_no` int(255) NOT NULL,
+  `datetime_accomplished` datetime DEFAULT NULL,
+  `released_by` varchar(255) DEFAULT NULL,
+  `time_released` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mayors_clearance_application`
+--
+
+INSERT INTO `mayors_clearance_application` (`mca_id`, `last_name`, `first_name`, `middle_name`, `address`, `purpose_of_request`, `type_of_request`, `company`, `position_applied`, `starting_date`, `present_position`, `date_of_renewal`, `police_nbi_number`, `police_nbi_date`, `police_nbi_place`, `ctc_number`, `ctc_date`, `ctc_place`, `or_no`, `datetime_accomplished`, `released_by`, `time_released`) VALUES
+(16, 'Dixon', 'Summer', 'Daryl Bolton', 'Et amet iste evenie', 'Porro veniam rerum ', 0, 'Abbott Sargent Plc', 'Odio officia archite', '1997-04-12', '', '0000-00-00', 'Quidem non labore lo', '2004-11-22', 'Consectetur eos ali', 782, '1979-09-24', 'Dolores sit quaerat ', 153, '2024-04-17 15:15:25', NULL, NULL),
+(17, 'Hess', 'Erich', 'Amethyst Weiss', 'Quae quia non dolor ', 'Explicabo Earum eni', 1, 'Stanton Bowman Inc', '', '0000-00-00', 'Consequatur Dolor v', '1986-01-26', 'Perferendis alias do', '1979-03-06', 'Ut aspernatur et eli', 572, '1993-07-07', 'Consequatur Omnis t', 458, '2024-04-17 15:16:14', NULL, NULL),
+(18, 'Fields', 'Giselle', 'Angelica Rich', 'Est rerum ea error q', 'Nostrum officia et i', 0, 'Cannon Levine Trading', 'Facere ipsam laborum', '1970-04-03', '', '0000-00-00', 'Ut itaque fugiat di', '1988-09-17', 'Quis ea tempor ducim', 947, '1989-04-02', 'Omnis aut iusto dolo', 618, '2024-04-17 15:41:17', NULL, NULL),
+(19, 'Nielsen', 'Michelle', 'Katelyn Herring', 'Facere et do itaque ', 'Consectetur et nesc', 1, 'Martinez and Bishop Inc', '', '0000-00-00', 'Quas quia dignissimo', '1999-08-09', 'Velit laboriosam su', '2001-07-24', 'Ducimus commodo adi', 914, '1980-08-03', 'Exercitation lorem n', 923, '2024-04-18 10:49:51', NULL, NULL),
+(20, 'Adkins', 'Willa', 'Nina Rose', 'Alias at quia quo vo', 'Dignissimos voluptas', 0, 'Collier Webb LLC', 'Veritatis neque pari', '1975-08-31', '', '0000-00-00', '74', '1970-06-29', 'Est quasi dicta vol', 866, '2019-06-22', 'Expedita voluptatibu', 152, '2024-04-22 15:10:10', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -843,6 +1108,53 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
 (1, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1653643689, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `popcom_services`
+--
+
+CREATE TABLE `popcom_services` (
+  `popcom_id` int(11) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
+  `suffix` varchar(255) NOT NULL,
+  `birth_date` int(11) NOT NULL,
+  `age` int(11) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `contact_number` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `zip_code` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `services` int(11) NOT NULL COMMENT '1 = Pre-Marriage Orientation\r\n2 = Nutrition Counseling\r\n3 = Micro Nutrient Powder',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `popcom_services`
+--
+
+INSERT INTO `popcom_services` (`popcom_id`, `last_name`, `first_name`, `middle_name`, `suffix`, `birth_date`, `age`, `gender`, `contact_number`, `address`, `country`, `zip_code`, `date`, `time`, `services`, `created_at`) VALUES
+(1, 'Hamilton', 'Howard', 'Trevor Mckee', 'Dolores lorem sit s', 1999, 0, 'Female', '502', 'Irure esse eos eu n', 'Culpa tempore amet', 48986, '2002-04-16', '20:31:00', 0, '2024-04-22 05:24:23'),
+(2, 'Bell', 'Christine', 'Louis West', 'Tempora enim volupta', 1973, 0, 'Male', '430', 'Rem sit voluptas dol', 'At et ut corrupti c', 74982, '1979-01-26', '13:24:00', 0, '2024-04-22 05:24:51'),
+(3, 'Gordon', 'Eleanor', 'Nicole Prince', 'Quis distinctio Inc', 1991, 0, 'Male', '80', 'Et sint ex velit re', 'Minus ratione dolore', 24139, '1982-10-16', '05:33:00', 0, '2024-04-22 05:26:08'),
+(4, 'Haynes', 'Evangeline', 'Leilani Duke', 'Iusto asperiores sap', 2011, 14, 'Male', '288', 'Nobis reiciendis vel', 'Laboriosam et omnis', 28291, '2018-05-23', '04:18:00', 0, '2024-04-22 05:28:42'),
+(5, 'Gill', 'Levi', 'April Stephens', 'Quibusdam nesciunt ', 2008, 0, 'Female', '9610', 'Inventore qui pariat', 'Ut atque nemo conseq', 45247, '2009-06-29', '18:31:00', 0, '2024-04-22 05:37:19'),
+(6, 'Murray', 'Shad', 'Ayanna Burns', 'Voluptatem Unde ull', 2014, 0, 'Female', '912', 'Dignissimos in quia ', 'Quis velit sequi odi', 35068, '1995-08-01', '00:40:00', 0, '2024-04-22 05:38:24'),
+(7, 'Dotson', 'Alma', 'Nicholas Rhodes', 'Et repellendus Beat', 2000, 0, 'Female', '2120-000-0000', 'Quas esse assumenda', 'Accusantium commodo ', 85279, '2010-06-08', '06:03:00', 0, '2024-04-22 05:39:26'),
+(8, 'Sampson', 'Alden', 'Nathaniel Oneill', 'Corrupti non Nam si', 1998, 0, 'Female', '7430-000-0000', 'Incididunt exercitat', 'Dolor iure dolore sa', 12352, '1986-03-21', '22:36:00', 0, '2024-04-22 05:40:57'),
+(9, 'Ayala', 'Tanya', 'Driscoll Hines', 'Adipisci saepe quia ', 2018, 0, 'Male', '8290-000-0000', 'Dolorem ullam corpor', 'Quam sit nemo verita', 37381, '2006-07-13', '19:24:00', 0, '2024-04-22 05:41:51'),
+(10, 'Durham', 'Michael', 'Xena Calhoun', 'Nisi est facilis ad ', 1986, 47, 'Male', '5740-000-0000', 'Rerum veniam non co', 'Quaerat sed sunt ea ', 52238, '2009-06-25', '19:46:00', 0, '2024-04-22 05:54:31'),
+(11, 'Lewis', 'Carlos', 'Henry Sexton', 'Excepturi et dolor u', 2011, 0, 'Male', '3310-000-0000', 'Commodo in pariatur', 'Suscipit unde fugiat', 39166, '1975-11-09', '19:54:00', 1, '2024-04-22 06:23:26'),
+(12, 'Holder', 'Hadley', 'Catherine Kim', 'Nihil dolor velit u', 2006, 0, 'Female', '0910-000-0000', 'Quae dolorem laborio', 'Odio harum fuga Arc', 98650, '1978-04-29', '18:38:00', 1, '2024-04-22 06:27:18'),
+(13, 'Sykes', 'Hall', 'Ryan Noel', 'Qui porro cum libero', 1999, 0, 'Female', '5130-000-0000', 'Laborum Qui autem c', 'Ea in molestiae et f', 46692, '2012-01-08', '16:07:00', 2, '2024-04-22 06:32:09'),
+(14, 'Moody', 'Jorden', 'Walter Beck', 'Nulla pariatur Itaq', 1989, 0, 'Female', '0990-000-0000', 'Velit ut nemo dolore', 'Autem rem aut et nes', 44132, '2010-09-28', '07:35:00', 1, '2024-04-22 08:05:04'),
+(15, 'Lynn', 'Eagan', 'Zane Hickman', 'Similique et nihil l', 2018, 0, 'Female', '2610-000-0000', 'In dicta sunt labor', 'Maiores reprehenderi', 92810, '2020-10-08', '01:36:00', 2, '2024-04-22 08:07:57'),
+(16, 'Vega', 'Cleo', 'Odessa Weber', 'Et sunt fuga Do de', 1997, 0, 'Male', '9860-000-0000', 'Rerum eiusmod itaque', 'Neque voluptatem bla', 27423, '2008-08-06', '23:19:00', 3, '2024-04-22 08:18:37');
 
 -- --------------------------------------------------------
 
@@ -44746,6 +45058,70 @@ INSERT INTO `roles` (`role_id`, `role_description`, `created_at`, `updated_at`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `service_id` int(11) NOT NULL,
+  `dept_id` int(11) NOT NULL,
+  `service_alias` varchar(500) NOT NULL,
+  `service_name` varchar(500) NOT NULL,
+  `service_view` varchar(500) NOT NULL,
+  `actor` varchar(500) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` int(11) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `deleted_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`service_id`, `dept_id`, `service_alias`, `service_name`, `service_view`, `actor`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`) VALUES
+(1, 10, 'MYR CLRNC', 'Mayor\'s Clearance', 'mayors/mayorsClearance', 'Egie Santos', '2024-04-04 15:07:55', 1, NULL, NULL, NULL),
+(2, 5, 'BRTH CRTFCT', 'Birth Certificate Request', 'lcr/birthCertificate', 'Kyle Balanay', '2024-04-18 13:55:25', 1, NULL, NULL, NULL),
+(3, 5, 'DTH CRTFCT', 'Death Certificate Request', 'lcr/deathCertificate', 'Kyle Balanay', '2024-04-18 14:29:22', 1, NULL, NULL, NULL),
+(4, 5, 'MRRG CRTFCT', 'Marriage Certificate Request', 'lcr/marriageCertificate', 'Kyle Balanay', '2024-04-22 08:34:18', 1, NULL, NULL, NULL),
+(5, 14, 'PRE-MARRIAGE', 'Application for Pre-Marriage Orientation and Counseling Seminar', 'population/preMarriageOrientation', 'Kyle Balanay', '2024-04-22 09:08:35', 1, NULL, NULL, NULL),
+(6, 14, 'NTRTN CNSLNG', 'Nutrition Counseling', 'population/nutritionCounseling', 'Kyle Balanay', '2024-04-22 14:11:38', 1, NULL, NULL, NULL),
+(7, 14, 'MCR NTRNT PWDR', 'Micro Nutrient Powder Request', 'population/microNutrientPowder', 'Kyle Balanay', '2024-04-22 16:15:39', 1, NULL, NULL, NULL),
+(8, 19, 'ZNNG PRMT', 'Zoning Permit', 'cpdc/zoningPermit', 'Kyle Balanay', '2024-04-23 11:31:33', 1, NULL, NULL, NULL),
+(9, 21, 'BLDG APP TRCKR', 'Building Application Tracker', 'bplo/buildingApplicationTracker', 'Egie Santos', '2024-04-23 13:43:32', 1, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `transaction_id` int(11) NOT NULL,
+  `service_id` int(11) NOT NULL,
+  `application_id` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `actor` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `service_id`, `application_id`, `created_by`, `created_at`, `actor`) VALUES
+(1, 1, 20, 11, '2024-04-22 07:10:10', 'Client Client'),
+(2, 2, 6, 11, '2024-04-22 07:53:21', 'Client Client'),
+(3, 2, 7, 11, '2024-04-22 07:54:57', 'Client Client'),
+(4, 3, 4, 11, '2024-04-22 07:57:49', 'Client Client'),
+(5, 4, 2, 11, '2024-04-22 07:59:06', 'Client Client'),
+(6, 5, 14, 11, '2024-04-22 08:05:04', 'Client Client'),
+(7, 6, 15, 11, '2024-04-22 08:07:57', 'Client Client'),
+(8, 7, 16, 11, '2024-04-22 08:18:37', 'Client Client');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -44893,16 +45269,64 @@ ALTER TABLE `auth_users_permissions`
   ADD KEY `user_id_permission_id` (`user_id`,`permission_id`);
 
 --
+-- Indexes for table `birth_cert_request`
+--
+ALTER TABLE `birth_cert_request`
+  ADD PRIMARY KEY (`bc_id`);
+
+--
+-- Indexes for table `building_permit_applications`
+--
+ALTER TABLE `building_permit_applications`
+  ADD PRIMARY KEY (`bpa_id`);
+
+--
+-- Indexes for table `chats`
+--
+ALTER TABLE `chats`
+  ADD PRIMARY KEY (`chat_id`);
+
+--
+-- Indexes for table `convo_list`
+--
+ALTER TABLE `convo_list`
+  ADD PRIMARY KEY (`convo_id`);
+
+--
+-- Indexes for table `death_cert_request`
+--
+ALTER TABLE `death_cert_request`
+  ADD PRIMARY KEY (`dc_id`);
+
+--
 -- Indexes for table `departments`
 --
 ALTER TABLE `departments`
   ADD PRIMARY KEY (`dept_id`);
 
 --
+-- Indexes for table `marriage_cert_request`
+--
+ALTER TABLE `marriage_cert_request`
+  ADD PRIMARY KEY (`mrg_id`);
+
+--
+-- Indexes for table `mayors_clearance_application`
+--
+ALTER TABLE `mayors_clearance_application`
+  ADD PRIMARY KEY (`mca_id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `popcom_services`
+--
+ALTER TABLE `popcom_services`
+  ADD PRIMARY KEY (`popcom_id`);
 
 --
 -- Indexes for table `refbrgy`
@@ -44927,6 +45351,18 @@ ALTER TABLE `refprovince`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`role_id`);
+
+--
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`service_id`);
+
+--
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`transaction_id`);
 
 --
 -- Indexes for table `users`
@@ -44962,7 +45398,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=621;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=653;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -44983,16 +45419,64 @@ ALTER TABLE `auth_tokens`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `birth_cert_request`
+--
+ALTER TABLE `birth_cert_request`
+  MODIFY `bc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `building_permit_applications`
+--
+ALTER TABLE `building_permit_applications`
+  MODIFY `bpa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `chats`
+--
+ALTER TABLE `chats`
+  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `convo_list`
+--
+ALTER TABLE `convo_list`
+  MODIFY `convo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `death_cert_request`
+--
+ALTER TABLE `death_cert_request`
+  MODIFY `dc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
   MODIFY `dept_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
+-- AUTO_INCREMENT for table `marriage_cert_request`
+--
+ALTER TABLE `marriage_cert_request`
+  MODIFY `mrg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mayors_clearance_application`
+--
+ALTER TABLE `mayors_clearance_application`
+  MODIFY `mca_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `popcom_services`
+--
+ALTER TABLE `popcom_services`
+  MODIFY `popcom_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `refbrgy`
@@ -45017,6 +45501,18 @@ ALTER TABLE `refprovince`
 --
 ALTER TABLE `roles`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
