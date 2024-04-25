@@ -43,12 +43,11 @@ let confirm = (title="Caution", message="Are you sure you would like to proceed?
                     data: false
                 });
             }
-            
         }
     })
 }
 
-let successAlert = (title="Success", message="Operation successfully completed", icon="success") => {
+let successAlert = (title="Success", message="Operation successfully completed", icon="success", callback=false) => {
     Swal.fire({
         icon: icon,
         iconColor: 'var(--kt-white)',
@@ -71,6 +70,11 @@ let successAlert = (title="Success", message="Operation successfully completed",
         },
         focusConfirm: false,
         buttonsStyling: false,
+        onClose: function(){
+            if(callback){
+                callback();
+            }
+        }
     });
 }
 

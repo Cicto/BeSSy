@@ -1,4 +1,7 @@
-<?= $this->extend('layouts/nonAdminContainer'); ?>
+<?php $departments = [21=>"BPLO", 17=>"Engineering", 19=>"CPDC", 36=>"Fire-Department"]; ?>
+<?php $userInformation->dept_id = 17; ?>
+<?php $userInformation->role = 1; ?>
+<?= $this->extend('layouts/main'); ?>
 
 <?= $this->section('javascript'); ?>
 
@@ -8,14 +11,48 @@
     .kanban-container .kanban-board{
         margin-right: 0 !important;
     }
+    <?php if($userInformation->role != 1):?>
+    .kanban-container .kanban-board[data-id="step-<?=strtolower($departments[$userInformation->dept_id])?>"]::after{
+        content: " ";
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 15px;
+        padding: 5px;
+        border-radius: 50%;
+        background: var(--kt-primary);
+    }
+
+    .kanban-container .kanban-board[data-id="step-<?=strtolower($departments[$userInformation->dept_id])?>"]::before, 
+    .kanban-container .kanban-board.item-placable::before, 
+    .kanban-container .kanban-board[data-id="step-finished"]::before{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 0;
+        z-index: 10;
+        background: #000;
+    }
+
+    .kanban-container .kanban-board::before{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+        background: rgba(var(--kt-dark-rgb), 0.025);
+        cursor: not-allowed !important;
+        border-radius: .475rem;
+    }
+    <?php endif;?>
 
     .kanban-container{
         justify-content: space-evenly;
         gap: 0.25rem;
-    }
-
-    .kanban-container .kanban-board-header{
-        cursor: all-scroll;
     }
     
     .kanban-container::after{
@@ -27,8 +64,7 @@
     }
 
     [data-id="step-finished"]{
-        background: var(--kt-success-light) !important;
-        /* border: 1px solid var(--kt-success); */
+        background: rgba(var(--kt-success-rgb), 0.2) !important;
     }
 
     [data-id="step-finished"] > .kanban-board-header{
@@ -41,8 +77,14 @@
         
     }
     
+    [data-id="step-finished"] > .kanban-drag{
+        background-image: url("<?=base_url()?>/public/assets/media/misc/document-check.png") !important;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
     [data-id="step-finished"] > .kanban-drag .kanban-item{
-        /* display: none; */
         animation: kanban-fadeout 0.5s ease 1s forwards;
     }
 
@@ -114,6 +156,7 @@
             </ul>
         </div>
         <div class="d-flex align-items-center  gap-2 gap-lg-3">
+            <?php if($userInformation->dept_id == 21):?>
             <button type="button" id="add-building-permit-application-btn" class="btn btn-primary waves-effect waves-light float-right">
                 <span class="svg-icon svg-icon-muted svg-icon-2 pe-0 me-0">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,31 +166,14 @@
                 </span>
                 Add a Building Permit Application
             </button>
+            <?php endif;?>
         </div>
     </div>
 </div>
 
 <div class="d-flex flex-column flex-column-fluid">
     <div id="kt_app_content_container" class="app-container position-relative">
-        <!--begin::Button-->
-        <button type="button" class="btn btn-primary d-none" id="kt_docs_toast_stack_button">Toggle Toast</button>
-        <!--end::Button-->
-
-        <div id="kt_docs_toast_stack_container" class="toast-container position-absolute top-0 end-0 p-3 z-index-3">
-            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-kt-docs-toast="stack">
-                <div class="toast-header">
-                    <i class="ki-duotone ki-abstract-23 fs-2 text-success me-3"><span class="path1"></span><span class="path2"></span></i>
-                    <strong class="me-auto">Keenthemes</strong>
-                    <small>11 mins ago</small>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                    Hello, world! This is a toast message.
-                </div>
-            </div>
-        </div>
-
-        <div class="mb-3 mb-lg-10">
+        <div class="mb-3 mb-lg-6">
             <div class="row gy-3">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="card card-flush h-100">
@@ -163,7 +189,7 @@
                     <div class="card card-flush h-100">
                         <div class="card-header py-5 ribbon ribbon-top ribbon-vertical">
                             <div class="ribbon-label bg-success pointer finished-applications-drawer-button">
-                                <i class="fas fa-flag text-inverse-success fs-1 hover-elevate-up"></i>
+                                <i class="fas fa-check text-inverse-success fs-1 hover-elevate-up"></i>
                             </div>
                             <div class="card-title d-flex flex-column">                
                                 <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2" data-kt-countup="true" data-kt-countup-value="0" id="finished-applications-today-count">32</span>
@@ -209,7 +235,11 @@
             <div class="card-header align-items-center">
                 <div class="">
                     <h3 class="card-title">Application Boards</h3>
-                    <p class="mb-0 text-gray-600 fs-7"><i class="fas fa-info-circle"></i> Each boards represents the step which the application is currently at. Drag each application to their current respective step/department</p>
+                    <?php if($userInformation->role == 1):?>
+                        <p class="mb-0 text-gray-600 fs-7"><i class="fas fa-info-circle"></i> Update messages are sent to the applicants once their application are placed to a different board.</p>
+                    <?php else:?>
+                        <p class="mb-0 text-gray-600 fs-7"><i class="fas fa-info-circle"></i> You can only drag & drop applications under your department <b>(<?=str_replace("-", " ", $departments[$userInformation->dept_id])?>)</b>.</p>
+                    <?php endif;?>
                 </div>
                 <div class="card-toolbar">
                     <button type="button" class="btn btn-sm bg-light-primary btn-icon rotate" data-kt-rotate="true" id="refresh-building-permit-applications" title="Refresh the boards">
@@ -367,7 +397,7 @@
         </div>
 
         <div class="bg-success d-flex justify-content-end align-items-center align-self-stretch p-5 px-10 position-relative offcanvas-icon">
-            <i class="fas fa-flag text-inverse-success fs-2hx"></i>
+            <i class="fas fa-check text-inverse-success fs-2hx"></i>
         </div>
     </div>
     <div class="px-8">
@@ -493,10 +523,8 @@
 
         const buidling_permit_application_modal = bootstrap.Modal.getOrCreateInstance("#building-permit-application-modal");
         const view_buidling_permit_application_modal = bootstrap.Modal.getOrCreateInstance("#view-building-permit-application-modal");
-    //
 
     // Finished Applications
-        
         const finished_applications_drawer = KTDrawer.getInstance($("#finished-applications-drawer")[0]);
         finished_applications_drawer.on("kt.drawer.hide", function(){
             $("#return-to-board-container").hide();
@@ -575,7 +603,7 @@
             $("#return-to-board-container").width(drawer.width()).height($(document).height()).fadeIn(100);
         });
 
-        $("#return-to-board").on("click", function(e){
+        $("#return-to-board, #return-to-board .card-footer button").on("click", function(e){
             if(e.target == this){
                 $("#return-to-board-container").fadeOut(100);
             }
@@ -637,10 +665,7 @@
             reloadDataTable(finished_permits_table)
         })
 
-    //
-
     // Rejected Applications
-
         const rejected_applications_drawer = KTDrawer.getInstance($("#rejected-applications-drawer")[0]);
         rejected_applications_drawer.on("kt.drawer.hide", function(){
             $("#return-to-board-container").hide();
@@ -744,7 +769,7 @@
 
         $("#application-description").on("input change", function(){
             const current_length = this.value.length;
-            $("#application-description-length-counter").text(`${current_length}/500`)
+            $("#application-description-length-counter").text(`${current_length}/500`);
         }).on("focusin", function(){
             $("#application-description-length-counter").css("background", "#eef3f7")
         }).on("focusout", function(){
@@ -755,6 +780,7 @@
             e.preventDefault();
             const bpa_id = $("#bpa-id").val();
             const form_data = $(this).serialize();
+            console.log(bpa_id, form_data)
             ajaxRequest(`<?=base_url()?>/BPLO/${bpa_id ?`updateBuildingPermitApplication/${bpa_id}` : "addBuildingPermitApplication"}`, 
                 "POST", 
                 form_data, 
@@ -791,7 +817,6 @@
                 }
             )
         });
-    //
 
     //Building Permit Application Boards
         $("#tracker-boards").on("click", ".view-application", function(){
@@ -829,7 +854,6 @@
                 }
             )
         });
-    //
 
     //Building Permit Application Search
         $("#application-search-bar").on("keyup", function(){
@@ -850,8 +874,6 @@
         $("#application-search-bar-clear").click(function(){
             $("#application-search-bar").val('').trigger("keyup")
         })
-    //
-    
     });
 // JKanban
     "use strict";
@@ -860,41 +882,43 @@
         // Private functions
         const tracker_boards = function() {
             building_permit_applications_boards = new jKanban({
-                element: '#tracker-boards',
-                gutter: '0',
-                widthBoard: '300px',
+                element : '#tracker-boards',
+                gutter : '0',
+                widthBoard : '300px',
+                dragBoards : false, 
                 boards: [{
                         'id': 'step-bplo',
                         'title': 'BPLO',
                         'class': '',
                         'item': [],
-                        'current_department': "asd"
                     }, {
                         'id': 'step-engineering',
                         'title': 'Engineering',
                         'class': 'fw-bold',
                         'item': [],
-                        'current_department': "asd"
                     }, {
                         'id': 'step-cpdc',
                         'title': 'CPDC',
                         'class': 'fw-bold',
                         'item': [],
-                        'current_department': "asd"
                     }, {
                         'id': 'step-fire-department',
                         'title': 'Fire Department',
                         'class': 'fw-bold',
                         'item': [],
-                        'current_department': "asd"
                     }, {
                         'id': 'step-finished',
                         'title': 'Finished',
-                        'class': 'bg-light-success',
+                        // 'class': 'bg-success,bg-opacity-25',
                         'item': [],
-                        'current_department': "asd"
                     }
                 ],
+                dragEl : function (el, source) {
+                    $(".kanban-container .kanban-board").addClass("item-placable");
+                },
+                dragendEl : function (el) {
+                    $(".kanban-container .kanban-board").removeClass("item-placable");
+                },
                 dropEl : function (el, target, source, sibling) {
                     if(target == source){ return; }
 
@@ -908,26 +932,55 @@
                         update_data.finished_at = getCurrentDateTime(); 
                     }
 
-                    ajaxRequest(
-                        `<?=base_url()?>/BPLO/updateBuildingPermitApplication/${bpa_id}`, 
-                        "POST", 
-                        update_data, 
-                        function(data){
-                            if(data.error){
-                                errorAlert("Error", data.message);
-                                return;
-                            }
+                    Swal.fire({
+                        icon: "question",
+                        iconColor: 'var(--kt-white)',
+                        title: '<span class = "fw-semibold fs-1">Confirmation</span>',
+                        html: `<span class="text-gray-600 lh-lg">Are you sure you would like to drop this application to this board. <br>This action will send an <b>update sms</b> to the applicant's contact number</span>`,
+                        background: `var(--kt-white)`,
+                        customClass: {
+                            icon: 'shadow-md m-0 fs-2 mt-5',
+                            confirmButton: "btn btn-warning",
+                            cancelButton: 'btn btn-light-warning',
+                            header: 'p-0 m-0 bg-warning pt-7 pb-5 rounded',
+                            title: 'w-100 m-0 text-white flex-center pt-3 pb-10',
+                            loader: 'pt-20',
+                            content: 'pt-5',
+                            popup: 'pb-7',
+                        },
+                        focusConfirm: false,
+                        buttonsStyling: false,
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, proceed.',
+                    }).then((result) => {
+                        if(result.isConfirmed){
+                            ajaxRequest(
+                                `<?=base_url()?>/BPLO/updateBuildingPermitApplication/${bpa_id}`, 
+                                "POST", 
+                                update_data, 
+                                function(data){
+                                    if(data.error){
+                                        errorAlert("Error", data.message);
+                                        return;
+                                    }
 
-                            renderOngoingApplications()
+                                    renderOngoingApplications()
+                                }
+                            );
+                            return;
                         }
-                    );
+                        renderOngoingApplications()
+                    })
+                    
 
+                    $(".kanban-container .kanban-board").removeClass("item-placable");
                     console.log('Send SMS Message to client');
                     console.log('Dropped element:', el);
                     console.log('Target column:', target);
                     console.log('Source column:', source);
                     console.log('Sibling element:', sibling);
                 },
+
             });
         }
 
@@ -942,7 +995,6 @@
     KTUtil.onDOMContentLoaded(function() {
         jkanban_tracker_boards.init();
     });
-//
 
 //Board Functions
     function clearAllBoards(){
@@ -1025,10 +1077,9 @@
         );
 
     }
-//
 
-// Miscellaneous Functions
 
+// Miscellaneous Functions {
     function getCurrentDateTime(){
         const current_datetime = new Date();
         const Y_m_d = current_datetime.toISOString().slice(0, 10);
@@ -1038,6 +1089,5 @@
 
         return `${Y_m_d} ${H}:${i}:${s}`;
     }
-//
 </script>
 <?= $this->endSection(); ?>

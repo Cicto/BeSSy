@@ -9,10 +9,15 @@ use \Hermawan\DataTables\DataTable;
 
 class BPLO extends BaseController
 {
+    public function buildingPermitTracker(){
+        return view('services/bplo/buildingApplicationTracker', $this->viewData);
+    }
+
     public function addBuildingPermitApplication(){
         $data = $this->request->getPost();
-        $data["actor"] = $this->userInformation->firstname." ".$this->userInformation->lastname;
-        $data["created_by"] = $this->userInformation->user_id;
+        $user_info = $this->userInformation["data"][0];
+        $data["actor"] = $user_info->firstname." ".$user_info->lastname;
+        $data["created_by"] = $user_info->user_id;
 
         $insert_result = $this->masterModel->insert("building_permit_applications", $data);
         return json_encode($insert_result);

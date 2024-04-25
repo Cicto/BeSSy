@@ -17,7 +17,6 @@ class Dashboard extends BaseController
 
     public function index()
     {   
-
         switch ($this->userInformation['data'][0]->role) {
             
             case '1': // System Admin
@@ -41,7 +40,7 @@ class Dashboard extends BaseController
             
             default:
 
-                $getPassword = $masterModel->get('users', 'password_hash', ['id' => user_id()]);
+                $getPassword = $this->masterModel->get('users', 'password_hash', ['id' => user_id()]);
 
                 if(Password::verify(TemplateLib::defaultPassword(), $getPassword['result'][0]->password_hash))
                 {  

@@ -143,7 +143,7 @@
                 <div class="app-navbar-item ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                     <!--begin::Menu wrapper-->
                     <div class="cursor-pointer symbol symbol-35px symbol-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                        <img src="<?= base_url()?>/public/assets/media/avatars/<?= $userInformation->user_photo?$userInformation->user_photo:"default-avatar.png"?>" class="user-avatar" alt="user">
+                        <img src="<?= base_url()?>/public/assets/media/avatars/<?= $userInformation->user_photo?$userInformation->user_photo:"default-avatar.png"?>?<?=date('c')?>" class="user-avatar" alt="user">
                     </div>
                     <!--begin::User account menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true" style="">
@@ -152,7 +152,7 @@
                             <div class="menu-content d-flex align-items-center px-3">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
-                                    <img alt="Logo" src="<?=base_url()?>/public/assets/media/avatars/<?=$userInformation->user_photo?$userInformation->user_photo:"default-avatar.png"?>" class="user-avatar">
+                                    <img alt="Logo" src="<?=base_url()?>/public/assets/media/avatars/<?=$userInformation->user_photo?$userInformation->user_photo:"default-avatar.png"?>?<?=date('c')?>" class="user-avatar">
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
@@ -172,12 +172,12 @@
                         <div class="menu-item px-5">
                             <a href="<?= $userInformation->role==3?base_url("profile"):'#'?>" class="menu-link px-5">My Profile</a>
                         </div>
-                        <div class="menu-item px-5">
+                        <!-- <div class="menu-item px-5">
                             <a href="#" class="menu-link px-5" data-bs-toggle="modal" data-bs-target="#change-password-modal">Change Password</a>
-                        </div>
+                        </div> -->
                         <!--end::Menu item-->
                         <!--begin::Menu separator-->
-                        <div class="separator my-2"></div>
+                        <!-- <div class="separator my-2"></div> -->
                         <div class="menu-item px-5">
                             <a href="<?= base_url()?>/logout" class="menu-link px-5">Sign Out</a>
                         </div>
