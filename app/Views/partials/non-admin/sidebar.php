@@ -44,7 +44,7 @@
                     </a>
                 </div> 
                 <div class="menu-item">
-                    <a class="menu-link d-flex flex-column" href="<?= base_url()?>">
+                    <a class="menu-link d-flex flex-column" href="<?= base_url()?>/applications">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2hx text-white mb-3">
                                 <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">

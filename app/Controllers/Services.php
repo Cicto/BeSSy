@@ -39,5 +39,11 @@ class Services extends BaseController
         
     }
 
+    public function viewServiceTransaction($serviceId, $applicationId)
+    {   
+        $service = $this->masterModel->get('services', 'service_id, dept_id, service_alias, service_name, service_view', ['deleted_at'  => null, 'service_id' => $serviceId]);
+        return view('services/'. $service['data'][0]->service_view , $this->viewData);
+    }
+
 
 }
