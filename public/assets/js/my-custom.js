@@ -3,6 +3,12 @@ let filterObject = async(object, filterKey, filterValue) => {
     return filteredObj;
 }
 
+let sortObject = async(object, filterKey, filterValue) =>{
+    sortable.sort(function(a, b) {
+        return a[1] - b[1];
+    });
+}
+
 let sendToForm = async(object) => {
     $.each(object, (key, val) => {
         $('#' + key).val(val);
