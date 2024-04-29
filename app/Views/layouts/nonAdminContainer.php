@@ -30,6 +30,7 @@
 
                     <?= $this->renderSection('content'); ?>
 
+                    <?= $this->include('partials/callQueue')?>
                     <?= $this->include('partials/footer')?>
                 </div>
             </div>
