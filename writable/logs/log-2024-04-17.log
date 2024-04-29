@@ -1,0 +1,224 @@
+ERROR - 2024-04-17 09:42:19 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+CRITICAL - 2024-04-17 10:11:51 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/chats/chatList.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 72)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('chats/chatList', Array, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php(15): view('chats/chatList', Array)
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->index()
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2024-04-17 10:22:22 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+CRITICAL - 2024-04-17 10:22:27 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/partials/chatDrawer.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 64)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/layouts/nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('services/mayors...', Array, true)
+#9 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Services.php(31): view('services/mayors...', Array)
+#10 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Services->serviceView('1')
+#11 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-04-17 10:22:35 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/partials/chatDrawer.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 64)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/layouts/nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('services/mayors...', Array, true)
+#9 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Services.php(31): view('services/mayors...', Array)
+#10 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Services->serviceView('1')
+#11 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-04-17 10:23:13 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/partials/chatDrawer.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 64)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/layouts/nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('services/mayors...', Array, true)
+#9 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Services.php(31): view('services/mayors...', Array)
+#10 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Services->serviceView('1')
+#11 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-04-17 10:23:27 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/partials/chatDrawer.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 64)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/layouts/nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('services/mayors...', Array, true)
+#9 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Services.php(31): view('services/mayors...', Array)
+#10 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Services->serviceView('1')
+#11 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-04-17 10:23:40 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/partials/chatDrawer.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 87)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/layouts/nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('services/mayors...', Array, true)
+#9 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Services.php(31): view('services/mayors...', Array)
+#10 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Services->serviceView('1')
+#11 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-04-17 10:24:34 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/partials/chatDrawer.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 87)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/layouts/nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('services/mayors...', Array, true)
+#9 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Services.php(31): view('services/mayors...', Array)
+#10 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Services->serviceView('1')
+#11 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-04-17 13:20:55 --> CodeIgniter\Database\BaseBuilder::limit(): Argument #1 ($value) must be of type ?int, string given, called in /Applications/MAMP/htdocs/baliwag/bessy/app/Models/MasterModel.php on line 37
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Models/MasterModel.php(37): CodeIgniter\Database\BaseBuilder->limit('convo_id ASC')
+#1 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php(52): App\Models\MasterModel->get('chats', 'chat_id, convo_...', Array, false, false, 'convo_id ASC', 10)
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->getChats()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#4 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2024-04-17 13:22:16 --> Attempt to read property "role" on string
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Dashboard.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read...', '/Applications/M...', 21)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-17 13:33:32 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/partials/chatDrawer.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 41)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/layouts/nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('services/mayors...', Array, true)
+#9 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Services.php(31): view('services/mayors...', Array)
+#10 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Services->serviceView('1')
+#11 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2024-04-17 13:59:51 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+CRITICAL - 2024-04-17 15:02:57 --> Undefined variable $_FILE
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php(71): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 71)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-17 15:03:23 --> Too few arguments to function CodeIgniter\HTTP\IncomingRequest::getFile(), 0 passed in /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php on line 71 and exactly 1 expected
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php(71): CodeIgniter\HTTP\IncomingRequest->getFile()
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-17 15:07:28 --> Class "App\Controllers\File" not found
+#0 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-04-17 15:22:02 --> Call to undefined method CodeIgniter\Files\File::getName()
+#0 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-04-17 15:22:53 --> Call to undefined method CodeIgniter\Files\File::getName()
+#0 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-04-17 16:24:37 --> Call to undefined method CodeIgniter\Files\File::getName()
+#0 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-04-17 16:25:42 --> Undefined property: CodeIgniter\Files\File::$fileName
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', '/Applications/M...', 85)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-17 16:25:59 --> Undefined property: CodeIgniter\Files\File::$getFileName
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', '/Applications/M...', 85)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-17 16:27:12 --> Call to undefined method CodeIgniter\Files\File::getName()
+#0 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->uploadFile()
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2024-04-17 16:29:09 --> Column 'convo_id' cannot be null
+ERROR - 2024-04-17 16:48:59 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-04-17 16:49:08 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+CRITICAL - 2024-04-17 17:08:14 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/chats/chatList.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 133)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('chats/chatList', Array, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php(16): view('chats/chatList', Array)
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->index()
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-04-17 17:09:15 --> Undefined variable $convoInfo
+#0 /Applications/MAMP/htdocs/baliwag/bessy/app/Views/chats/chatList.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/Applications/M...', 133)
+#1 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(210): include('/Applications/M...')
+#2 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/View/View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/Common.php(1089): CodeIgniter\View\View->render('chats/chatList', Array, true)
+#4 /Applications/MAMP/htdocs/baliwag/bessy/app/Controllers/Chats.php(16): view('chats/chatList', Array)
+#5 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(832): App\Controllers\Chats->index()
+#6 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#7 /Applications/MAMP/htdocs/baliwag/bessy/vendor/codeigniter4/framework/system/CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/MAMP/htdocs/baliwag/bessy/index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
