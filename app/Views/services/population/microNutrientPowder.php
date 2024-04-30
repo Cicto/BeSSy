@@ -1,6 +1,8 @@
 <?= $this->extend('layouts/nonAdminContainer'); ?>
 <?= $this->section('content'); ?>
-
+<?php
+$is_viewing = isset($transaction_info);
+?>
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
     <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
@@ -69,108 +71,108 @@
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="first_name" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" value="" required>
+                                        <input type="text" name="first_name" value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="" required>
+                                        <input type="text" name="middle_name" value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="last_name" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" required>
+                                        <input type="text" name="last_name" value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="suffix" id="suffix" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Suffix" value="" required>
+                                        <input type="text" name="suffix" value="<?= $is_viewing ? $transaction_info->suffix : "" ?>" id="suffix" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Suffix" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
 
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date of Birth</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="date" name="birth_date" id="birth-date" class="form-control form-control-lg form-control-solid" placeholder="Date of Birth" value="" required>
+                                <input type="date" name="birth_date" value="<?= $is_viewing ? $transaction_info->birth_date : "" ?>" id="birth-date" class="form-control form-control-lg form-control-solid" placeholder="Date of Birth" value="" required>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Age</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="age" id="age" class="form-control form-control-lg form-control-solid" placeholder="Age" value="" required>
+                                <input type="text" name="age" value="<?= $is_viewing ? $transaction_info->age : "" ?>" id="age" class="form-control form-control-lg form-control-solid" placeholder="Age" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Gender</label>
 
                             <div class="col-lg-8 fv-row">
-                                <select class="form-select form-control form-control-solid" aria-label="Default select example" name="gender" id="gender" required="" required>
+                                <select class="form-select form-control form-control-solid" aria-label="Default select example" name="gender" id="gender" data-control="select2" data-placeholder="Gender" required="" required>
                                     <option selected="" value="" disabled>Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
+                                    <option value="Male" value="<?= $is_viewing ? $transaction_info->gender : "" ?>" <?= $is_viewing && $transaction_info->gender == "Male" ? 'selected' : '' ?>>Male</option>
+                                    <option value="Female" value="<?= $is_viewing ? $transaction_info->gender : "" ?>" <?= $is_viewing && $transaction_info->gender == "Female" ? 'selected' : '' ?>>Female</option>
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Contact Number</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="contact_number" id="contact-number" class="form-control form-control-lg form-control-solid" placeholder="Contact Number" value="" required>
+                                <input type="text" name="contact_number" value="<?= $is_viewing ? $transaction_info->contact_number : "" ?>" id="contact-number" class="form-control form-control-lg form-control-solid" placeholder="Contact Number" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
-                        
+
 
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Address</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="address" id="address" class="form-control form-control-lg form-control-solid" placeholder="Address" value="" required>
+                                <input type="text" name="address" id="address" value="<?= $is_viewing ? $transaction_info->address : "" ?>" class="form-control form-control-lg form-control-solid" placeholder="Address" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
-                        
+
 
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Country</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="country" id="country" class="form-control form-control-lg form-control-solid" placeholder="Country" value="" required>
+                                <input type="text" name="country" value="<?= $is_viewing ? $transaction_info->country : "" ?>" id="country" class="form-control form-control-lg form-control-solid" placeholder="Country" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
-                        
+
 
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Zip Code</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="zip_code" id="zip-code" class="form-control form-control-lg form-control-solid" placeholder="Zip Code" value="" required>
+                                <input type="text" name="zip_code" value="<?= $is_viewing ? $transaction_info->zip_code : "" ?>" id="zip-code" class="form-control form-control-lg form-control-solid" placeholder="Zip Code" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
-                        
+
 
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date and time you need
                                 the Service:</label>
 
                             <div class="col-lg-4 fv-row">
-                                <input type="date" name="date" id="date" class="form-control form-control-lg form-control-solid" placeholder="Date" value="" required>
+                                <input type="date" name="date" value="<?= $is_viewing ? $transaction_info->date : "" ?>" id="date" class="form-control form-control-lg form-control-solid" placeholder="Date" value="" required>
                             </div>
 
                             <div class="col-lg-4 fv-row fv-plugins-icon-container">
-                                <input type="time" name="time" id="time" class="form-control form-control-lg form-control-solid" placeholder="Time" value="" required>
+                                <input type="time" name="time" id="time" value="<?= $is_viewing ? $transaction_info->time : "" ?>" class="form-control form-control-lg form-control-solid" placeholder="Time" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -181,7 +183,7 @@
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
-                        <input type="number" name="service_id" value="<?= $service->service_id ?>" class="d-none"required>
+                        <input type="number" name="service_id" value="<?= $service->service_id ?>" class="d-none" required>
                         <div class="separator my-10"></div>
 
                         <!--=================================================== END OF YOUR CODE ==============================================-->

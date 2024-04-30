@@ -47,10 +47,12 @@
                                         <th>Service Name</th>
                                         <th>Created By</th>
                                         <th>Created At</th>
+                                        <th>Status</th>
                                         <th>Actions</th>
                                         
                                     </tr>
                                     <tr>
+                                        <th class="filterhead"></th>
                                         <th class="filterhead"></th>
                                         <th class="filterhead"></th>
                                         <th class="filterhead"></th>
@@ -99,6 +101,20 @@
                 },
                 {
                     data: 'created_at',
+             
+                },
+                {
+                    data: 'status',
+                    render: (data, display, row) => {
+                        if(row.status === "0"){
+                            return `<span class="badge badge-light-secondary text-primary">Pending</span>`
+                        }else if(row.status === "1"){
+                            return `<span class="badge badge-light-success">Approved</span>`
+                        }else{
+                            return `<span class="badge badge-light-danger">Rejected</span>`
+                        }
+                        
+                    }
                 },
                 {
                     data: 'transaction_id',
@@ -119,7 +135,7 @@
                             <div class="dropdown-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" aria-labelledby="dropdownMenuButton" style="">
 
                                 <div class="menu-item px-3">
-                                    <span class="menu-link px-3 view-btn" data-id="${data}"  data-application = "${row.application_id}" data-service="${row.service_id}" >View</span>
+                                    <a class="menu-link px-3 view-btn"  href="<?= base_url()?>/applications/transactionPreview/${row.service_id}/${row.application_id}" target="_blank" data-id="${data}"  data-application = "${row.application_id}" data-service="${row.service_id}" >View</a>
                                 </div>
                             </div>
                         </div>`;
@@ -155,9 +171,9 @@
         $('#transactions-data-table').on('click', '.view-btn', function () {
             let application_id = this.dataset.application;
             let service_id = this.dataset.service;
-            console.log(application_id);
-            console.log(service_id);
-            console.log('<?= base_url()?>/services/serviceView/'+ service_id + '/' + application_id);
+            // console.log(application_id);
+            // console.log(service_id);
+            console.log('<?= base_url()?>/applications/transactionPreview/'+ service_id + '/' + application_id);
             
         });
 

@@ -1,6 +1,8 @@
 <?= $this->extend('layouts/nonAdminContainer'); ?>
 <?= $this->section('content'); ?>
-
+<?php
+$is_viewing = isset($transaction_info);
+?>
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
     <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
@@ -68,15 +70,15 @@
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="last_name" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" required>
+                                        <input type="text" name="first_name" value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="first_name" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" required>
+                                        <input type="text" name="middle_name" value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" required>
+                                        <input type="text" name="last_name" value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                 </div>
@@ -88,7 +90,7 @@
                                 Corporation/Business</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="company_name" id="company-name" class="form-control form-control-lg form-control-solid" placeholder="Corporation/Business Name" value="" required>
+                                <input type="text" name="company_name" value="<?= $is_viewing ? $transaction_info->company_name : "" ?>" id="company-name" class="form-control form-control-lg form-control-solid" placeholder="Corporation/Business Name" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -98,7 +100,7 @@
                                 Applicant</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="applicant_address" id="applicant-address" class="form-control form-control-lg form-control-solid" placeholder="Complete Address of Applicant" value="" required>
+                                <input type="text" name="applicant_address" value="<?= $is_viewing ? $transaction_info->applicant_address : "" ?>" id="applicant-address" class="form-control form-control-lg form-control-solid" placeholder="Complete Address of Applicant" value="" required>
                             </div>
                         </div>
 
@@ -107,7 +109,7 @@
                                 Corporation/Business</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="business_address" id="business-address" class="form-control form-control-lg form-control-solid" placeholder="Complete Address of Corporation/Business" value="" required>
+                                <input type="text" name="business_address" value="<?= $is_viewing ? $transaction_info->business_address : "" ?>" id="business-address" class="form-control form-control-lg form-control-solid" placeholder="Complete Address of Corporation/Business" value="" required>
                             </div>
                         </div>
 
@@ -115,7 +117,7 @@
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Project Type</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="project_type" id="project-type" class="form-control form-control-lg form-control-solid" placeholder="Type of Project" value="" required>
+                                <input type="text" name="project_type" value="<?= $is_viewing ? $transaction_info->project_type : "" ?>" id="project-type" class="form-control form-control-lg form-control-solid" placeholder="Type of Project" value="" required>
                             </div>
                         </div>
 
@@ -125,26 +127,26 @@
                             <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                 <div class="d-flex align-items-center mt-3">
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="project_nature" id="ifNo" value="New Development" type="radio">
+                                        <input class="form-check-input" name="project_nature" value="New Development" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "New Development" ? 'checked' : '' ?> id="ifNo" type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             New Development
                                         </span>
                                     </label>
 
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="project_nature" id="ifNo1" value="Improvement" type="radio">
+                                        <input class="form-check-input" name="project_nature" value="Improvement" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "Improvement" ? 'checked' : '' ?> id="ifNo1" type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             Improvement
                                         </span>
                                     </label> <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="project_nature" id="if-others" value="select_others" type="radio">
+                                        <input class="form-check-input" name="project_nature" value="Others" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "Others" ? 'checked' : '' ?> id="if-others" type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             Others
                                         </span>
                                     </label>
                                 </div>
                                 <div class="col-lg-12  col-form-label fw-semibold fs-6" id="if_others" style="display: none;">
-                                    <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='yesProject' name='project_nature_others' placeholder="Specify" />
+                                    <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='yesProject' name='project_nature_others' value="<?= $is_viewing ? $transaction_info->project_nature_others : "" ?>" placeholder="Specify" />
 
                                 </div>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
@@ -156,7 +158,7 @@
                                 Location</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="project_location" id="project-location" class="form-control form-control-lg form-control-solid" placeholder="Location of Project" value="" required>
+                                <input type="text" name="project_location" value="<?= $is_viewing ? $transaction_info->project_location : "" ?>" id="project-location" class="form-control form-control-lg form-control-solid" placeholder="Location of Project" value="" required>
                             </div>
                         </div>
 
@@ -167,12 +169,12 @@
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="project_area" id="project-area" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Lot" value="" required>
+                                        <input type="text" name="project_area" value="<?= $is_viewing ? $transaction_info->project_area : "" ?>" id="project-area" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Lot" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="build_imp" id="build-imp" class="form-control form-control-lg form-control-solid" placeholder="Building(s) Improvement" value="" required>
+                                        <input type="text" name="build_imp" value="<?= $is_viewing ? $transaction_info->build_imp : "" ?>" id="build-imp" class="form-control form-control-lg form-control-solid" placeholder="Building(s) Improvement" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                 </div>
@@ -185,21 +187,21 @@
                                 <div class="col-lg-8 fv-row fv-plugins-icon-container">
                                     <div class="d-flex align-items-center mt-4">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site" type="checkbox" value="Residential">
+                                            <input class="form-check-input" name="site[]" value="Residential" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Residential" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Residential
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site" type="checkbox" value="Industrial">
+                                            <input class="form-check-input" name="site[]" value="Industrial" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Industrial" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Industrial
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site" type="checkbox" value="Vacant/Idle">
+                                            <input class="form-check-input" name="site[]" value="Vacant/Idle"  value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Vacant/Idle" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Vacant/Idle
                                             </span>
@@ -207,14 +209,14 @@
                                     </div>
                                     <div class="d-flex align-items-center mt-4">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site" type="checkbox" value="Institutional">
+                                            <input class="form-check-input" name="site[]" value="Institutional" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Institutional" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Institutional
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site" type="checkbox" value="Commercial">
+                                            <input class="form-check-input" name="site[]" value="Commercial" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Commercial" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Commercial
                                             </span>
@@ -223,12 +225,12 @@
                                     <div class="col-lg-12 mt-5">
                                         <div class="row">
                                             <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                                <input type="text" name="agri_specify" id="agri-specify" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Agricultural (specify crops)" value="">
+                                                <input type="text" name="agri_specify" value="<?= $is_viewing ? $transaction_info->agri_specify : "" ?>" id="agri-specify" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Agricultural (specify crops)" value="">
                                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                                             </div>
 
                                             <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                                <input type="text" name="land_use_others" id="land-use-others" class="form-control form-control-lg form-control-solid" placeholder="Other/Specify" value="">
+                                                <input type="text" name="land_use_others" value="<?= $is_viewing ? $transaction_info->land_use_others : "" ?>" id="land-use-others" class="form-control form-control-lg form-control-solid" placeholder="Other/Specify" value="">
                                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                                             </div>
                                         </div>
@@ -242,7 +244,7 @@
                                     Capitalization</label>
 
                                 <div class="col-lg-12 fv-row">
-                                    <input type="text" name="project_cost" id="project-cost" class="form-control form-control-lg form-control-solid" placeholder="In pesos, written in words and figures" value="" required>
+                                    <input type="text" name="project_cost" value="<?= $is_viewing ? $transaction_info->project_cost : "" ?>" id="project-cost" class="form-control form-control-lg form-control-solid" placeholder="In pesos, written in words and figures" value="" required>
                                 </div>
                             </div>
 
@@ -258,14 +260,14 @@
                                 <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                     <div class="d-flex align-items-center mt-3">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="written_notice" id="yes-written-notice" value="yes" type="radio" required>
+                                            <input class="form-check-input" name="written_notice" value="Yes" value="<?= $is_viewing ? $transaction_info->written_notice : "" ?>" <?= $is_viewing && $transaction_info->written_notice == "Yes" ? 'checked' : '' ?> id="yes-written-notice" type="radio" required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Yes
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="written_notice" id="no-written-notice" value="no" type="radio" required>
+                                            <input class="form-check-input" name="written_notice" value="No" value="<?= $is_viewing ? $transaction_info->written_notice : "" ?>" <?= $is_viewing && $transaction_info->written_notice == "No" ? 'checked' : '' ?>  id="no-written-notice" type="radio" required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 No
                                             </span>
@@ -275,11 +277,11 @@
                                         following:
                                         <br><br>Name of HLRS Officers or Zoning Administrator who issued the
                                         notice(s)
-                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-officers' name='hlrs_officers' />
+                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-officers' name='hlrs_officers'value="<?= $is_viewing ? $transaction_info->hlrs_officers : "" ?>" />
                                         <br>Date of Notice(s)
-                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='date' id='hlrs-dateNotice' name='hlrs_dateNotice' />
+                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='date' id='hlrs-dateNotice' name='hlrs_dateNotice'value="<?= $is_viewing ? $transaction_info->hlrs_dateNotice : "" ?>" />
                                         <br>Order/request indicated in the Notice(s)
-                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='text' id='request-indicated' name='request_indicated' />
+                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='text' id='request-indicated' name='request_indicated'value="<?= $is_viewing ? $transaction_info->request_indicated : "" ?>" />
                                     </div>
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>
@@ -293,14 +295,14 @@
                                 <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                     <div class="d-flex align-items-center mt-3">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="project_applied" id="yes-similar-app" value="Yes" type="radio" required>
+                                            <input class="form-check-input" name="project_applied" value="Yes" value="<?= $is_viewing ? $transaction_info->project_applied : "" ?>" <?= $is_viewing && $transaction_info->project_applied == "Yes" ? 'checked' : '' ?> id="yes-similar-app"  type="radio" required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Yes
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="project_applied" id="no-similar-app" value="no-similar-app" type="radio" required>
+                                            <input class="form-check-input" name="project_applied" value="No" value="<?= $is_viewing ? $transaction_info->project_applied : "" ?>" <?= $is_viewing && $transaction_info->project_applied == "No" ? 'checked' : '' ?> id="no-similar-app"  type="radio" required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 No
                                             </span>
@@ -308,11 +310,11 @@
                                     </div>
                                     <div class="col-lg-12  col-form-label fw-semibold fs-6" id="similar-app" style="display: none;">If Yes please answer the following:
                                         <br><br>Other HLRS Office(s) where similar applicant(s) was were filed at
-                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-office' name='hlrs_office' />
+                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-office' name='hlrs_office' value="<?= $is_viewing ? $transaction_info->hlrs_office : "" ?>" />
                                         <br>Date(s) Filed
-                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='date' id='hlrs-date' name='hlrs_date' />
+                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='date' id='hlrs-date' name='hlrs_date' value="<?= $is_viewing ? $transaction_info->hlrs_date : "" ?>" />
                                         <br>Action(s) taken by Office(s) mentioned in other HLRS Office(s)
-                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-action' name='hlrs_action' />
+                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-action' name='hlrs_action' value="<?= $is_viewing ? $transaction_info->hlrs_action : "" ?>" />
                                     </div>
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>
@@ -326,28 +328,28 @@
                                 <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                     <div class="d-flex align-items-center mt-3">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="mode" type="radio" value="Pick-up" required>
+                                            <input class="form-check-input" name="mode" value="Pick-up" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Pick-up" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Pick-up
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="mode" type="radio" value="Applicant" required>
+                                            <input class="form-check-input" name="mode" value="Applicant" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Applicant" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Applicant
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="mode" type="radio" value="By mail, address to:" required>
+                                            <input class="form-check-input" name="mode" value="By mail, address to:" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "By mail, address to:" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 By mail, address to:
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="mode" type="radio" value="Authorized Representative" required>
+                                            <input class="form-check-input" name="mode" value="Authorized Representative" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Authorized Representative" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Authorized Representative
                                             </span>
@@ -459,9 +461,14 @@
 
         });
 
+
+        // PROJECT NATURE
         $("#if-others").click(function(e) {
             $("#if_others").show();
         });
+        if ($('#if-others').is(':checked')) {
+            $("#if_others").show();
+        }
         $("#ifNo").click(function(e) {
             $("#if_others").hide();
             $("#yesProject").val("");
@@ -470,12 +477,20 @@
             $("#if_others").hide();
             $("#yesProject").val("");
         });
+
+        // WRIITEN NOTICE
         $("#yes-written-notice").click(function(e) {
             $("#written-notice").show();
             $("#written-notice").find("input, select").each(function(){
                 $(this).attr("required", true);
             });
         });
+        if ($('#yes-written-notice').is(':checked')) {
+            $("#written-notice").show();
+            $("#written-notice").find("input, select").each(function(){
+                $(this).attr("required", true);
+            });
+        }
         $("#no-written-notice").click(function(e) {
             $("#written-notice").hide();
             $("#hlrs-officers").val("");
@@ -486,13 +501,19 @@
             });
         });
 
-        
+        // SIMILAR APPLICATIONS
         $("#yes-similar-app").click(function(e) {
             $("#similar-app").show();
             $("#similar-app").find("input, select").each(function(){
                 $(this).attr("required", true);
             });
         });
+        if ($('#yes-similar-app').is(':checked')) {
+            $("#similar-app").show();
+            $("#similar-app").find("input, select").each(function(){
+                $(this).attr("required", true);
+            });
+        }
         $("#no-similar-app").click(function(e) {
             $("#similar-app").hide();
             $("#hlrs-office").val("");

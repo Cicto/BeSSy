@@ -9,23 +9,16 @@ use App\Libraries\TemplateLib;
 use Myth\Auth\Password;
 use \Hermawan\DataTables\DataTable;
 
-class CPDC extends BaseController
+class Assessor extends BaseController
 {
-    public function addZoningPermit()
+    public function addFieldInspectionRequest()
     {
         if ($this->request->isAJAX()) {
             $data = $this->request->getPost();
-
             $service_id = $data["service_id"];
             unset($data["service_id"]);
-            $result_array = "";
-            foreach ($this->request->getPost('site') as $site_data) {
-                $result_array .= $site_data . " ";
-            }
+            $insert_result = $this->masterModel->insert('field_inspection_request', $data);
 
-            $data["site"] = $result_array;
-
-            $insert_result = $this->masterModel->insert('zoning_permit', $data);
 
             if ($insert_result["error"]) {
                 return json_encode($insert_result);
@@ -37,7 +30,6 @@ class CPDC extends BaseController
                 "service_id" => $service_id,
                 "application_id" => $application_id,
                 "created_by" => $this->userInformation['data'][0]->user_id,
-                "status" => 0,
                 "actor" =>  $this->userInformation['data'][0]->firstname . " " . $this->userInformation['data'][0]->lastname
             ];
 
