@@ -1,0 +1,18 @@
+ERROR - 2024-04-29 09:19:33 --> Error connecting to the database: No connection could be made because the target machine actively refused it
+CRITICAL - 2024-04-29 09:19:33 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+#0 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\xampp\htdocs\BeSSy\vendor\myth\auth\src\Authentication\LocalAuthenticator.php(156): CodeIgniter\BaseModel->first()
+#5 C:\xampp\htdocs\BeSSy\vendor\myth\auth\src\Authentication\LocalAuthenticator.php(20): Myth\Auth\Authentication\LocalAuthenticator->validate(Array, true)
+#6 C:\xampp\htdocs\BeSSy\vendor\myth\auth\src\Controllers\AuthController.php(91): Myth\Auth\Authentication\LocalAuthenticator->attempt(Array, false)
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): Myth\Auth\Controllers\AuthController->attemptLogin()
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(Myth\Auth\Controllers\AuthController))
+#9 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2024-04-29 09:19:44 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-04-29 09:20:30 --> Table 'baliwagc_bessy_db.employees' doesn't exist
+ERROR - 2024-04-29 09:20:30 --> Table 'baliwagc_bessy_db.employees' doesn't exist

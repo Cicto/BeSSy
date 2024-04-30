@@ -251,7 +251,7 @@
                         <!--end::Menu separator-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="<?= $userInformation->role==3?base_url("profile"):'#'?>" class="menu-link px-5" <?= $userInformation->role==3?'':'data-bs-toggle="modal" data-bs-target="#my-profile-modal"'?>>My Profile</a>
+                            <a href="<?= $userInformation->role==3?base_url("profile"):base_url("users/myProfile")?>" class="menu-link px-5">My Profile</a>
                         </div>
                         <!-- <div class="menu-item px-5">
                             <a href="#" class="menu-link px-5" data-bs-toggle="modal"

@@ -165,6 +165,79 @@ function searchArrayById(array, id, id_name = "id") {
     return array.find((array_item) => array_item[id_name] == id);
 }
 
+function htmlDecode(input) {
+    var doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+}
+  
+function toMonth(val, bool = false) {
+    if (val >= 0) {
+      if ((bool == false && val <= 11) || (bool == true && val <= 12)) {
+        var months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        if (bool) {
+          val = -1;
+        }
+        return months[val];
+      } else {
+        return new Error("Invalid values given");
+      }
+    } else {
+      return new Error("Invalid values given");
+    }
+}
+
+function mySQLDateToText(str) {
+    str = str.split(" ")[0];
+    const month = toMonth(Number(str.split("-")[1] - 1));
+    const day = str.split("-")[2];
+    const year = str.split("-")[0];
+    return `${month} ${day}, ${year}`;
+}
+  
+function mySQLTimeToText(str) {
+    let hour = Number(str.split(":")[0]);
+    let minute = Number(str.split(":")[1]);
+  
+    let meridiem = hour >= 12 ? "pm" : "am";
+    if (hour > 12) {
+      hour -= 12;
+    }
+    hour = hour < 10 ? `0${hour}` : hour;
+    minute = minute < 10 ? `0${minute}` : minute;
+  
+    return `${hour}:${minute} ${meridiem}`;
+}
+  
+function mySQLDateTimeToText(str) {
+    return `${mySQLDateToText(str.split(" ")[0])} ${mySQLTimeToText(
+      str.split(" ")[1]
+    )}`;
+}
+  
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+}
+  
 // DATATABLES BUTTONS HOOK START
 function dataTablesButtonsHooks(tableElement){
     let buttons = new $.fn.dataTable.Buttons(tableElement, {

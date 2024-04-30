@@ -1,9 +1,9 @@
 <?php $departments = [21=>"BPLO", 17=>"Engineering", 19=>"CPDC", 36=>"Fire-Department"]; ?>
-<?php $userInformation->dept_id = 17; ?>
+<?php $userInformation->dept_id = 21; ?>
 <?php $userInformation->role = 1; ?>
 <?= $this->extend('layouts/main'); ?>
 
-<?= $this->section('javascript'); ?>
+<?= $this->section('css'); ?>
 
 <link href="<?=base_url()?>/public/assets/plugins/custom/jkanban/jkanban.bundle.css" rel="stylesheet" type="text/css" />
 
@@ -295,7 +295,7 @@
                 <label for="contact-number" class="required form-label">Contact Number</label>
                 <div class="input-group input-group-solid mb-5">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile-alt"></i></span>
-                    <input type="text" class="form-control form-control-solid" id="contact-number" name="contact_number" placeholder="09__-___-____" required/>
+                    <input type="text" class="form-control form-control-solid" id="contact-number" name="contact_number" placeholder="09__-___-____" required pattern="^09\d{2}-\d{3}-\d{4}$"/>
                 </div>
 
             </div>
@@ -304,7 +304,7 @@
                 <label for="application-description" class="form-label">Description</label>
                 <textarea class="form-control form-control-solid" id="application-description" name="application_description" data-kt-autosize="true" placeholder="Brief description..." maxlength="500"></textarea>
                 <div class="text-end pt-1">
-                    <span class="rounded fs-7 p-1 px-2 text-gray-500 fw-semibold" style="background: #f5f8fa;" id="application-description-length-counter">0/500</span>
+                    <span class="rounded fs-7 p-1 px-2 text-gray-500 fw-semibold application-description-length-counter" style="background: #f5f8fa;">0/500</span>
                 </div>
             </div>
 
@@ -365,7 +365,7 @@
                 <label for="application-description" class="form-label">Description</label>
                 <textarea class="form-control form-control-solid pointer-default" name="application_description" data-kt-autosize="true" placeholder="Brief description..." maxlength="500" readonly></textarea>
                 <div class="text-end pt-1">
-                    <span class="rounded fs-7 p-1 px-2 text-gray-500 fw-semibold" style="background: #f5f8fa;" id="application-description-length-counter">0/500</span>
+                    <span class="rounded fs-7 p-1 px-2 text-gray-500 fw-semibold application-description-length-counter" style="background: #f5f8fa;">0/500</span>
                 </div>
             </div>
         </form>
@@ -523,6 +523,7 @@
 
         const buidling_permit_application_modal = bootstrap.Modal.getOrCreateInstance("#building-permit-application-modal");
         const view_buidling_permit_application_modal = bootstrap.Modal.getOrCreateInstance("#view-building-permit-application-modal");
+    //
 
     // Finished Applications
         const finished_applications_drawer = KTDrawer.getInstance($("#finished-applications-drawer")[0]);
@@ -664,6 +665,7 @@
         $(".finished-applications-drawer-button").click(function() {
             reloadDataTable(finished_permits_table)
         })
+    //
 
     // Rejected Applications
         const rejected_applications_drawer = KTDrawer.getInstance($("#rejected-applications-drawer")[0]);
@@ -746,7 +748,7 @@
         })
     //
 
-    //Building Permit Application Form
+    // Building Permit Application Form 
         $("#add-building-permit-application-btn").click(function(){
             resetForm("#building-permit-application-form");
             $("#bpa-id").val('').trigger("change");
@@ -767,13 +769,18 @@
             "mask" : "\\0\\999-999-9999"
         }).mask("#contact-number");
 
-        $("#application-description").on("input change", function(){
-            const current_length = this.value.length;
-            $("#application-description-length-counter").text(`${current_length}/500`);
+        $(`textarea[name="application_description"]`).on("input change", function(){
+            const current_length = this.value.length;4
+            $(this).val(htmlDecode(this.value));
+            console.log("asd")
+            $(".application-description-length-counter").text(`${current_length}/500`);
+            setTimeout(() => {
+                autosize.update(this);
+            }, 175);
         }).on("focusin", function(){
-            $("#application-description-length-counter").css("background", "#eef3f7")
+            $(".application-description-length-counter").css("background", "#eef3f7");
         }).on("focusout", function(){
-            $("#application-description-length-counter").css("background", "#f5f8fa")
+            $(".application-description-length-counter").css("background", "#f5f8fa");
         });
 
         $("#building-permit-application-form").submit(function (e) { 
@@ -817,8 +824,9 @@
                 }
             )
         });
+    //
 
-    //Building Permit Application Boards
+    // Building Permit Application Boards
         $("#tracker-boards").on("click", ".view-application", function(){
             const kanban_item = $(this).closest(".kanban-item");
             const bpa_id = kanban_item.data("bpa_id");
@@ -854,8 +862,9 @@
                 }
             )
         });
+    //
 
-    //Building Permit Application Search
+    // Building Permit Application Search
         $("#application-search-bar").on("keyup", function(){
             if(this.value){
                 const search_key = this.value.toLowerCase();
@@ -874,6 +883,7 @@
         $("#application-search-bar-clear").click(function(){
             $("#application-search-bar").val('').trigger("keyup")
         })
+    //
     });
 // JKanban
     "use strict";
@@ -925,9 +935,18 @@
                     const current_board = $(target).closest(".kanban-board");
                     const current_board_id = current_board.data("id");
                     const current_department = current_board_id.substr(current_board_id.indexOf("-")+1);
+
+                    const previous_board = $(source).closest(".kanban-board");
+                    const previous_board_id = previous_board.data("id");
+                    const previous_department = previous_board_id.substr(previous_board_id.indexOf("-")+1);
+
                     const bpa_id = el.dataset.bpa_id;
                     
-                    const update_data = { current_department : current_department};
+                    const update_data = { 
+                        current_department : current_department,
+                        previous_department : previous_department 
+                    };
+
                     if(current_department=="finished"){ 
                         update_data.finished_at = getCurrentDateTime(); 
                     }
@@ -974,13 +993,7 @@
                     
 
                     $(".kanban-container .kanban-board").removeClass("item-placable");
-                    console.log('Send SMS Message to client');
-                    console.log('Dropped element:', el);
-                    console.log('Target column:', target);
-                    console.log('Source column:', source);
-                    console.log('Sibling element:', sibling);
-                },
-
+                }
             });
         }
 
@@ -995,6 +1008,7 @@
     KTUtil.onDOMContentLoaded(function() {
         jkanban_tracker_boards.init();
     });
+//
 
 //Board Functions
     function clearAllBoards(){
@@ -1077,7 +1091,7 @@
         );
 
     }
-
+//
 
 // Miscellaneous Functions {
     function getCurrentDateTime(){
@@ -1089,5 +1103,6 @@
 
         return `${Y_m_d} ${H}:${i}:${s}`;
     }
+//
 </script>
 <?= $this->endSection(); ?>
