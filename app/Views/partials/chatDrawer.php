@@ -1,6 +1,37 @@
 <?php if($userInformation->role == 5):?>
-    <div id="chat-drawer" class="bg-white" data-kt-drawer="true" data-kt-drawer-activate="true" data-kt-drawer-toggle="#chat-drawer-btn" data-kt-drawer-close="#kt_drawer_example_basic_close" data-kt-drawer-width="500px">
+    <style>
+        /* HTML: <div class="loader"></div> */
+        .loader {
+        display: inline-flex;
+        gap: 5px;
+        }
+        .loader:before,
+        .loader:after {
+        content: "";
+        width: 25px;
+        aspect-ratio: 1;
+        box-shadow: 0 0 0 3px inset #fff;
+        animation: l4 1.5s infinite;
+        }
+        .loader:after {
+        --s: -1;
+        animation-delay: 0.75s
+        }
+        @keyframes l4 {
+        0%     {transform:scaleX(var(--s,1)) translate(0) rotate(0)}
+        16.67% {transform:scaleX(var(--s,1)) translate(-50%) rotate(0)}
+        33.33% {transform:scaleX(var(--s,1)) translate(-50%) rotate(90deg)}
+        50%,
+        100%   {transform:scaleX(var(--s,1)) translate(0) rotate(90deg)}
+        }
+    </style>
+    <div id="chat-drawer" class="bg-white pt-0" data-kt-drawer="true" data-kt-drawer-activate="true" data-kt-drawer-toggle="#chat-drawer-btn" data-kt-drawer-close="#kt_drawer_example_basic_close" data-kt-drawer-width="500px">
         <div class="card h-100 w-100" style = "border-radius: 0px">
+
+            <div class = "position-absolute w-100 h-100 d-flex flex-center flex-column d-none" style = "z-index: 99; background-color: #1321394a" id = "chat-box-cover">
+                <div class="loader"></div>
+                <span class = "text-white mt-5" id = "cover-message">Loading message</span>
+            </div>
             <div class="card-header px-5">
                 <div class="card-title">
                     <div class = "d-flex flex-row">
@@ -20,7 +51,7 @@
                     <span>See more</span>
                 </div> -->
             </div>
-            <div class="card-footer p-5 w-100">
+            <div class="card-footer p-5">
                 <div class="d-flex align-items-center me-2">
                     <div class="dropzone dropzone-queue mb-2" id="upload-file">
                         <!--begin::Controls-->
@@ -28,6 +59,9 @@
                             <a class="dropzone-select me-2 fs-7 fw-semibold btn btn-sm btn-primary">
                                 <i class="bi bi-upload fs-5"></i> Send File
                             </a>
+                            <button class="me-2 fs-7 fw-semibold btn btn-sm btn-primary" id = "queue-a-call">
+                                <i class="bi bi-telephone-outbound"></i> Request a call
+                            </button>
                             <a class="dropzone-remove-all btn btn-sm btn-light-primary">Remove All</a>
                         </div>
                     </div>
@@ -83,21 +117,9 @@
             </div>
         </div>
     </div>
-    <audio id="myAudio" muted>
-        <source  type="audio/mp3" src="<?= base_url()?>/public/assets/sounds/call-ring.wav">
-        Your browser does not support the audio element.
-    </audio>
-    <?= $this->section('css'); ?>
-        <style>
-            .dropzone .dz-preview{
-                display: none !important;
-            }
-        </style>
-    <?= $this->endSection(); ?>
-    <?= $this->section('javascript'); ?>
     
-    <script src="<?= base_url()?>/public/assets/js/socket-io.js"></script>
-    <script src = "<?= base_url()?>/public/assets/js/chat.js"></script>
+   
+    <?= $this->section('javascript'); ?>
     <script src="https://meet.jit.si/libs/lib-jitsi-meet.min.js"></script>
     
     <script>
@@ -175,6 +197,31 @@
                 $('#call-modal').modal('hide');
                 socket.emit('deny-call', room);
                 audio.pause();
+            });
+
+            $(document).on('click', '#queue-a-call', function(){
+                $('#chat-box-cover').removeClass('d-none');
+                $('#cover-message').text('You are being added to queue');
+                let data = {
+                    userId: '<?= user_id()?>',
+                    room: room,
+                    time: '<?= date('Y-m-d H:i:s')?>',
+                    clientName: '<?= $userInformation->firstname.' '.$userInformation->lastname?>',
+                    deptId: '<?= ($departmentInfo != false) ? $departmentInfo[0]->dept_id : 36 ?>'
+                }
+                socket.emit('add-to-queue', data, (res) => {
+                    if(res.status){
+                        setTimeout(() => {
+                            $('#chat-box-cover').addClass('d-none');
+                            toastr.success('You are added to queue.');
+                        }, 1500);
+                    }else{
+                        toastr.error('You are not allowed to queue, you have an existing one.');
+                        setTimeout(() => {
+                            $('#chat-box-cover').addClass('d-none');
+                        }, 1500);
+                    }
+                });
             });
         });
     </script>

@@ -3,6 +3,11 @@ let filterObject = async(object, filterKey, filterValue) => {
     return filteredObj;
 }
 
+let removeObject = async(object, filterKey, filterValue) => {
+    let filteredObj = object.filter(obj => obj[filterKey] == filterValue);
+    return filteredObj;
+}
+
 let sortObject = async(object, filterKey, filterValue) =>{
     sortable.sort(function(a, b) {
         return a[1] - b[1];
