@@ -84,6 +84,16 @@ io.on('connection', (socket) => {
         });
     });
 
+    socket.on('remove-to-queue', async (reqData, callBack) => {
+        console.log('Room '+reqData+' is removed from queue.');
+        callQueue = await removeObject(callQueue, 'room', parseInt(reqData));
+        socket.broadcast.emit('refresh-queue', callQueue);
+        callBack({
+            status: true,
+            queue: callQueue
+        });
+    });
+
     socket.on("disconnecting", () => {
         console.log(socket.rooms); // the Set contains at least the socket ID
         console.log('Leaving all rooms');

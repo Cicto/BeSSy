@@ -45,11 +45,19 @@
         audio.loop=true;
     });
     socket.emit('get-queue', (res) => {
-        queueCall(res, '<?= $userInformation->dept_id?>');
+        if(res == 0){
+            toastr.error('You queue is empty.');
+        }else{
+            queueCall(res, '<?= $userInformation->dept_id?>');
+        }
     });
     socket.on('refresh-queue', (res) => {
-        console.log('refreshed', '<?= $userInformation->dept_id?>');
+        console.log(res);
+        if(res.length == 0){
+            toastr.error('You queue is empty.');
+        }
         queueCall(res, '<?= $userInformation->dept_id?>');
+        
     });
     socket.on('denied-call', (data) => {
         $('#call-modal').modal('hide');
@@ -75,6 +83,14 @@
         socket.emit('send-call', this.dataset.convoId);
         audio.play();
         $('#call-modal').modal('show');
+    });
+    $(document).on('click', '.reject-queue', function(){
+        socket.emit('remove-to-queue', this.dataset.convoId, (res) => {
+            queueCall(res.queue, '<?= $userInformation->dept_id?>');
+            if(res.queue.length == 0){
+                toastr.error('You queue is empty.');
+            }
+        });
     });
 </script>
 <?= $this->endSection(); ?>
