@@ -192,6 +192,12 @@
                         <label class="form-label">Service Name:</label>
                         <input type="text" name="department_service" id="department-service" class="form-control mb-3"
                             style="text-transform:uppercase" required>
+                        <label class="form-label">Service Alias:</label> 
+                        <input type="text" name="alias_service" id="alias-service" class="form-control mb-3"
+                            style="text-transform:uppercase" required>
+                        <label class="form-label">Service View:</label>
+                        <input type="text" name="view_service" id="view-service" class="form-control mb-3"
+                            style="text-transform:uppercase" required>
                         <input type="submit" id="add-service-submit" class="d-none">
                     </form>
                 </section>
@@ -224,7 +230,13 @@
                 <section>
                     <form class="white" id="update-service">
                         <label class="form-label">Service Name:</label>
-                        <input type="text" name="department_service" id="services-edit" class="form-control mb-3"
+                            <input type="text" name="department_service" id="services-edit" class="form-control mb-3"
+                            required>
+                        <label class="form-label">Service Alias:</label>
+                            <input type="text" name="alias_service" id="alias-edit" class="form-control mb-3"
+                            required>
+                        <label class="form-label">Service View:</label>
+                            <input type="text" name="view_service" id="view-edit" class="form-control mb-3"
                             required>
                         <input type="submit" id="update-service-submit" class="d-none">
                     </form>
@@ -523,6 +535,8 @@
             e.preventDefault();
             const data = {
                 'name': $('#department-service').val(),
+                'alias': $('#alias-service').val(),
+                'view': $('#view-service').val(),
             };
             $.ajax({
                 method: "POST",
@@ -551,6 +565,8 @@
                     console.log(response);
                     const service_info = response.data[0];
                     $('#services-edit').val(service_info.service_name);
+                    $('#alias-edit').val(service_info.service_alias);
+                    $('#view-edit').val(service_info.service_view);
                 }
             });
             serv_modal.show();
@@ -560,6 +576,8 @@
             e.preventDefault();
             let data = {
                 'service_name': $('#services-edit').val(),
+                'service_alias': $('#alias-edit').val(),
+                'service_view': $('#view-edit').val(),
             };
 
             $.ajax({

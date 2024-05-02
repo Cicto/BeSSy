@@ -252,3 +252,5 @@ CRITICAL - 2024-05-02 07:57:06 --> Unknown column 'dept_name' in 'order clause'
 #10 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #11 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
 #12 {main}
+ERROR - 2024-05-02 13:06:19 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-05-02 16:15:36 --> Table 'baliwagc_bessy_db.logs' doesn't exist

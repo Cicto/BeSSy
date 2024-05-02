@@ -116,7 +116,9 @@ class Departments extends BaseController
             $master_model = new MasterModel();
             $data = [
                'dept_id' => $deptId,
-               'service_name' => $this->request->getPost('name')
+               'service_name' => $this->request->getPost('name'),
+               'service_alias' => $this->request->getPost('alias'),
+               'service_view' => $this->request->getPost('view')
             ];
             $result = $master_model->insert("services", $data);
             return $result;
@@ -129,7 +131,7 @@ class Departments extends BaseController
 
     public function getServices($servId)
     {
-        $getter = $this->masterModel->get('services', 'dept_id, service_name, deleted_at, service_id', ['service_id' => $servId]);
+        $getter = $this->masterModel->get('services', 'dept_id, service_name, service_alias, service_view, deleted_at, service_id', ['service_id' => $servId]);
         return json_encode($getter);
     }
 
@@ -138,6 +140,8 @@ class Departments extends BaseController
         if($this->request->isAJAX()){
             $services_data = [
                 'service_name' => trim($this->request->getPost('service_name')),
+                'service_alias' => trim($this->request->getPost('service_alias')),
+                'service_view' => trim($this->request->getPost('service_view')),
             ];
 
             $update_services = $this->masterModel->update('services', $services_data, ['service_id' => $ser_id]);
