@@ -55,7 +55,7 @@
                                         <th class="filterhead"></th>
                                         <th class="filterhead"></th>
                                         <th class="filterhead"></th>
-                                        <th class="filterhead"></th>
+                                        <th class=""></th>
                                         <th class=""></th>
                                     </tr>
                                 </thead>
@@ -81,6 +81,7 @@
             processing: true,
             serverSide: true,
             orderCellsTop: true,
+            order: [[2, 'desc']],
             ajax: '<?= base_url()?>/applications/transactionsDataTables/',
             columns: [
 
