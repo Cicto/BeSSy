@@ -103,7 +103,69 @@ class Departments extends BaseController
         
     }
 
+
+    public function servicesDataTableSelect($deptID=0)
+    {
+        $builder = $this->masterModel->getDataTables('services', 'service_name, service_id', ['dept_id'=>$deptID, 'deleted_at'=>null]);
+        return DataTable::of($builder)->toJson(true);
+    }
+
+    public function addServices($deptId)
+    {
+        if($this->request->isAJAX()){
+            $master_model = new MasterModel();
+            $data = [
+               'dept_id' => $deptId,
+               'service_name' => $this->request->getPost('name')
+            ];
+            $result = $master_model->insert("services", $data);
+            return $result;
+        }
+        else
+        {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
+    public function getServices($servId)
+    {
+        $getter = $this->masterModel->get('services', 'dept_id, service_name, deleted_at, service_id', ['service_id' => $servId]);
+        return json_encode($getter);
+    }
+
+    public function updateServices($ser_id)
+    {
+        if($this->request->isAJAX()){
+            $services_data = [
+                'service_name' => trim($this->request->getPost('service_name')),
+            ];
+
+            $update_services = $this->masterModel->update('services', $services_data, ['service_id' => $ser_id]);
+            return $update_services;
+            
+        }
+    }
+
+    public function archiveService($ser_id){
+        if($this->request->isAJAX()){
+            $current_date = date('Y-m-d H:i:s');
+            $archive_dept = $this->masterModel->update('services', ['deleted_at'=>$current_date], ['service_id' => $ser_id]);
+            return json_encode($archive_dept);
+        }
+    }
     
+
+    public function servicesDataTableArchive($deptID){
+        $builder = $this->masterModel->getDataTables('services', 'service_id, service_name, deleted_at, dept_id', ['dept_id'=>$deptID, 'deleted_at !='=>null]);
+        return DataTable::of($builder)->toJson(true);
+    }
+
+    public function unarchiveService($id){
+        if($this->request->isAJAX()){
+            $archive_serv = $this->masterModel->update('services', ['deleted_at'=>null], ['service_id' => $id]);
+            return json_encode($archive_serv);
+        }
+    }
 
     
     

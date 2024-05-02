@@ -1,0 +1,4 @@
+ERROR - 2024-04-25 08:18:55 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-04-25 13:02:49 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-04-25 13:06:43 --> Unknown column 'servicew_name' in 'field list'
+ERROR - 2024-04-25 13:13:27 --> Unknown column 'servicew_name' in 'field list'
