@@ -72,22 +72,22 @@ $is_viewing = isset($transaction_info);
                                 <div class="row">
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="last_name" value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" required>
+                                        <input type="text" name="last_name" value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="first_name" value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" required>
+                                        <input type="text" name="first_name" value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" required>
+                                        <input type="text" name="middle_name" value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="suffix" value="<?= $is_viewing ? $transaction_info->suffix : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="suffix" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Suffix" required>
+                                        <input type="text" name="suffix" value="<?= $is_viewing ? $transaction_info->suffix : "" ?>" id="suffix" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Suffix" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
@@ -100,7 +100,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date of Birth</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="date" name="birth_date" value="<?= $is_viewing ? $transaction_info->birth_date : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="birth-date" class="form-control form-control-lg form-control-solid" placeholder="Date of Birth" required>
+                                <input type="date" name="birth_date" value="<?= $is_viewing ? $transaction_info->birth_date : "" ?>" id="birth-date" class="form-control form-control-lg form-control-solid" placeholder="Date of Birth" required>
                             </div>
                         </div>
                         <!-- <hr> -->
@@ -108,7 +108,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Age</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="age" value="<?= $is_viewing ? $transaction_info->age : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="age" class="form-control form-control-lg form-control-solid" placeholder="Age" required>
+                                <input type="text" name="age" value="<?= $is_viewing ? $transaction_info->age : "" ?>" id="age" class="form-control form-control-lg form-control-solid" placeholder="Age" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Gender</label>
 
                             <div class="col-lg-8 fv-row">
-                                <select class="form-select form-control form-control-solid" name="gender" <?= ! $is_viewing ? "" : "disabled" ?> id="gender" data-control="select2" data-placeholder="Select your Gender" required>
+                                <select class="form-select form-control form-control-solid" name="gender" id="gender" data-control="select2" data-placeholder="Select your Gender" required>
                                     <option selected="" required disabled>Select your Gender</option>
                                     <option value="Male" value="<?= $is_viewing ? $transaction_info->gender : "" ?>" <?= $is_viewing && $transaction_info->gender == "Male" ? 'selected' : '' ?>>Male</option>
                                     <option value="Female" value="<?= $is_viewing ? $transaction_info->gender : "" ?>" <?= $is_viewing && $transaction_info->gender == "Female" ? 'selected' : '' ?>>Female</option>
@@ -129,7 +129,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Contact Number</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="contact_number" value="<?= $is_viewing ? $transaction_info->contact_number : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="contact-number" class="form-control form-control-lg form-control-solid" placeholder="Contact Number" required>
+                                <input type="text" name="contact_number" value="<?= $is_viewing ? $transaction_info->contact_number : "" ?>" id="contact-number" class="form-control form-control-lg form-control-solid" placeholder="Contact Number" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -139,7 +139,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Address</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="address" value="<?= $is_viewing ? $transaction_info->address : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="address" class="form-control form-control-lg form-control-solid" placeholder="Address" required>
+                                <input type="text" name="address" value="<?= $is_viewing ? $transaction_info->address : "" ?>" id="address" class="form-control form-control-lg form-control-solid" placeholder="Address" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -149,7 +149,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Country</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="country" value="<?= $is_viewing ? $transaction_info->country : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="country" class="form-control form-control-lg form-control-solid" placeholder="Country" required>
+                                <input type="text" name="country" value="<?= $is_viewing ? $transaction_info->country : "" ?>" id="country" class="form-control form-control-lg form-control-solid" placeholder="Country" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Zip Code</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="zip_code" value="<?= $is_viewing ? $transaction_info->zip_code : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="zip-code" class="form-control form-control-lg form-control-solid" placeholder="Zip Code" required>
+                                <input type="text" name="zip_code" value="<?= $is_viewing ? $transaction_info->zip_code : "" ?>" id="zip-code" class="form-control form-control-lg form-control-solid" placeholder="Zip Code" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -170,18 +170,18 @@ $is_viewing = isset($transaction_info);
                                 the Service:</label>
 
                             <div class="col-lg-4 fv-row">
-                                <input type="date" name="date" value="<?= $is_viewing ? $transaction_info->date : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="date" class="form-control form-control-lg form-control-solid" placeholder="Date" required>
+                                <input type="date" name="date" value="<?= $is_viewing ? $transaction_info->date : "" ?>" id="date" class="form-control form-control-lg form-control-solid" placeholder="Date" required>
                             </div>
 
                             <div class="col-md-4 fv-row fv-plugins-icon-container">
-                                <input type="time" name="time" value="<?= $is_viewing ? $transaction_info->time : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="time" class="form-control form-control-lg form-control-solid" placeholder="Time" required>
+                                <input type="time" name="time" value="<?= $is_viewing ? $transaction_info->time : "" ?>" id="time" class="form-control form-control-lg form-control-solid" placeholder="Time" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
 
                         <div class="row mb-6" hidden>
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="services" value="<?= $is_viewing ? $transaction_info->services : "" ?>" <?= ! $is_viewing ? "" : "disabled" ?> id="services" class="form-control form-control-lg form-control-solid" value="1">
+                                <input type="text" name="services" value="<?= $is_viewing ? $transaction_info->services : "" ?>" id="services" class="form-control form-control-lg form-control-solid" value="1">
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -194,7 +194,7 @@ $is_viewing = isset($transaction_info);
 
                         <!--=============================================== FORM BUTTONS ======================================================-->
                         <div class="d-flex justify-content-center">
-                            <button type="submit" name="submit" <?= ! $is_viewing ? "" : "disabled" ?> value="submit" class="btn btn-success mx-1 flex-grow-1">Submit Request</button>
+                            <button type="submit" name="submit" value="submit" class="btn btn-success mx-1 flex-grow-1">Submit Request</button>
                         </div>
                         <!--=========================================== END OF FORM BUTTONS ===================================================-->
                     </form>
