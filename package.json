@@ -4,6 +4,7 @@
     "html2canvas": "^1.4.1",
     "html2canvas-proxy": "^1.0.1",
     "signature_pad": "^4.1.6",
-    "socket.io": "^4.6.1"
+    "socket.io": "^4.6.1",
+    "socket.io-client": "^4.7.5"
   }
 }
