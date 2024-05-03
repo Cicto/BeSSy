@@ -95,16 +95,4 @@ class BaseController extends Controller
         );
         return (!$dept['error'] ? $dept['data'] : false);
     }
-
-    public function getConvoInfo($userId, $deptId, $clientName){ 
-        $convoInfo = $this->masterModel->get('convo_list', '*', ['client_id' => $userId, 'office_id' => $deptId]);
-
-        if($convoInfo['error'] == true){ // error is true
-            $createConvo = $this->masterModel->insert('convo_list', ['client_id' => $userId, 'office_id' => $deptId, 'created_by' => $userId, 'actor' => $clientName]);
-            
-            return $createConvo['data'];
-        }else{
-           return (int)$convoInfo['data'][0]->convo_id;
-        }
-    }
 }
