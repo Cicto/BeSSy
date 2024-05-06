@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="card-toolbar">
-                            <a class = "btn btn-link btn-color-primary" id = "video-call-btn" data-convo-id = "0">
+                            <a class = "btn btn-link btn-color-primary video-call-btn" data-convo-id = "0">
                                 <i class="fa-solid fa-video fs-1"></i>
                             </a>
                         </div>
@@ -118,37 +118,7 @@
         </div>
     </div>
 </div>
-
-<div class="modal fade " tabindex="-1" id="call-modal" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-transparent h-50">
-                <div class="modal-header border-0 bg-white d-flex flex-center h-lg-100px bg-success py-10">
-                    <h3 class="modal-title ">
-                        <span class = "fa fa-phone text-white fs-3hx"></span>
-                    </h3>
-                </div>
-
-                <div class="modal-body rounded-bottom bg-white d-flex flex-center flex-column h-lg-200px ">
-                    <span class = "text-gray-700 fw-bold">Other line is ringing</span>
-                    <span class = "text-gray-400 fs-8">Waiting for [Client Name]'s response.</span>
-                </div>
-
-                <div class="modal-footer d-flex flex-center p-0 border-0 pt-3 ">
-                    <div class="row w-100 p-0">
-                        <div class="col-12 p-0 pe-3">
-                            <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal" id = "deny-call">
-                                <span class = "fa fa-close"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <audio id="myAudio" muted>
-        <source  type="audio/mp3" src="<?= base_url()?>/public/assets/sounds/waiting.wav">
-        Your browser does not support the audio element.
-    </audio>
+    
 <?= $this->endSection(); ?>
 
 <?= $this->section('css'); ?>
@@ -167,33 +137,14 @@
 <?= $this->endSection(); ?>
 <?= $this->section('javascript'); ?>
 <script src = "<?= base_url()?>/public/assets/js/socket-io.js"></script>
-<script src = "<?= base_url()?>/public/assets/js/chat.js"></script>
 <script>
     let _convoObj, room = 0;
     $(document).ready(function(){
-        var audio = document.getElementById("myAudio");
-        
-        document.addEventListener("click", function() {
-            audio.muted = false;
-            audio.loop=true;
-        });
-
         socket.on('receive-message', (data) => {
             console.log(data);
             receivedMessage(data);
         });
-        socket.on('denied-call', (data) => {
-            $('#call-modal').modal('hide');
-            toastr.error('Call is denied by the other line.');
-
-        });
-        socket.on('accepted-call', (data) => {
-            // $('#call-modal').modal('hide');
-            window.open ('<?= base_url()?>'+'/chats/videoCall/'+data,"mywindow","menubar=0,resizable=0,width=700,height=600");
-            audio.pause();
-            $('#call-modal').modal('hide');
-        });
-
+        
         const dropzone = document.querySelector('#upload-file');
         var myDropzone = new Dropzone('#upload-file', { // Make the whole body a dropzone
             url: "<?= base_url()?>/chats/uploadFile/"+room, // Set the url for your upload script location
@@ -258,7 +209,7 @@
             room = this.dataset.convoId;
             myDropzone.options.url = "<?= base_url()?>/chats/uploadFile/"+room;
             $('[name="convo_id"]').val(this.dataset.convoId);
-            $('#video-call-btn').attr('data-convo-id', this.dataset.convoId);
+            $('.video-call-btn').attr('data-convo-id', this.dataset.convoId);
             
             $('#convo-cover').remove();
             ajaxRequest(
@@ -294,18 +245,6 @@
             let data = JSON.parse(response);
             socket.emit('send-message', data, room);
             myMessage(data, true);
-        });
-
-        $(document).on('click', '#video-call-btn', function(){
-            // window.open ('<?= base_url()?>'+'/chats/videoCall/'+this.dataset.convoId,"mywindow","menubar=0,resizable=0,width=700,height=600");
-            socket.emit('send-call', this.dataset.convoId);
-            audio.play();
-            $('#call-modal').modal('show');
-        });
-
-        $(document).on('click', '#deny-call', function(){
-            $('#call-modal').modal('hide');
-            socket.emit('deny-call', room);
         });
     })
 </script>

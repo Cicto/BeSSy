@@ -3,6 +3,11 @@ let filterObject = async(object, filterKey, filterValue) => {
     return filteredObj;
 }
 
+let removeObject = async(object, filterKey, filterValue) => {
+    let filteredObj = object.filter(obj => obj[filterKey] == filterValue);
+    return filteredObj;
+}
+
 let sortObject = async(object, filterKey, filterValue) =>{
     sortable.sort(function(a, b) {
         return a[1] - b[1];
@@ -68,11 +73,11 @@ let successAlert = (title="Success", message="Operation successfully completed",
         customClass: {
             icon: 'shadow-md m-0 fs-2 mt-5',
             confirmButton: "btn btn-success w-50",
-            header: 'p-0 m-0 bg-success pt-7 pb-5 rounded',
+            header: 'p-0 m-0 bg-success pt-7 pb-5 rounded-top',
             title: 'w-100 m-0 text-white flex-center pt-3 pb-10',
             loader: 'pt-20',
-            content: 'pt-5',
-            popup: 'pb-7',
+            content: 'p-5',
+            popup: 'p-0 pb-7',
         },
         focusConfirm: false,
         buttonsStyling: false,

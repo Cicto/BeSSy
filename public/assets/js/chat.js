@@ -38,7 +38,6 @@ const plotMessages = (data, activeUser, element) => {
         })
         scrollMsgBottom();
     }
-    
 }
 
 const myMessage = (data) => {
@@ -161,6 +160,44 @@ const receivedFile = (data) => {
     `);
     
     scrollMsgBottom();
+}
+
+let queueCall = async (data, deptId) => {
+    if(data.length > 0){
+        let deptQueues = await filterObject(data, 'deptId', deptId);
+        if(deptQueues.length > 0){
+            $('.queue-cover').addClass('d-none');
+            $('#queued-calls .queue-item').remove();
+            deptQueues.forEach(function(i){
+                $('#queued-calls').append(`
+                    <div class="w-lg-500px w-md-300px bg-city-blue text-white p-4 rounded me-4 shadow-sm hover-elevate-up queue-item">
+                        <div class="d-flex flex-stack">
+                            <div class="d-flex flex-row">
+                                <!-- <div class="symbol symbol-30px me-4">
+                                    <div class="symbol-label fs-2 fw-semibold bg-primary text-white">
+                                        <i class="fa-solid fa-phone-volume text-white"></i>
+                                    </div>
+                                </div> -->
+                                <div class="d-flex flex-column lh-1 align-self-end">
+                                    <span class = "fw-bold ">${i.clientName}</span>
+                                    <span class = "fs-8">${i.time}</span>
+                                </div>
+                            </div>
+                            <span>
+                                <button class = "btn btn-link btn-sm m-0 p-0 text-success me-5 video-call-btn" data-convo-id="${i.room}"><span class = "fa fa-check"></span></button>
+                                <button class = "btn btn-link btn-sm m-0 p-0 text-danger me-2 reject-queue" data-convo-id="${i.room}"><span class = "fa fa-close"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                `);
+            })
+        }
+    }
+    else{
+        $('#queued-calls .queue-item').remove();
+        $('.queue-cover').removeClass('d-none');
+    }
+    
 }
 
 let callModal = (element, audio) => {
