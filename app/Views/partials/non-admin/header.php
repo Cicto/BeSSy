@@ -1,6 +1,6 @@
 <div id="kt_app_header" class="app-header shadow-none bg-transparent">
     <!--begin::Header container-->
-    <div class="app-container container-fluid d-flex align-items-stretch justify-content-between"
+    <div class="app-container container d-flex align-items-stretch justify-content-between"
         id="kt_app_header_container">
         <!--begin::sidebar mobile toggle-->
         <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show sidebar menu">
@@ -27,7 +27,7 @@
         </div>
         <!--end::Mobile logo-->
         <!--begin::Header wrapper-->
-        <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+        <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1 " id="kt_app_header_wrapper">
             <!--begin::Menu wrapper-->
             <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true"
                 data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}"

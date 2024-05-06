@@ -10,6 +10,33 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>/public/assets/media/logos/bessy-mini-logo.png">
     <?= $this->include('partials/cssLibraries')?>
     <?= $this->renderSection('css'); ?>
+    <style>
+        :root{
+            --kt-app-sidebar-width: 140px;
+            --kt-app-sidebar-width-actual: 140px;
+            --kt-app-header-height: 120px
+        }
+        .app-footer{
+            max-width: 1320px;
+            width: 100%;
+            margin: auto;
+            background: transparent !important;
+        }
+        .app-header{
+            transition: 0.5s;
+            position: absolute !important;
+        }
+        @media (min-width: 992px) {
+            .app-container {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .app-header{
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+    </style>
 </head>
 
 <body id="kt_app_body" data-kt-app-layout="light-sidebar" data-kt-app-header-fixed="true"
@@ -27,8 +54,10 @@
                 <?= $this->include('partials/non-admin/sidebar')?>
 
                 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                    <div class="container p-0 h-100">
 
-                    <?= $this->renderSection('content'); ?>
+                        <?= $this->renderSection('content'); ?>
+                    </div>
 
                     <?= $this->include('partials/footer')?>
                 </div>
@@ -38,6 +67,21 @@
     <?= $this->include('partials/chatDrawer')?>
     <?= $this->include('partials/jsLibraries')?>
     <?= $this->renderSection('javascript'); ?>
+    <script>
+        $(function () {
+            $(`.app-sidebar-menu .menu-item .menu-link[href='${window.location.href.replaceAll("#", "").replace(/\/$/, "")}']`).first().addClass("active");
+        
+            // $(window).scroll(function() {    
+            //     const scroll = $(window).scrollTop();
+            //     console.log(scroll)
+            //     if (scroll <= 250) { // change this 500 by your own need
+            //         $(".app-header").addClass("bg-transparent shadow-none").removeClass("bg-white");
+            //     } else {
+            //         $(".app-header").addClass("bg-white").removeClass("bg-transparent shadow-none");
+            //     }
+            // })
+        });
+    </script>
 </body>
 
 </html>
