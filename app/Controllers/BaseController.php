@@ -106,5 +106,5 @@ class BaseController extends Controller
         }else{
            return (int)$convoInfo['data'][0]->convo_id;
         }
-    }
+    } 
 }
