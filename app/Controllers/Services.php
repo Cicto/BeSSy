@@ -13,7 +13,7 @@ class Services extends BaseController
     public function departmentServices($deptID)
     {   
         $services = $this->masterModel->get('services', 'service_id, dept_id, service_alias, service_name, service_view', ['deleted_at'  => null, 'dept_id' => $deptID]);
-        $convoInfo = $this->getConvoInfo(user_id(), $deptID, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
+        $convoInfo = $this->getConvoInfo(user_id(), $deptID, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname); 
         $this->viewData['title'] = 'Department Services';
         $this->viewData['services'] = (!$services['error']) ? $services['data'] : false;
         $this->viewData['departmentInfo'] = $this->getDepartments($deptID);
