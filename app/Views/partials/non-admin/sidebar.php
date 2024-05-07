@@ -58,6 +58,7 @@
                         <!-- <span class="menu-title fw-bold fs-2">Applications</span> -->
                     </a>
                 </div> 
+                <?php if($userInformation->role != 5):?>
                 <div class="menu-item">
                     <a class="menu-link d-flex flex-column" href="<?= base_url()?>/chats">
                         <span class="menu-icon m-0">
@@ -71,7 +72,8 @@
                         </span>
                         <!-- <span class="menu-title fw-bold fs-2">Chats</span> -->
                     </a>
-                </div>  
+                </div> 
+                <?php endif;?>
             </div>
         </div>
     </div>

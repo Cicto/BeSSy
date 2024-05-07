@@ -53,9 +53,9 @@
             </button>
         </div>
         <div class="input-group input-group-solid">
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-            <span class="input-group-text border-0">
-                <button class = "btn btn-link btn-color-primary btn-active-color-primary p-0 m-0">
+            <textarea class="form-control" data-kt-autosize="true" aria-label="With textarea"></textarea>
+            <span class="input-group-text border-0 d-flex flex-column flex-end">
+                <button class = "btn btn-link btn-color-primary btn-active-color-primary p-0 m-0 mb-2">
                     <span class="svg-icon svg-icon-muted svg-icon-2hx" >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style = "rotate: 45deg;">
                             <path d="M15.43 8.56949L10.744 15.1395C10.6422 15.282 10.5804 15.4492 10.5651 15.6236C10.5498 15.7981 10.5815 15.9734 10.657 16.1315L13.194 21.4425C13.2737 21.6097 13.3991 21.751 13.5557 21.8499C13.7123 21.9488 13.8938 22.0014 14.079 22.0015H14.117C14.3087 21.9941 14.4941 21.9307 14.6502 21.8191C14.8062 21.7075 14.9261 21.5526 14.995 21.3735L21.933 3.33649C22.0011 3.15918 22.0164 2.96594 21.977 2.78013C21.9376 2.59432 21.8452 2.4239 21.711 2.28949L15.43 8.56949Z" fill="currentColor"/>

@@ -17,6 +17,9 @@ class Services extends BaseController
         $this->viewData['title'] = 'Department Services';
         $this->viewData['services'] = (!$services['error']) ? $services['data'] : false;
         $this->viewData['departmentInfo'] = $this->getDepartments($deptID);
+        $convoInfo = $this->getConvoInfo(user_id(), 0, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
+        $this->viewData['convoInfo'] = $convoInfo;
+
 
         return view('services/departmentServices', $this->viewData);
     }
@@ -28,6 +31,8 @@ class Services extends BaseController
             $this->viewData['service'] = (!$service['error']) ? $service['data'][0] : false;
             $this->viewData['departmentInfo'] = $this->getDepartments($service['data'][0]->dept_id);
             $this->viewData['title'] = $service['data'][0]->service_name; 
+            $convoInfo = $this->getConvoInfo(user_id(), 0, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
+            $this->viewData['convoInfo'] = $convoInfo;
             return view('services/' . $service['data'][0]->service_view, $this->viewData);
         }
     }

@@ -23,8 +23,11 @@
             background: transparent !important;
         }
         .app-header{
-            transition: 0.5s;
+            transition: 0.1s;
             position: relative;
+        }
+        .app-header.bg{
+            background-color: var(--kt-app-sidebar-light-bg-color);
         }
         @media (min-width: 992px) {
             :root{
@@ -38,7 +41,7 @@
             .app-header{
                 padding-left: 0 !important;
                 padding-right: 0 !important;
-                position: absolute;
+                position: relative;
             }
         }
     </style>
@@ -78,15 +81,15 @@
     <script>
         $(function () {
             $(`.app-sidebar-menu .menu-item .menu-link[href='${window.location.href.replaceAll("#", "").replace(/\/$/, "")}']`).first().addClass("active");
-            // $(window).scroll(function() {    
-            //     const scroll = $(window).scrollTop();
-            //     console.log(scroll)
-            //     if (scroll <= 100) { // change this 500 by your own need
-            //         $(".app-header").addClass("bg-transparent shadow-none").removeClass("bg-white");
-            //     } else {
-            //         $(".app-header").addClass("bg-white").removeClass("bg-transparent shadow-none");
-            //     }
-            // })
+            $(window).scroll(function() {    
+                const scroll = $(window).scrollTop();
+                console.log(scroll)
+                if (scroll <= 100) { // change this 500 by your own need
+                    $(".app-header").addClass("bg-transparent shadow-none").removeClass("bg");
+                } else {
+                    $(".app-header").addClass("bg").removeClass("bg-transparent shadow-none");
+                }
+            })
         });
     </script>
 </body>
