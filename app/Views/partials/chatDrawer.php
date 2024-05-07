@@ -368,7 +368,7 @@
             let room = <?= $convoInfo ?>;
             socket.emit('join-room', room);
             socket.emit('remove-to-queue', room, (res) => {
-                queueCall(res.queue, '<?= $departmentInfo[0]->dept_id?>');
+                queueCall(res.queue, '<?= ($departmentInfo != false) ? $departmentInfo[0]->dept_id : 36?>');
             });
             socket.on('receive-message', (data) => {
                 console.log(data);
