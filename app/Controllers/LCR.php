@@ -31,6 +31,7 @@ class LCR extends BaseController
                 "service_id" => $service_id,
                 "application_id" => $application_id,
                 "created_by" => $this->userInformation['data'][0]->user_id,
+                "status" => 0,
                 "actor" =>  $this->userInformation['data'][0]->firstname . " " . $this->userInformation['data'][0]->lastname
             ];
 
@@ -65,6 +66,7 @@ class LCR extends BaseController
                 "service_id" => $service_id,
                 "application_id" => $application_id,
                 "created_by" => $this->userInformation['data'][0]->user_id,
+                "status" => 0,
                 "actor" =>  $this->userInformation['data'][0]->firstname . " " . $this->userInformation['data'][0]->lastname
             ];
 
@@ -99,6 +101,7 @@ class LCR extends BaseController
                 "service_id" => $service_id,
                 "application_id" => $application_id,
                 "created_by" => $this->userInformation['data'][0]->user_id,
+                "status" => 0,
                 "actor" =>  $this->userInformation['data'][0]->firstname . " " . $this->userInformation['data'][0]->lastname
             ];
 

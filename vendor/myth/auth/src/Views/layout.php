@@ -9,7 +9,6 @@
     <link rel="icon" href="../../../../favicon.ico">
     <link href="<?= base_url()?>/public/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url()?>/public/assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/public/assets/css/my-custom.css" rel="stylesheet" type="text/css" />
     
 
     <!-- <link href="<?= base_url()?>/public/assets/css/corporate/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" /> -->

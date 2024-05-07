@@ -61,29 +61,32 @@
                 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                     <div class="container p-0 h-100">
 
-                        <?= $this->renderSection('content'); ?>
-                    </div>
+                    <?= $this->renderSection('content'); ?>
 
                     <?= $this->include('partials/footer')?>
                 </div>
             </div>
         </div>
     </div>
+    <audio id="myAudio" muted>
+        <source  type="audio/mp3" src="<?= base_url()?>/public/assets/sounds/waiting.wav">
+        Your browser does not support the audio element.
+    </audio>
     <?= $this->include('partials/chatDrawer')?>
     <?= $this->include('partials/jsLibraries')?>
     <?= $this->renderSection('javascript'); ?>
     <script>
         $(function () {
             $(`.app-sidebar-menu .menu-item .menu-link[href='${window.location.href.replaceAll("#", "").replace(/\/$/, "")}']`).first().addClass("active");
-            $(window).scroll(function() {    
-                const scroll = $(window).scrollTop();
-                console.log(scroll)
-                if (scroll <= 100) { // change this 500 by your own need
-                    $(".app-header").addClass("bg-transparent shadow-none").removeClass("bg-white");
-                } else {
-                    $(".app-header").addClass("bg-white").removeClass("bg-transparent shadow-none");
-                }
-            })
+            // $(window).scroll(function() {    
+            //     const scroll = $(window).scrollTop();
+            //     console.log(scroll)
+            //     if (scroll <= 100) { // change this 500 by your own need
+            //         $(".app-header").addClass("bg-transparent shadow-none").removeClass("bg-white");
+            //     } else {
+            //         $(".app-header").addClass("bg-white").removeClass("bg-transparent shadow-none");
+            //     }
+            // })
         });
     </script>
 </body>

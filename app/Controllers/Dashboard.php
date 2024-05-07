@@ -26,7 +26,7 @@ class Dashboard extends BaseController
                 return view('dashboards/officeHead', $this->viewData);
             break;
             case '3': // Office Staff
-                $this->viewData['departmentInfo'] = false;
+                $this->viewData['departmentInfo'] = $this->getDepartments($this->viewData['userInformation']->dept_id);
                 return view('dashboards/officeStaff', $this->viewData);
             break;
             case '4': // Encoder

@@ -49,7 +49,7 @@ class Chats extends BaseController
     }
 
     public function getConvoList(){
-        $builder = $this->masterModel->getDataTables('convo_list', 'convo_id, client_id, office_id, actor', ['deleted_at'=> NULL]);
+        $builder = $this->masterModel->getDataTables('convo_list', 'convo_id, client_id, office_id, actor', ['deleted_at'=> NULL, 'office_id' => $this->userInformation['data'][0]->dept_id]);
         return DataTable::of($builder)->toJson(true);
     }
 
@@ -62,7 +62,7 @@ class Chats extends BaseController
                 'message' => 'Messages found!',
                 'data' => $chats['data'],
                 'senderPhoto' => ($this->viewData['userInformation']->user_photo != '') ? $this->viewData['userInformation']->user_photo : 'default-avatar.png'
-            ]); 
+            ]);
         }
         else{
             echo json_encode([
