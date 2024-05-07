@@ -9,15 +9,15 @@ use App\Libraries\TemplateLib;
 use Myth\Auth\Password;
 use \Hermawan\DataTables\DataTable;
 
-class Population extends BaseController
+class Assessor extends BaseController
 {
-    public function addPopComServices()
+    public function addFieldInspectionRequest()
     {
         if ($this->request->isAJAX()) {
             $data = $this->request->getPost();
             $service_id = $data["service_id"];
             unset($data["service_id"]);
-            $insert_result = $this->masterModel->insert('popcom_services', $data);
+            $insert_result = $this->masterModel->insert('field_inspection_request', $data);
 
 
             if ($insert_result["error"]) {
@@ -30,7 +30,6 @@ class Population extends BaseController
                 "service_id" => $service_id,
                 "application_id" => $application_id,
                 "created_by" => $this->userInformation['data'][0]->user_id,
-                "status" => 0,
                 "actor" =>  $this->userInformation['data'][0]->firstname . " " . $this->userInformation['data'][0]->lastname
             ];
 

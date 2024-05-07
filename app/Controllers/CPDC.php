@@ -9,16 +9,23 @@ use App\Libraries\TemplateLib;
 use Myth\Auth\Password;
 use \Hermawan\DataTables\DataTable;
 
-class Population extends BaseController
+class CPDC extends BaseController
 {
-    public function addPopComServices()
+    public function addZoningPermit()
     {
         if ($this->request->isAJAX()) {
             $data = $this->request->getPost();
+
             $service_id = $data["service_id"];
             unset($data["service_id"]);
-            $insert_result = $this->masterModel->insert('popcom_services', $data);
+            $result_array = "";
+            foreach ($this->request->getPost('site') as $site_data) {
+                $result_array .= $site_data . " ";
+            }
 
+            $data["site"] = $result_array;
+
+            $insert_result = $this->masterModel->insert('zoning_permit', $data);
 
             if ($insert_result["error"]) {
                 return json_encode($insert_result);

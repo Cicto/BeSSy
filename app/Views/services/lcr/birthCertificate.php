@@ -1,6 +1,8 @@
 <?= $this->extend('layouts/nonAdminContainer'); ?>
 <?= $this->section('content'); ?>
-
+<?php
+$is_viewing = isset($transaction_info);
+?>
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
     <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
@@ -69,38 +71,38 @@
                                 <div class="row">
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="last_name" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" required>
+                                        <input type="text" name="first_name"  value="<?= $is_viewing ? $transaction_info->first_name : "" ?>"<?= $is_viewing && $status->status == "1" || $status->status == "2" ? 'disabled' : '' ?> id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="first_name" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" value="" required>
+                                        <input type="text" name="middle_name"  value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>"<?= $is_viewing && $status->status == "1" || $status->status == "2" ? 'disabled' : '' ?> id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="" required>
+                                        <input type="text" name="last_name"  value="<?= $is_viewing ? $transaction_info->last_name : "" ?>"<?= $is_viewing && $status->status == "1" || $status->status == "2" ? 'disabled' : '' ?> id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Place of Birth</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="birth_place" id="birth-place" class="form-control form-control-lg form-control-solid" placeholder="Place of Birth" value="" required>
+                                <input type="text" name="birth_place" value="<?= $is_viewing ? $transaction_info->birth_place : "" ?>" id="birth-place" class="form-control form-control-lg form-control-solid" placeholder="Place of Birth" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date of Birth</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="date" name="birth_date" id="birth-date" class="form-control form-control-lg form-control-solid" placeholder="Date of Birth" value="" required>
+                                <input type="date" name="birth_date"  value="<?= $is_viewing ? $transaction_info->birth_date : "" ?>" id="birth-date" class="form-control form-control-lg form-control-solid" placeholder="Date of Birth" value="" required>
                             </div>
                         </div>
 
@@ -113,24 +115,24 @@
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="mothers_first_name" id="mothers-first-name" class="form-control form-control-lg form-control-solid" placeholder="Mother's First Name" value="" required>
+                                        <input type="text" name="mothers_first_name"  value="<?= $is_viewing ? $transaction_info->mothers_first_name : "" ?>" id="mothers-first-name" class="form-control form-control-lg form-control-solid" placeholder="Mother's First Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="mothers_middle_name" id="mothers-middle-name" class="form-control form-control-lg form-control-solid" placeholder="Mother's Middle Name" value="" required>
+                                        <input type="text" name="mothers_middle_name"  value="<?= $is_viewing ? $transaction_info->mothers_middle_name : "" ?>" id="mothers-middle-name" class="form-control form-control-lg form-control-solid" placeholder="Mother's Middle Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="mothers_last_name" id="mothers-last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Mother's Last Name" value="" required>
+                                        <input type="text" name="mothers_last_name"  value="<?= $is_viewing ? $transaction_info->mothers_last_name : "" ?>" id="mothers-last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Mother's Last Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Father's Name</label>
 
@@ -138,34 +140,34 @@
                                 <div class="row">
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="fathers_first_name" id="fathers-first-name" class="form-control form-control-lg form-control-solid" placeholder="Father's First Name" value="" required>
+                                        <input type="text" name="fathers_first_name"  value="<?= $is_viewing ? $transaction_info->fathers_first_name : "" ?>" id="fathers-first-name" class="form-control form-control-lg form-control-solid" placeholder="Father's First Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="fathers_middle_name" id="fathers-middle-name" class="form-control form-control-lg form-control-solid" placeholder="Father's Middle Name" value="" required>
+                                        <input type="text" name="fathers_middle_name"  value="<?= $is_viewing ? $transaction_info->fathers_middle_name : "" ?>" id="fathers-middle-name" class="form-control form-control-lg form-control-solid" placeholder="Father's Middle Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="fathers_last_name" id="fathers-last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Father's Last Name" value="" required>
+                                        <input type="text" name="fathers_last_name"  value="<?= $is_viewing ? $transaction_info->fathers_last_name : "" ?>" id="fathers-last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Father's Last Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Requester:</label>
 
                             <div class="col-lg-8 fv-row">
-                                <select class="form-select form-select-solid" name="requester" id="requester" data-control="select2" data-placeholder="Requester" required>
+                                <select class="form-select form-select-solid" name="requester"  id="requester" data-control="select2" data-placeholder="Requester" required>
                                     <option selected="" value="" disabled>Requester</option>
-                                    <option value="1">Document Owner</option>
-                                    <option value="2">Spouse</option>
-                                    <option value="3">Parent</option>
-                                    <option value="4">Sons/Daughters</option>
-                                    <option value="5">Authorized Representative of the Owner</option>
+                                    <option value="1" value="<?= $is_viewing ? $transaction_info->requester : "" ?>" <?= $is_viewing && $transaction_info->requester == "1" ? 'selected' : '' ?>>Document Owner</option>
+                                    <option value="2" value="<?= $is_viewing ? $transaction_info->requester : "" ?>" <?= $is_viewing && $transaction_info->requester == "2" ? 'selected' : '' ?>>Spouse</option>
+                                    <option value="3" value="<?= $is_viewing ? $transaction_info->requester : "" ?>" <?= $is_viewing && $transaction_info->requester == "3" ? 'selected' : '' ?>>Parent</option>
+                                    <option value="4" value="<?= $is_viewing ? $transaction_info->requester : "" ?>" <?= $is_viewing && $transaction_info->requester == "4" ? 'selected' : '' ?>>Sons/Daughters</option>
+                                    <option value="5" value="<?= $is_viewing ? $transaction_info->requester : "" ?>" <?= $is_viewing && $transaction_info->requester == "5" ? 'selected' : '' ?>>Authorized Representative of the Owner</option>
                                 </select>
                                 <div class="form-text text-end">
                                     If the requester is not the document owner him/herself, they must provide an
@@ -173,25 +175,27 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Purpose:</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="purpose" id="purpose" class="form-control form-control-lg form-control-solid" placeholder="Purpose" value="" required>
+                                <input type="text" name="purpose"  value="<?= $is_viewing ? $transaction_info->purpose : "" ?>" id="purpose" class="form-control form-control-lg form-control-solid" placeholder="Purpose" value="" required>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-8">
                             <label class="col-lg-4 col-form-label fw-semibold fs-6">Remarks:</label>
 
                             <div class="col-lg-8 fv-row">
-                                <textarea name="remarks" id="remarks" class="form-control form-control-lg form-control-solid w-100" rows="5" placeholder="Remarks..."></textarea>
+                                <textarea name="remarks" value=""  id="remarks" class="form-control form-control-lg form-control-solid w-100" rows="5" placeholder="Remarks...">
+                                    <?= $is_viewing ? $transaction_info->remarks : "" ?>
+                                </textarea>
                             </div>
                         </div>
-                        
-                        <input type="number" name="service_id" value="<?= $service->service_id ?>" class="d-none"required>
-                        
+
+                        <input type="number" name="service_id" value="<?= $service->service_id ?>" class="d-none" required>
+
 
 
                         <!--=================================================== END OF YOUR CODE ==============================================-->

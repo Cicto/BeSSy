@@ -1,0 +1,72 @@
+ERROR - 2024-05-03 10:32:05 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-05-03 10:32:15 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-05-03 10:32:16 --> Table 'baliwagc_bessy_db.convo_list' doesn't exist
+ERROR - 2024-05-03 10:32:16 --> Table 'baliwagc_bessy_db.convo_list' doesn't exist
+CRITICAL - 2024-05-03 10:32:18 --> Undefined variable $departmentInfo
+#0 C:\xampp\htdocs\Bessy\app\Views\partials\chatDrawer.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12)
+#1 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 C:\xampp\htdocs\Bessy\app\Views\layouts\nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('services/transa...', Array, true)
+#9 C:\xampp\htdocs\Bessy\app\Controllers\Applications.php(17): view('services/transa...', Array)
+#10 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Applications->index()
+#11 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Applications))
+#12 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\Bessy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-05-03 10:42:09 --> Undefined variable $departmentInfo
+#0 C:\xampp\htdocs\Bessy\app\Views\partials\chatDrawer.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12)
+#1 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 C:\xampp\htdocs\Bessy\app\Views\layouts\nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('services/transa...', Array, true)
+#9 C:\xampp\htdocs\Bessy\app\Controllers\Applications.php(17): view('services/transa...', Array)
+#10 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Applications->index()
+#11 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Applications))
+#12 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\Bessy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+ERROR - 2024-05-03 10:42:16 --> Table 'baliwagc_bessy_db.convo_list' doesn't exist
+ERROR - 2024-05-03 10:42:16 --> Table 'baliwagc_bessy_db.convo_list' doesn't exist
+ERROR - 2024-05-03 10:42:23 --> Table 'baliwagc_bessy_db.convo_list' doesn't exist
+ERROR - 2024-05-03 10:42:23 --> Table 'baliwagc_bessy_db.convo_list' doesn't exist
+CRITICAL - 2024-05-03 10:42:26 --> Undefined variable $convoInfo
+#0 C:\xampp\htdocs\Bessy\app\Views\partials\chatDrawer.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 37)
+#1 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 C:\xampp\htdocs\Bessy\app\Views\layouts\nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('services/assess...', Array, true)
+#9 C:\xampp\htdocs\Bessy\app\Controllers\Services.php(32): view('services/assess...', Array)
+#10 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Services->serviceView('9')
+#11 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\Bessy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-05-03 10:42:48 --> Undefined variable $convoInfo
+#0 C:\xampp\htdocs\Bessy\app\Views\partials\chatDrawer.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 37)
+#1 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 C:\xampp\htdocs\Bessy\app\Views\layouts\nonAdminContainer.php(38): CodeIgniter\View\View->include('partials/chatDr...')
+#5 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('services/assess...', Array, true)
+#9 C:\xampp\htdocs\Bessy\app\Controllers\Services.php(32): view('services/assess...', Array)
+#10 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Services->serviceView('9')
+#11 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#12 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\Bessy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}

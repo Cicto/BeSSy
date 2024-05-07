@@ -29,6 +29,6 @@
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
-        <span class="text-gray-700 fs-6 fw-semibold mt-5">Loading...</span>
+        <span class="text-muted fs-6 fw-semibold mt-5">Loading...</span>
     </div>
 </div>

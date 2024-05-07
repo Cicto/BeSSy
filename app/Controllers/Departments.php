@@ -10,6 +10,9 @@ use \Hermawan\DataTables\DataTable;
 
 class Departments extends BaseController
 {
+    
+
+
     public function index()
     {   
         $this->viewData['departments'] = $this->masterModel->get('departments', 'dept_id');
