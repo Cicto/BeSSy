@@ -1,4 +1,4 @@
-<div id="kt_app_header" class="app-header shadow-none bg-transparent">
+<div id="kt_app_header" class="app-header shadow-none border-0 bg-transparent">
     <!--begin::Header container-->
     <div class="app-container container d-flex align-items-stretch justify-content-between"
         id="kt_app_header_container">
