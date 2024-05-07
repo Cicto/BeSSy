@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/main'); ?>
+<?= $userInformation->role == 5 ? $this->extend('layouts/nonAdminContainer') : $this->extend('layouts/main'); ?>
 <?= $this->section('css'); ?>
 <style>
     #user-photo-preview{
@@ -174,7 +174,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-9 d-flex">
-                                        <button type="reset" class="btn btn-light-danger w-lg-200px me-3">Cancel</button>
+                                        <button type="reset" class="btn btn-light-danger w-lg-200px me-3" id="cancel-user-info-form">Cancel</button>
                                         <button type="submit" class="btn btn-primary flex-grow-1">Save Changes</button>
                                     </div>
                                 </div>
@@ -297,6 +297,9 @@
 
         });
         
+        $("#cancel-user-info-form").click(function(){
+            history.back();
+        })
         // User Photo
         const cropper_modal = bootstrap.Modal.getOrCreateInstance("#cropper-modal");
         let cropper;

@@ -31,6 +31,10 @@ class Users extends BaseController
         $this->viewData['roles'] = $this->getSystemRoles();
         $this->viewData['departments'] = $this->getDepartments();
         $this->viewData['barangays'] = $barangay_select["error"] ? FALSE : $barangay_select["data"];
+        $this->viewData['departmentInfo'] = false;
+        $convoInfo = $this->getConvoInfo(user_id(), 0, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
+        $this->viewData['convoInfo'] = $convoInfo;
+
         $this->viewData['url'] =  ROOTPATH;
 
         return view('users/editProfile', $this->viewData);

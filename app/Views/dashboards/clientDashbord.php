@@ -20,40 +20,40 @@
 
 <div class="d-flex flex-column flex-column-fluid mb-5">
     <div id="kt_app_content_container" class="app-container container-fluid h-100">
-        <div class="row">
-            <div class="col-6 col-lg-4">
+        <div class="row gy-6">
+            <div class="col-lg-4">
                 <div class="card h-100 bg-primary">
-                    <div class="card-body px-1 pb-0 d-flex flex-column justify-content-between">
-                        <div class="">
+                    <div class="card-body px-1 pb-0 d-flex flex-lg-column justify-content-between">
+                        <div class="flex-grow-1">
                             <h1 class="text-light px-5 mb-4">Introducing <b> BeSSY! </b> </h1>
                             <p class="px-5 text-gray-200 mb-10 fw-semibold lh-sm text-end">Your Baliwag City Hall online companion</p>
                         </div>
-                        <div class="d-flex justify-content-center">
-                            <img src="<?=base_url()?>/public/assets/media/illustrations/sigma-1/8.png" alt="Bessy" class="img-fluid w-75 theme-light-show">
-                            <img src="<?=base_url()?>/public/assets/media/illustrations/sigma-1/8-dark.png" alt="Bessy" class="img-fluid w-75 theme-dark-show">
+                        <div class="d-flex justify-content-center w-50 w-md-100">
+                            <img src="<?=base_url()?>/public/assets/media/illustrations/sigma-1/8.png" alt="Bessy" class="img-fluid w-75 w-lg-75 theme-light-show">
+                            <img src="<?=base_url()?>/public/assets/media/illustrations/sigma-1/8-dark.png" alt="Bessy" class="img-fluid w-75 w-lg-75 theme-dark-show">
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-8">
-                <div class="card h-100">
+                <div class="card h-100 hm-100px">
                     <div class="card-body d-flex align-items-center p-0 rounded overflow-hidden">
                         <div class="tns position-relative rounded overflow-hidden" id="tns-container" style="direction: ltr;">
-                            <div style="backdrop-filter: blur(8px);"  data-tns="true" data-tns-autoplay="true" data-tns-nav="false" data-tns-nav-position="bottom" data-tns-prev-button="#slider-prev" data-tns-next-button="#slider-next" data-tns-mouse-drag="true" data-tns-controls="true">
-                                <div class="rounded-2 overflow-hidden" style="background-image: url('<?=base_url()?>/public/assets/media/stock/600x400/img-1.jpg'); background-size: cover;">
-                                    <div class="w-100 h-100 text-center d-flex align-items-center justify-content-center" style="backdrop-filter: blur(8px);">
-                                        <img src="<?=base_url()?>/public/assets/media/stock/600x400/img-1.jpg" class="mw-100 h-100" alt="" />
+                            <div class="" style="backdrop-filter: blur(8px);" data-tns="true" data-tns-autoplay="true" data-tns-nav="false" data-tns-nav-position="bottom" data-tns-prev-button="#slider-prev" data-tns-next-button="#slider-next" data-tns-mouse-drag="true" data-tns-controls="true">
+                                <div class="rounded-2 overflow-hidden" style="background-image: url('<?=base_url()?>/public/assets/media/stock/900x600/51.jpg'); background-size: cover;">
+                                    <div class="w-100 h-100 text-center d-flex align-items-center justify-content-center" style="backdrop-filter: blur(10px);">
+                                        <img src="<?=base_url()?>/public/assets/media/stock/900x600/51.jpg" class="mw-100" alt="" />
                                     </div>
                                 </div>
                                 <div class="rounded-2 overflow-hidden" style="background-image: url('<?=base_url()?>/public/assets/media/stock/1600x800/img-2.jpg'); background-size: cover;">
-                                    <div class="w-100 h-100 text-center d-flex align-items-center justify-content-center">
-                                        <img src="<?=base_url()?>/public/assets/media/stock/1600x800/img-2.jpg" class="mw-100 h-100" alt="" />
+                                    <div class="w-100 h-100 text-center d-flex align-items-center justify-content-center" style="backdrop-filter: blur(10px);">
+                                        <img src="<?=base_url()?>/public/assets/media/stock/1600x800/img-2.jpg" class="mw-100" alt="" />
                                     </div>
                                 </div>
-                                <div class="rounded-2 overflow-hidden" style="background-image: url('<?=base_url()?>/public/assets/media/stock/600x400/img-3.jpg'); background-size: cover;">
-                                    <div class="w-100 h-100 text-center d-flex align-items-center justify-content-center">
-                                        <img src="<?=base_url()?>/public/assets/media/stock/600x400/img-3.jpg" class="mw-100 h-100" alt="" />
+                                <div class="rounded-2 overflow-hidden" style="background-image: url('<?=base_url()?>/public/assets/media/stock/600x400/img-5.jpg'); background-size: cover;">
+                                    <div class="w-100 h-100 text-center d-flex align-items-center justify-content-center" style="backdrop-filter: blur(10px);">
+                                        <img src="<?=base_url()?>/public/assets/media/stock/600x400/img-5.jpg" class="mw-100" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -110,6 +110,14 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-12" hidden>
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Need Help?</h1>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="separator separator-content border-gray-900 my-15">
             <h1 class="text-nowrap text-gray-800">Baliwag City Hall Offices</h1>
@@ -120,7 +128,7 @@
                     <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 mb-3">
                         <div class="card h-100 rounded-4">
                             <div class="card-body d-flex flex-column">
-                                <div class="illustration min-h-200px d-flex align-items-center justify-content-center">
+                                <div class="illustration min-h-200px d-none d-md-flex align-items-center justify-content-center">
                                     <div class="min-h-150px min-w-150px bg-gray-200 rounded-circle"></div>
                                     <div class="symbol symbol-50px d-flex flex-center position-absolute">
                                         <span class="svg-icon svg-icon-muted svg-icon-5hx svg-icon-light">

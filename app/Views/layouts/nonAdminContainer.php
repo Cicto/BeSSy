@@ -14,7 +14,7 @@
         :root{
             --kt-app-sidebar-width: 140px;
             --kt-app-sidebar-width-actual: 140px;
-            --kt-app-header-height: 120px
+            --kt-app-header-height: 70px;
         }
         .app-footer{
             max-width: 1320px;
@@ -24,9 +24,13 @@
         }
         .app-header{
             transition: 0.5s;
-            position: absolute !important;
+            position: relative;
         }
         @media (min-width: 992px) {
+            :root{
+                --kt-app-header-height: 120px;
+            }
+
             .app-container {
                 padding-left: 0 !important;
                 padding-right: 0 !important;
@@ -34,6 +38,7 @@
             .app-header{
                 padding-left: 0 !important;
                 padding-right: 0 !important;
+                position: absolute;
             }
         }
     </style>
@@ -70,16 +75,15 @@
     <script>
         $(function () {
             $(`.app-sidebar-menu .menu-item .menu-link[href='${window.location.href.replaceAll("#", "").replace(/\/$/, "")}']`).first().addClass("active");
-        
-            // $(window).scroll(function() {    
-            //     const scroll = $(window).scrollTop();
-            //     console.log(scroll)
-            //     if (scroll <= 250) { // change this 500 by your own need
-            //         $(".app-header").addClass("bg-transparent shadow-none").removeClass("bg-white");
-            //     } else {
-            //         $(".app-header").addClass("bg-white").removeClass("bg-transparent shadow-none");
-            //     }
-            // })
+            $(window).scroll(function() {    
+                const scroll = $(window).scrollTop();
+                console.log(scroll)
+                if (scroll <= 100) { // change this 500 by your own need
+                    $(".app-header").addClass("bg-transparent shadow-none").removeClass("bg-white");
+                } else {
+                    $(".app-header").addClass("bg-white").removeClass("bg-transparent shadow-none");
+                }
+            })
         });
     </script>
 </body>
