@@ -10,7 +10,7 @@
     $(document).ready(function(){
         const domain = 'meet.jit.si';
         const options = {
-            roomName: 'YourRoomName', // Specify your room name
+            roomName: 'Video Conference Room', // Specify your room name
             width: 800,
             height: 600,
             parentNode: document.querySelector('#jitsi-container'),
