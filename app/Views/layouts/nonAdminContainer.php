@@ -29,6 +29,7 @@
                 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 
                     <?= $this->renderSection('content'); ?>
+                    
                     <?= $this->include('partials/callQueue')?>
                     <?= $this->include('partials/footer')?>
                 </div>
