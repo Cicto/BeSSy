@@ -27,7 +27,7 @@
                 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 
                     <?= $this->renderSection('content'); ?>
-
+ 
                 </div>
             </div>
         </div>
