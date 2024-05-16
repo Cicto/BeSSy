@@ -116,7 +116,7 @@ class Chats extends BaseController
         }
     }
 
-    public function videoCall(){
+    public function videoCall($convoId){
         return view('chats/videoCall', $this->viewData);
     }
 }
