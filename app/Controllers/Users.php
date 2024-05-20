@@ -377,4 +377,8 @@ class Users extends BaseController
             return json_encode($password_update);
         }else{ throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(); }
     }
+
+    public function sampleEmail(){
+        return view('sampleEmail'); 
+    }
 }
