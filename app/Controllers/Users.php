@@ -13,8 +13,7 @@ use App\Libraries\TemplateLib;
 class Users extends BaseController
 {
 
-    public function index()
-    {   
+    public function index(){   
         // $this->viewData['departments'] = $this->masterModel->get('departments', 'dept_id');
         $this->viewData['title'] = 'System Users';
         $this->viewData['roles'] = $this->getSystemRoles();
@@ -23,8 +22,7 @@ class Users extends BaseController
         return view('users/users', $this->viewData);
     }
 
-    public function myProfile()
-    {
+    public function myProfile(){
         $barangay_select = $this->masterModel->get("refbrgy", "*", ["citymunCode" => "031403"]);
 
         $this->viewData['title'] = 'My Profile';
@@ -34,6 +32,22 @@ class Users extends BaseController
         $this->viewData['url'] =  ROOTPATH;
 
         return view('users/editProfile', $this->viewData);
+    }
+
+    public function newProfile(){
+        $check_user = $this->masterModel->get("user_info", "*", ["user_id" => user_id()]);
+        if($check_user["data"]){ return redirect()->to(base_url()); }
+
+        $barangay_select = $this->masterModel->get("refbrgy", "*", ["citymunCode" => "031403"]);
+
+        $this->viewData['title'] = 'New Profile';
+        $this->viewData['user_id'] = user_id();
+        $this->viewData['roles'] = $this->getSystemRoles();
+        $this->viewData['departments'] = $this->getDepartments();
+        $this->viewData['barangays'] = $barangay_select["error"] ? FALSE : $barangay_select["data"];
+        $this->viewData['url'] =  ROOTPATH;
+
+        return view('users/newProfile', $this->viewData);
     }
 
     public function getUsers(){
@@ -75,8 +89,7 @@ class Users extends BaseController
         $userInfo = $this->userInformation($userId);
     }
     
-    public function addUser()
-    {
+    public function addUser(){
         if($this->request->isAJAX()){
             $users = [
                 'email' => trim($this->request->getPost('email')),
@@ -132,8 +145,7 @@ class Users extends BaseController
         }
     }
 
-    public function updateUser()
-    {
+    public function updateUser(){
         if($this->request->isAJAX()){
             $message = '';
             $users = [
@@ -180,8 +192,7 @@ class Users extends BaseController
         }
     }
 
-    public function resetUserPassword($id)
-    {
+    public function resetUserPassword($id){
         if ($this->request->isAJAX())
         {
             $data = [
@@ -207,8 +218,27 @@ class Users extends BaseController
         }
     }
 
-    private function infoCheck($username = "", $email_address = "", $user_id_exception = 0)
-    {
+    public function addUserInfo($userId){
+        if($this->request->isAJAX()){
+            $user_info = $this->request->getPost();
+            $user_info['user_id'] = $userId;
+            $user_info['role'] = 5;
+            $user_info['user_qrcode'] = 'BALIWAG-EMP-00-'.str_pad($userId, 7, 0, STR_PAD_LEFT);
+            $user_info['dept_id'] = 1;
+
+            $insertUser = $this->masterModel->insert('user_info', $user_info);
+            
+            return json_encode($insertUser);
+        }else{
+            return json_encode([
+                'error' => true,
+                'message' => $insertUser['message'],
+                'data' => false
+            ]);
+        }
+    }
+
+    private function infoCheck($username = "", $email_address = "", $user_id_exception = 0){
         $where_condition = "username='$username' OR email='$email_address'";
         if($user_id_exception){
             $where_condition = "(username='$username' OR email='$email_address') AND id <> $user_id_exception";

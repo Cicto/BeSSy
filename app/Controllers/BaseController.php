@@ -45,7 +45,7 @@ class BaseController extends Controller
 
     protected $fromEmail = 'no-reply@baliwag.gov.ph';
 
-    protected $fromName = 'Baliwag City | Human Resource Information System';
+    protected $fromName = 'Baliwag City | Baliwag eServices System';
 
     /**
      * Constructor.
@@ -68,6 +68,10 @@ class BaseController extends Controller
                 ['departments', 'departments.dept_id = user_info.dept_id', 'left']
             ]
         );
+
+        if(!$this->userInformation['data']){
+            return redirect()->to(base_url("users/newProfile")); 
+        }
         
         $this->viewData = [
             'userInformation' => $this->userInformation['data'][0]
