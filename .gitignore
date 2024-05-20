@@ -26,3 +26,4 @@ php_errors.log
 .env
 .env
 .env
+/writable

@@ -99,46 +99,48 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="center" valign="top"><table border="0" cellpadding="1" cellspacing="0" height="0" width="100%">
-                                    <tbody>
-                                        <tr>
-                                            <td align="center" valign="middle">
-                                                <div style="
-                                                    text-align:left;
-                                                    padding:0 0 20px 0;
-                                                    font-size:14px;
-                                                    line-height:1.5;
-                                                    width:80%
-                                                ">
-                                                    Good day,
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="center" valign="middle">
-                                                <div style="
-                                                    text-align:left;
-                                                    padding:0 0 20px 0;
-                                                    font-size:14px;
-                                                    line-height:1.5;
-                                                    width:80%
-                                                ">
-                                                    This is an activation email for your account for <b> Baliwag eServices System (BESSY) </b>. 
-                                                    Click the button below to activate your account and enjoy the online services of the Baliwag City government.
-                                                    
-                                                    <div style="text-align: center; padding: 2rem;">
-                                                        <a href="#" style="
-                                                            background: #009ef7;
-                                                            padding: 10px 20px; 
-                                                            border-radius: 0.475rem;
-                                                            color: white;
-                                                            text-decoration: none;
-                                                        ">Activate Account</a>
+                                <td align="center" valign="top">
+                                    <table border="0" cellpadding="1" cellspacing="0" height="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" valign="middle">
+                                                    <div style="
+                                                        text-align:left;
+                                                        padding:0 0 20px 0;
+                                                        font-size:14px;
+                                                        line-height:1.5;
+                                                        width:80%
+                                                    ">
+                                                        Good day,
                                                     </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" valign="middle">
+                                                    <div style="
+                                                        text-align:left;
+                                                        padding:0 0 20px 0;
+                                                        font-size:14px;
+                                                        line-height:1.5;
+                                                        width:80%
+                                                    ">
+                                                        This is an activation email for your account for <b> Baliwag eServices System (BESSY) </b>. 
+                                                        Click the button below to activate your account and enjoy the online services of the Baliwag City government.
+                                                        
+                                                        <div style="text-align: center; padding: 2rem;">
+                                                            <a href="#" style="
+                                                                background: #009ef7;
+                                                                padding: 10px 20px; 
+                                                                border-radius: 0.475rem;
+                                                                color: white;
+                                                                text-decoration: none;
+                                                            ">Activate Account</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </td>
                             </tr>
                         </tbody>
@@ -146,7 +148,7 @@
                 </tr>
             </tbody>
         </table>
+        <small style="color: #888;"><br>If you did not registered on this website, you can safely ignore this email.</small>
     </div>
-    <small>If you did not registered on this website, you can safely ignore this email.</small>
 </body>
 </html>
