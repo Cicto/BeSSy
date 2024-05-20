@@ -67,7 +67,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Nature of Request:</label>
 
                             <div class="col-lg-8 fv-row">
-                                <select class="form-select form-select-solid" <?= ! $is_viewing ? " " : "disabled" ?> name="nature_of_request" id="nature-of-request" data-control="select2" data-placeholder="Nature of Request" required>
+                                <select class="form-select form-select-solid" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> name="nature_of_request" id="nature-of-request" data-control="select2" data-placeholder="Nature of Request" required>
                                     <option selected="" value="" disabled>Nature of Request</option>
                                     <option value="1" value="<?= $is_viewing ? $transaction_info->nature_of_request : "" ?>" <?= $is_viewing && $transaction_info->nature_of_request == "1" ? 'selected' : '' ?>>Reclassification of Land / Building</option>
                                     <option value="2" value="<?= $is_viewing ? $transaction_info->nature_of_request : "" ?>" <?= $is_viewing && $transaction_info->nature_of_request == "2" ? 'selected' : '' ?>>New Declaration</option>
@@ -78,7 +78,7 @@ $is_viewing = isset($transaction_info);
                                     <option value="7" value="<?= $is_viewing ? $transaction_info->nature_of_request : "" ?>" <?= $is_viewing && $transaction_info->nature_of_request == "7" ? 'selected' : '' ?>>Others, (Please Specify):</option>
                                 </select>
                                 <div class="col-lg-12 fv-row fv-plugins-icon-container mt-2" id="others-div" style="display:none;">
-                                    <input type="text" name="others" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->others : "" ?>" id="others" class="form-control form-control-lg form-control-solid" placeholder="Please Specify">
+                                    <input type="text" name="others" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->others : "" ?>" id="others" class="form-control form-control-lg form-control-solid" placeholder="Please Specify">
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>
                                 <div class="form-text text-end">
@@ -94,17 +94,17 @@ $is_viewing = isset($transaction_info);
                                 <div class="row">
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="first_name" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" value="" required>
+                                        <input type="text" name="first_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="" required>
+                                        <input type="text" name="middle_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="last_name" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" required>
+                                        <input type="text" name="last_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
@@ -116,7 +116,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Address</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="address" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->address : "" ?>" id="address" class="form-control form-control-lg form-control-solid" placeholder="Address" required>
+                                <input type="text" name="address" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->address : "" ?>" id="address" class="form-control form-control-lg form-control-solid" placeholder="Address" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date of Request</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="date" name="date_request" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->date_request : "" ?>" id="date-request" class="form-control form-control-lg form-control-solid" placeholder="Date of Request" required>
+                                <input type="date" name="date_request" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->date_request : "" ?>" id="date-request" class="form-control form-control-lg form-control-solid" placeholder="Date of Request" required>
                             </div>
                         </div>
 
@@ -133,7 +133,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label fw-semibold fs-6">Telephone Number</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="telephone_number" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->telephone_number : "" ?>" id="telephone-number" class="form-control form-control-lg form-control-solid" placeholder="Telephone Number">
+                                <input type="text" name="telephone_number" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->telephone_number : "" ?>" id="telephone-number" class="form-control form-control-lg form-control-solid" placeholder="Telephone Number">
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Contact Number</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="contact_number" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->contact_number : "" ?>" id="contact-number" class="form-control form-control-lg form-control-solid" placeholder="Contact Number" required>
+                                <input type="text" name="contact_number" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->contact_number : "" ?>" id="contact-number" class="form-control form-control-lg form-control-solid" placeholder="Contact Number" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -153,7 +153,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Lot Number</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="lot_number" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->lot_number : "" ?>" id="lot-number" class="form-control form-control-lg form-control-solid" placeholder="Lot Number" required>
+                                <input type="text" name="lot_number" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->lot_number : "" ?>" id="lot-number" class="form-control form-control-lg form-control-solid" placeholder="Lot Number" required>
                             </div>
                         </div>
 
@@ -161,7 +161,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Area</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="area" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->area : "" ?>" id="area" class="form-control form-control-lg form-control-solid" placeholder="Area" required>
+                                <input type="text" name="area" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->area : "" ?>" id="area" class="form-control form-control-lg form-control-solid" placeholder="Area" required>
                             </div>
                         </div>
 
@@ -169,7 +169,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Property Location</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="property_location" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->property_location : "" ?>" id="property-location" class="form-control form-control-lg form-control-solid" placeholder="Property Location" required>
+                                <input type="text" name="property_location" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->property_location : "" ?>" id="property-location" class="form-control form-control-lg form-control-solid" placeholder="Property Location" required>
                             </div>
                         </div>
 
@@ -177,7 +177,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Baranggay</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="baranggay" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->baranggay : "" ?>" id="baranggay" class="form-control form-control-lg form-control-solid" placeholder="Baranggay" required>
+                                <input type="text" name="baranggay" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->baranggay : "" ?>" id="baranggay" class="form-control form-control-lg form-control-solid" placeholder="Baranggay" required>
                             </div>
                         </div>
 
@@ -188,17 +188,17 @@ $is_viewing = isset($transaction_info);
                                 <div class="row">
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="representative_first_name" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->representative_first_name : "" ?>" id="representative-first-name" class="form-control form-control-lg form-control-solid" placeholder="Representative First Name" required>
+                                        <input type="text" name="representative_first_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->representative_first_name : "" ?>" id="representative-first-name" class="form-control form-control-lg form-control-solid" placeholder="Representative First Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="representative_middle_name" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->representative_middle_name : "" ?>" id="representative-middle-name" class="form-control form-control-lg form-control-solid" placeholder="Representative Middle Name" required>
+                                        <input type="text" name="representative_middle_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->representative_middle_name : "" ?>" id="representative-middle-name" class="form-control form-control-lg form-control-solid" placeholder="Representative Middle Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="representative_last_name" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->representative_last_name : "" ?>" id="representative-last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Representative Last Name" required>
+                                        <input type="text" name="representative_last_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->representative_last_name : "" ?>" id="representative-last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Representative Last Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
@@ -210,7 +210,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Representative Address</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="representative_address" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->representative_address : "" ?>" id="representative-address" class="form-control form-control-lg form-control-solid" placeholder="Representative Address" required>
+                                <input type="text" name="representative_address" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->representative_address : "" ?>" id="representative-address" class="form-control form-control-lg form-control-solid" placeholder="Representative Address" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -219,7 +219,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Representative Telephone / Contact Number</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="representative_contact_number" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->representative_contact_number : "" ?>" id="representative-contact-number" class="form-control form-control-lg form-control-solid" placeholder="Representative Contact Number" required>
+                                <input type="text" name="representative_contact_number" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->representative_contact_number : "" ?>" id="representative-contact-number" class="form-control form-control-lg form-control-solid" placeholder="Representative Contact Number" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -231,21 +231,21 @@ $is_viewing = isset($transaction_info);
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
                                 <div class="d-flex align-items-center mt-4">
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="kind_of_property" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->kind_of_property : "" ?>" <?= $is_viewing && $transaction_info->kind_of_property == "Land" ? 'checked' : '' ?> type="radio" value="Land">
+                                        <input class="form-check-input" name="kind_of_property" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Land" value="<?= $is_viewing ? $transaction_info->kind_of_property : "" ?>" <?= $is_viewing && $transaction_info->kind_of_property == "Land" ? 'checked' : '' ?> type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             Land
                                         </span>
                                     </label>
 
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="kind_of_property" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->kind_of_property : "" ?>" <?= $is_viewing && $transaction_info->kind_of_property == "Building" ? 'checked' : '' ?> type="radio" value="Building">
+                                        <input class="form-check-input" name="kind_of_property" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Building" value="<?= $is_viewing ? $transaction_info->kind_of_property : "" ?>" <?= $is_viewing && $transaction_info->kind_of_property == "Building" ? 'checked' : '' ?> type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             Building
                                         </span>
                                     </label>
 
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="kind_of_property" <?= ! $is_viewing ? " " : "disabled" ?> value="<?= $is_viewing ? $transaction_info->kind_of_property : "" ?>" <?= $is_viewing && $transaction_info->kind_of_property == "Machinery" ? 'checked' : '' ?> type="radio" value="Machinery">
+                                        <input class="form-check-input" name="kind_of_property" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Machinery" value="<?= $is_viewing ? $transaction_info->kind_of_property : "" ?>" <?= $is_viewing && $transaction_info->kind_of_property == "Machinery" ? 'checked' : '' ?> type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             Machinery
                                         </span>
@@ -282,7 +282,7 @@ $is_viewing = isset($transaction_info);
 
                         <!--=============================================== FORM BUTTONS ======================================================-->
                         <div class="d-flex justify-content-center">
-                            <button type="submit" <?= ! $is_viewing ? " " : "disabled" ?> class="btn btn-success mx-1 flex-grow-1">Submit Request</button>
+                            <button type="submit" class="btn btn-success mx-1 flex-grow-1 <?= $is_viewing ? "update" : "submit" ?>-btn" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?>><?= $is_viewing ? "Update" : "Submit" ?> Request</button>
                         </div>
                         <!--=========================================== END OF FORM BUTTONS ===================================================-->
                     </form>
@@ -337,26 +337,53 @@ $is_viewing = isset($transaction_info);
 
         $("#fir-form").submit(function(e) {
             e.preventDefault();
-            console.table($(this).serializeArray());
-            confirm(
-                'Wait!',
-                'Are you sure you want to submit the form?',
-                'question',
-                "<?= base_url() ?>/assessor/addFieldInspectionRequest",
-                "POST",
-                $(this).serializeArray(),
-                function(response) {
-                    console.log(response);
-                    if (!response.error) {
-                        successAlert('Form successfully submitted.', 'Form successfully submitted.',
-                            'success');
-                        $("#fir-form")[0].reset();
-                    } else {
-                        errorAlert('Error',
-                            'There is an error during submitting the form.',
-                            'warning');
+            <?php if ($is_viewing) : ?>
+                <?php if ($status->status == 0) : ?>
+                    let endpoint = "<?= base_url() ?>/assessor/addFieldInspectionRequest<?= $transaction_info->fir_id ?>";
+                    console.table($(this).serializeArray());
+                    confirm(
+                        'Wait!',
+                        'Are you sure you want to update the form?',
+                        'question', endpoint,
+                        "POST",
+                        $(this).serializeArray(),
+                        function(response) {
+                            console.log(response);
+                            if (!response.error) {
+                                successAlert('Form successfully updated.', 'Form successfully updated.',
+                                    'success');
+                            } else {
+                                errorAlert('Error',
+                                    'There is an error during updating the form.',
+                                    'warning');
+                            }
+                        }
+                    );
+                <?php endif; ?>
+
+            <?php else : ?>
+                let endpoint = "<?= base_url() ?>/assessor/addFieldInspectionRequest";
+                console.table($(this).serializeArray());
+                confirm(
+                    'Wait!',
+                    'Are you sure you want to submit the form?',
+                    'question', endpoint,
+                    "POST",
+                    $(this).serializeArray(),
+                    function(response) {
+                        console.log(response);
+                        if (!response.error) {
+                            successAlert('Form successfully submitted.', 'Form successfully submitted.',
+                                'success');
+                            $("#mc-form")[0].reset();
+                        } else {
+                            errorAlert('Error',
+                                'There is an error during submitting the form.',
+                                'warning');
+                        }
                     }
-                });
+                );
+            <?php endif; ?>
 
         });
 

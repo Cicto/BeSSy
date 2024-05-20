@@ -337,32 +337,58 @@ $is_viewing = isset($transaction_info);
 <script>
     $(document).ready(function() {
 
-        
         $("#mc-form").submit(function(e) {
             e.preventDefault();
-            console.table($(this).serializeArray());
-            confirm(
-                'Wait!',
-                'Are you sure you want to submit the form?',
-                'question',
-                "<?= base_url() ?>/mayors/addMayorsClearance",
-                "POST",
-                $(this).serializeArray(),
-                function(response) {
-                    console.log(response);
-                    if (!response.error) {
-                        successAlert('Form successfully submitted.', 'Form successfully submitted.',
-                            'success');
-                        $("#mc-form")[0].reset();
-                    } else {
-                        errorAlert('Error',
-                            'There is an error during submitting the form.',
-                            'warning');
-                    }
-                }
-            );
-        });
 
+            <?php if ($is_viewing) : ?>
+                <?php if ($status->status == 0) : ?>
+                    let endpoint = "<?= base_url() ?>/mayors/updateMayorsClearance/<?= $transaction_info->mca_id ?>";
+                    console.table($(this).serializeArray());
+                    confirm(
+                        'Wait!',
+                        'Are you sure you want to update the form?',
+                        'question', endpoint,
+                        "POST",
+                        $(this).serializeArray(),
+                        function(response) {
+                            console.log(response);
+                            if (!response.error) {
+                                successAlert('Form successfully updated.', 'Form successfully updated.',
+                                    'success');
+                            } else {
+                                errorAlert('Error',
+                                    'There is an error during updating the form.',
+                                    'warning');
+                            }
+                        }
+                    );
+                <?php endif; ?>
+                
+            <?php else : ?>
+                let endpoint = "<?= base_url() ?>/mayors/addMayorsClearance";
+                console.table($(this).serializeArray());
+                confirm(
+                    'Wait!',
+                    'Are you sure you want to submit the form?',
+                    'question', endpoint,
+                    "POST",
+                    $(this).serializeArray(),
+                    function(response) {
+                        console.log(response);
+                        if (!response.error) {
+                            successAlert('Form successfully submitted.', 'Form successfully submitted.',
+                                'success');
+                            $("#mc-form")[0].reset();
+                        } else {
+                            errorAlert('Error',
+                                'There is an error during submitting the form.',
+                                'warning');
+                        }
+                    }
+                );
+            <?php endif; ?>
+
+        });
 
 
         $("#renewal").click(function(e) {
