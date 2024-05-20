@@ -88,7 +88,7 @@
 </div>
 
 <div class="modal fade" tabindex="-1" id="terms-and-conditions-modal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Terms and Conditions</h5>
@@ -99,7 +99,7 @@
             include 'terms_and_conditions.php';
         ?>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer text-end">
         <button type="button" class="mx-auto btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
