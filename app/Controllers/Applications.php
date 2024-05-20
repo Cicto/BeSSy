@@ -53,8 +53,11 @@ class Applications extends BaseController
             if($transaction_select["error"]){
                 throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
             }else{
+                $convoInfo = $this->getConvoInfo(user_id(), $service_select['data'][0]->dept_id, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
                 $this->viewData["service"] = $service_info;
                 $this->viewData["transaction_info"] = $transaction_select["data"][0];
+                $this->viewData['departmentInfo'] = $this->getDepartments($service_select['data'][0]->dept_id);
+                $this->viewData['convoInfo'] = $convoInfo;
                 $this->viewData["title"] = $service_info->service_name;
                 $this->viewData["status"] = $status["data"][0];
                 return view('services/' . $service_info->service_view, $this->viewData);
