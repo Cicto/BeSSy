@@ -136,7 +136,11 @@
 
                                 <div class="menu-item px-3">
                                     <a class="menu-link px-3 view-btn"  href="<?= base_url()?>/applications/transactionPreview/${row.service_id}/${row.application_id}" target="_blank" data-id="${data}"  data-application = "${row.application_id}" data-service="${row.service_id}" >View</a>
-                                </div>
+                                    <?php if($userInformation->role != 5 ) : ?>
+                                    <a class="menu-link px-3 view-btn approved-btn" data-transaction= ${row.transaction_id} >Approve</a>
+                                    <a class="menu-link px-3 view-btn reject-btn" data-transaction= ${row.transaction_id} >Reject</a>
+                                    <?php endif;?>
+                                    </div>
                             </div>
                         </div>`;
                     }
@@ -176,6 +180,65 @@
             console.log('<?= base_url()?>/applications/transactionPreview/'+ service_id + '/' + application_id);
             
         });
+
+        $('#transactions-data-table').on('click', '.reject-btn', function () {
+            let transaction_id = this.dataset.transaction;
+            console.log(transaction_id);
+            confirm('Are you sure you want to reject this transaction?',
+                'Are you sure you want to reject the transaction?',
+                'question', "<?= base_url()?>/applications/transactionReject/" + transaction_id, "post",
+                null,
+                function (response) {
+                    console.log(response);
+                    if (!response.error) {
+                        Swal.fire({
+                            text: "Transaction is rejected.",
+                            icon: "warning",
+                            buttonsStyling: false,
+                            confirmButtonText: "Confirm",
+                            customClass: {
+                                confirmButton: "btn btn-warning"
+                            }
+                        });
+                        table.ajax.reload()
+                    } else {
+                        errorAlert('Error',
+                            'There is an error during rejecting the transaction.',
+                            'warning');
+                    }
+                });
+        });
+
+        $('#transactions-data-table').on('click', '.approved-btn', function () {
+            let transaction_id = this.dataset.transaction;
+            console.log(transaction_id);
+            confirm('Are you sure you want to approve this transaction?',
+                'Are you sure you want to approve the transaction?',
+                'question', "<?= base_url()?>/applications/transactionApprove/" + transaction_id, "post",
+                null,
+                function (response) {
+                    console.log(response);
+                    if (!response.error) {
+                        Swal.fire({
+                            text: "Transaction is approved.",
+                            icon: "success",
+                            buttonsStyling: false,
+                            confirmButtonText: "Confirm",
+                            customClass: {
+                                confirmButton: "btn btn-success"
+                            }
+                        });
+                        table.ajax.reload()
+                    } else {
+                        errorAlert('Error',
+                            'There is an error during aprroving the transaction.',
+                            'warning');
+                    }
+                });
+        });
+
+        
+
 
     });
 </script>
