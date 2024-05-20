@@ -13,7 +13,10 @@ class Applications extends BaseController
 {
     public function index()
     {
+        $convoInfo = $this->getConvoInfo(user_id(), 0, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
         $this->viewData['title'] = 'Transactions';
+        $this->viewData['departmentInfo'] = false;
+        $this->viewData['convoInfo'] = $convoInfo;
         return view('services/transactions', $this->viewData);
     }
 

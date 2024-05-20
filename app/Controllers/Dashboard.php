@@ -17,7 +17,6 @@ class Dashboard extends BaseController
 
     public function index()
     {   
-
         switch ($this->userInformation['data'][0]->role) {
             
             case '1': // System Admin
@@ -27,6 +26,7 @@ class Dashboard extends BaseController
                 return view('dashboards/officeHead', $this->viewData);
             break;
             case '3': // Office Staff
+                $this->viewData['departmentInfo'] = $this->getDepartments($this->viewData['userInformation']->dept_id);
                 return view('dashboards/officeStaff', $this->viewData);
             break;
             case '4': // Encoder
@@ -34,14 +34,17 @@ class Dashboard extends BaseController
             break;
             case '5': // Client
                 $activeDepartments = $this->masterModel->get('departments', 'dept_id, dept_alias, dept_name', ['is_visible' => 1]);
+                $convoInfo = $this->getConvoInfo(user_id(), 0, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
                 $this->viewData['activeDepartments'] = (!$activeDepartments['error']) ? $activeDepartments['data'] : false;
                 $this->viewData['departmentInfo'] = false;
+                $this->viewData['convoInfo'] = $convoInfo;
+
                 return view('dashboards/clientDashbord', $this->viewData);
             break;
             
             default:
 
-                $getPassword = $masterModel->get('users', 'password_hash', ['id' => user_id()]);
+                $getPassword = $this->masterModel->get('users', 'password_hash', ['id' => user_id()]);
 
                 if(Password::verify(TemplateLib::defaultPassword(), $getPassword['result'][0]->password_hash))
                 {  

@@ -61,7 +61,7 @@ class BaseController extends Controller
         
         $this->masterModel = New MasterModel();
         $this->userInformation = $this->masterModel->get('user_info', 
-            'user_id, username, firstname, middlename, lastname, birthdate, role, user_photo, email, dept_name, birthdate, role', 
+            'user_id, username, firstname, middlename, lastname, birthdate, role, user_photo, email, dept_name, birthdate, role, user_info.dept_id', 
             ['user_id' => user_id()], 
             [
                 ['users', 'users.id = user_info.user_id', 'left'],
@@ -95,4 +95,16 @@ class BaseController extends Controller
         );
         return (!$dept['error'] ? $dept['data'] : false);
     }
+
+    public function getConvoInfo($userId, $deptId, $clientName){ 
+        $convoInfo = $this->masterModel->get('convo_list', '*', ['client_id' => $userId, 'office_id' => $deptId]);
+
+        if($convoInfo['error'] == true){ // error is true
+            $createConvo = $this->masterModel->insert('convo_list', ['client_id' => $userId, 'office_id' => $deptId, 'created_by' => $userId, 'actor' => $clientName]);
+            
+            return $createConvo['data'];
+        }else{
+           return (int)$convoInfo['data'][0]->convo_id;
+        }
+    } 
 }

@@ -5,6 +5,7 @@ use App\Controllers\UtilController;
 use App\Models\UsersModel;
 use App\Models\MasterModel;
 use Myth\Auth\Entities\User;
+use Myth\Auth\Authentication\LocalAuthentication;
 use Myth\Auth\Password;
 use Hermawan\DataTables\DataTable;
 use App\Libraries\TemplateLib;
@@ -20,6 +21,23 @@ class Users extends BaseController
         $this->viewData['departments'] = $this->getDepartments();
 
         return view('users/users', $this->viewData);
+    }
+
+    public function myProfile()
+    {
+        $barangay_select = $this->masterModel->get("refbrgy", "*", ["citymunCode" => "031403"]);
+
+        $this->viewData['title'] = 'My Profile';
+        $this->viewData['roles'] = $this->getSystemRoles();
+        $this->viewData['departments'] = $this->getDepartments();
+        $this->viewData['barangays'] = $barangay_select["error"] ? FALSE : $barangay_select["data"];
+        $this->viewData['departmentInfo'] = false;
+        $convoInfo = $this->getConvoInfo(user_id(), 0, $this->viewData['userInformation']->firstname.' '.$this->viewData['userInformation']->lastname);
+        $this->viewData['convoInfo'] = $convoInfo;
+
+        $this->viewData['url'] =  ROOTPATH;
+
+        return view('users/editProfile', $this->viewData);
     }
 
     public function getUsers(){
@@ -70,6 +88,11 @@ class Users extends BaseController
                 'password_hash' => Password::hash(TemplateLib::defaultPassword()),
                 'active' => 1
             ];
+
+            $user_check = $this->infoCheck($users["username"], $users["email"]);
+            if($user_check["error"]){
+                return json_encode($user_check);
+            }
 
             $insertUser = $this->masterModel->insert('users', $users);
             
@@ -122,6 +145,11 @@ class Users extends BaseController
                 'username' => trim($this->request->getPost('username')),
             ];
 
+            $user_check = $this->infoCheck($users["username"], $users["email"], $this->request->getPost('user_id'));
+            if($user_check["error"]){
+                return json_encode($user_check);
+            }
+
             $updateUser = $this->masterModel->update('users', $users, ['id' => $this->request->getPost('user_id')]);
 
             if(!$updateUser['error']){
@@ -130,8 +158,10 @@ class Users extends BaseController
                     'middlename' => trim($this->request->getPost('middlename')),
                     'lastname' => trim($this->request->getPost('lastname')),
                     'birthdate' => $this->request->getPost('birthdate'),
-                    'dept_id' => $this->request->getPost('dept_id'),
+                    'contact_number' => $this->request->getPost('contact_number'),
+                    'barangay' => $this->request->getPost('barangay'),
                     'role' => $this->request->getPost('role'),
+                    'dept_id' => $this->request->getPost('dept_id'),
                 ];
 
                 $updateUserInfo = $this->masterModel->update('user_info', $userInfo, ['user_id' => $this->request->getPost('user_id')]);
@@ -179,5 +209,146 @@ class Users extends BaseController
                 ]);
             }
         }
+    }
+
+    private function infoCheck($username = "", $email_address = "", $user_id_exception = 0)
+    {
+        $where_condition = "username='$username' OR email='$email_address'";
+        if($user_id_exception){
+            $where_condition = "(username='$username' OR email='$email_address') AND id <> $user_id_exception";
+        }
+        
+        $check_select = $this->masterModel->get("users", "username, email", $where_condition);
+
+        if(!$check_select["error"]){
+            $matched_user_info = $check_select["data"][0];
+            $message = "Username or email already in use";
+
+            if($matched_user_info->username == $username){
+                $message = "Username '$matched_user_info->username' already in use";
+            }elseif($matched_user_info->email == $email_address){
+                $message = "'$matched_user_info->email' is already in use";
+            }
+
+            return ['error' => true, 'message' => $message];
+        }elseif($check_select["result"] == 'No data found'){
+
+            return ['error' => false, 'message' => 'Username and email does not match'];
+
+        }
+
+        return ['error' => true, 'message' => $check_select['result'], 'data' => false];;
+    }
+
+    public function uploadUserPhoto($user_id){
+        helper('filesystem');
+        
+        $file = $this->request->getFile('file');
+        
+        $filepath = "./public/assets/media/avatars";
+        $fileName = $file->getName();
+
+        $validationRule = [
+            'file' => [
+                'label' => 'File',
+                'rules' => [
+                    'uploaded[file]',
+                    'max_size[file, 50000]',
+                ],
+            ],
+        ];
+
+        if(!$this->validate($validationRule)){
+            return json_encode([
+                'error' => true,
+                'message' => $this->validator->getErrors()
+            ]);
+        }else{
+            if(!unlink(str_replace("\\", "/", ROOTPATH)."public/assets/media/avatars/".$fileName)){
+                return json_encode([
+                    'error' => true,
+                    'message' => 'Old photo not deleted',
+                    'dir' => str_replace("\\", "/", ROOTPATH)."public/assets/media/avatars/".$fileName
+                ]);
+            }
+            if (!$file->hasMoved()) {
+                if($file->move($filepath, $fileName)){
+                    $update = $this->masterModel->update('user_info', ["user_photo" => $fileName], ["user_id" => $user_id]);
+                    $update["file_name"] = $fileName;
+                    return json_encode($update);
+                }else{
+                    return json_encode([
+                        'error' => true,
+                        'message' => 'Something went wrong'
+                    ]);
+                } 
+            }else{
+                return json_encode([
+                    'error' => true,
+                    'message' => 'File was already moved!'
+                ]);
+            }
+        }
+    }
+
+    public function authenticateUser($user_id = 0){
+        // If no user_id is supplied, use the currently logged in user
+        if(!$user_id){ $user_id = user_id(); }
+        $user_select = $this->masterModel->get("users", "*", ["id"=>$user_id]);
+
+        // On error
+        if($user_select["error"]){ return json_encode($user_select); }
+
+        $auth = service('authentication');
+        $user_email_address = $user_select["data"][0]->email;
+        $submitted_password = $this->request->getPost("password");
+
+        $credentials = [
+            'email' => $user_email_address,
+            'password' => $submitted_password
+	    ];
+        
+        if($auth->validate($credentials)){
+            return json_encode([ 'error' => false, 'result' => 'User successfully authenticated' ]);
+        }else{
+            return json_encode([ 'error' => true, 'result' => 'Incorrect password submitted' ]);
+        }
+
+    }
+
+    public function updateUserPassword($user_id = 0){
+        if($this->request->isAJAX()){
+
+            // If no user_id is supplied, use the currently logged in user
+            if(!$user_id){ $user_id = user_id(); }
+
+            $new_password = $this->request->getPOST("new_password");
+            $repeat_password = $this->request->getPOST("repeat_password");
+
+            if(strlen($new_password) < 8){
+                return json_encode([
+                    'error' => true, 'message' => 'Password must be at least 8 characters'
+                ]);
+            }
+
+            if($new_password !== $repeat_password){
+                return json_encode([
+                    'error' => true, 'message' => 'Entered passwords do not match'
+                ]);
+            }
+            $password_update = $this->masterModel->update("users", [ 'password_hash' => Password::hash($new_password) ], ["id" => $user_id]);
+            return json_encode($password_update);
+
+        }else{ throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(); }
+    }
+
+    public function deactivateUser($user_id = 0){
+        if($this->request->isAJAX()){
+            // If no user_id is supplied, use the currently logged in user
+            if(!$user_id){ $user_id = user_id(); }
+    
+            $password_update = $this->masterModel->update("users", [ 'active' => 0 ], ["id" => $user_id]);
+            return json_encode($password_update);
+        }else{ throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(); }
     }
 }

@@ -1,0 +1,50 @@
+ERROR - 2024-04-30 09:33:12 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+CRITICAL - 2024-04-30 14:01:03 --> Call to undefined function base_ulr()
+#0 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('services/bplo/b...', Array, true)
+#3 C:\xampp\htdocs\BeSSy\app\Controllers\BPLO.php(20): view('services/bplo/b...', Array)
+#4 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\BPLO->buildingPermitManager()
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BPLO))
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2024-04-30 14:28:50 --> Operand should contain 1 column(s)
+ERROR - 2024-04-30 14:29:12 --> Operand should contain 1 column(s)
+CRITICAL - 2024-04-30 14:30:07 --> array_push(): Argument #1 ($array) must be of type array, stdClass given
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BPLO.php(138): array_push(Object(stdClass), Array)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\BPLO->updateBuildingPermitApplication('7')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BPLO))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-30 14:30:52 --> array_push(): Argument #1 ($array) must be of type array, stdClass given
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BPLO.php(138): array_push(Object(stdClass), Array)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\BPLO->updateBuildingPermitApplication('7')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BPLO))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-04-30 16:31:57 --> Implicit conversion from float-string "108469.7500" to int loses precision
+#0 C:\xampp\htdocs\BeSSy\app\Views\services\bplo\buildingApplicationManager.php(7): CodeIgniter\Debug\Exceptions->errorHandler(8192, 'Implicit conver...', 'C:\\xampp\\htdocs...', 7)
+#1 C:\xampp\htdocs\BeSSy\app\Views\services\bplo\buildingApplicationManager.php(235): secondMinimizer('108469.7500')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('services/bplo/b...', Array, true)
+#5 C:\xampp\htdocs\BeSSy\app\Controllers\BPLO.php(24): view('services/bplo/b...', Array)
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\BPLO->buildingPermitManager()
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BPLO))
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-04-30 16:33:04 --> Array to string conversion
+#0 C:\xampp\htdocs\BeSSy\app\Views\services\bplo\buildingApplicationManager.php(195): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string...', 'C:\\xampp\\htdocs...', 195)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('services/bplo/b...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\BPLO.php(24): view('services/bplo/b...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\BPLO->buildingPermitManager()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BPLO))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}

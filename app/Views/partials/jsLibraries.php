@@ -37,6 +37,7 @@
 
 <!-- SweetAlert2 js -->
 <script src="<?= base_url()?>/public/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+
 <script>
     document.onkeydown = function (e) {
         // disable F12 key
@@ -66,4 +67,10 @@
         "hideMethod": "fadeOut"
     };
 
+</script>
+
+<script src="<?= base_url()?>/public/assets/js/socket-io.js"></script>
+<script src = "<?= base_url()?>/public/assets/js/chat.js"></script>
+<script>
+    
 </script>

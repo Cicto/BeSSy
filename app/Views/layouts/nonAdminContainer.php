@@ -29,15 +29,23 @@
                 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 
                     <?= $this->renderSection('content'); ?>
-
+                    
+                    <?= $this->include('partials/callQueue')?>
                     <?= $this->include('partials/footer')?>
                 </div>
             </div>
         </div>
     </div>
-    
+    <audio id="myAudio" muted>
+        <source  type="audio/mp3" src="<?= base_url()?>/public/assets/sounds/waiting.wav">
+        Your browser does not support the audio element.
+    </audio>
+    <?= $this->include('partials/chatDrawer')?>
     <?= $this->include('partials/jsLibraries')?>
     <?= $this->renderSection('javascript'); ?>
+    <script>
+        
+    </script>
 </body>
 
 </html>
