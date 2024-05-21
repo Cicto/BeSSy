@@ -4,7 +4,7 @@
 <style>
     .btn-primary{
         
-    }
+    } 
 </style>
 <div class="d-flex flex-column flex-root" id="kt_app_root">
     <!--begin::Authentication - Sign-in -->

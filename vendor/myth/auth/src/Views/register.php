@@ -8,7 +8,7 @@
                 
                     <form action="<?= base_url().route_to('register') ?>" method="post" class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" id="sign-up-form">
                         <?= csrf_field() ?>
-                        <div class="">
+                        <div class=""> 
                             <a href="<?= base_url()?>" class="">
                                 <img alt="Logo" src="<?= base_url()?>/public/assets/media/logos/bessy-mini-logo.png" class="h-60px h-lg-100px h-l-75px mb-5">
                             </a>
