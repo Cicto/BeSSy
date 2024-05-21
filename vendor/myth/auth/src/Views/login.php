@@ -14,17 +14,17 @@
             <!--begin::Form-->
             <div class="d-flex flex-center flex-column flex-lg-row-fluid">
                 <!--begin::Wrapper-->
-                <div class="w-lg-500px p-10">
+                <div class="w-100 w-lg-500px p-10">
                 
                     <form action="<?= base_url().route_to('login') ?>" method="post" class = "form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" id="kt_sign_in_form">
                         <?= csrf_field() ?>
-                        <div class="text-center">
-                             <a href="<?= base_url()?>" class="mb-0 mb-lg-12">
-                                <img alt="Logo" src="<?= base_url()?>/public/assets/media/logos/bessy-logo2.png" class="h-60px h-lg-100px h-l-75px">
-                                
+                        <div class="text-start mb-10">
+                            <a href="<?= base_url()?>" class="">  
+                                <img alt="Logo" src="<?= base_url()?>/public/assets/media/logos/bessy-mini-logo.png" class="h-60px h-lg-100px h-l-75px mb-5">
                             </a>
-                            <!--<h1 class="text-dark fw-bolder mb-3">Sign In</h1> -->
-                            <!-- <div class="text-gray-500 fw-semibold fs-6">Your Social Accounts</div> -->
+                            <!-- <h1 class="text-dark fw-bold mb-0 display-5 ms-2 text-gray-900">Welcome</h1> -->
+                            <h1 class="text-gray-800 fw-bolder" style="font-size: 30px;">Welcome</h1>
+                            <div class="text-gray-800 fw-semibold fs-6">Baliwag e-Services System</div>
                         </div>
                         <!-- <div class="row g-3 mb-9">
                             <div class="col-md-6">
@@ -38,14 +38,14 @@
                             </div>
                         </div> -->
                         <div class="separator separator-content my-8">
-                            <span class="w-125px text-gray-500 fw-semibold fs-7">Sign In</span>
+                            <span class="w-125px text-gray-600 fw-semibold fs-7">Sign In</span>
                         </div>
                         <?= view('Myth\Auth\Views\_message_block') ?>
                         <div class="fv-row mb-8 fv-plugins-icon-container">
                             <div class="mb-2">
                                 <?php if ($config->validFields === ['email']): ?>
                                     <div class="form-group">
-                                        <!-- <label for="login"><?=lang('Auth.email')?></label> -->
+                                        <label for="login" class="form-label fs-7 text-gray-600"><?=lang('Auth.email')?></label>
                                         <input type="email" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
                                             name="login" placeholder="<?=lang('Auth.email')?>" value = "<?= set_value('login')?>">
                                         <div class="invalid-feedback">
@@ -54,7 +54,7 @@
                                     </div>
                                 <?php else: ?>
                                     <div class="form-group">
-                                        <!-- <label for="login"><?=lang('Auth.emailOrUsername')?></label> -->
+                                        <label for="login" class="form-label fs-7 text-gray-600"><?=lang('Auth.emailOrUsername')?></label>
                                         <input type="text" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>"
                                             name="login" placeholder="<?=lang('Auth.emailOrUsername')?>">
                                         <div class="invalid-feedback">
@@ -68,7 +68,7 @@
                         <!--end::Input group=-->
                         <div class="fv-row mb-3 fv-plugins-icon-container">
                             <div class="mb-2">
-                                <!-- <label for="password" class="form-label"><?=lang('Auth.password')?></label> -->
+                                <label for="password" class="form-label fs-7 text-gray-600"><?=lang('Auth.password')?></label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" name="password" class="form-control  <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.password')?>">
                                     <!-- <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
@@ -94,7 +94,7 @@
                         </div>
                         <!--end::Wrapper-->
                         <!--begin::Submit button-->
-                        <div class="d-grid mb-10">
+                        <div class="d-grid mb-5">
                             <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
                                 <!--begin::Indicator label-->
                                 <span class="indicator-label">Sign In</span>
@@ -104,6 +104,10 @@
                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 <!--end::Indicator progress-->
                             </button>
+                        </div>
+
+                        <div class="text-gray-500 text-left fw-semibold fs-7">New to BESSY?
+                            <a href="<?=base_url()?>/register" class="link-primary">Create an account</a>
                         </div>
                         <!--end::Submit button-->
                         <!--begin::Sign up-->
@@ -128,26 +132,30 @@
         </div>
         <!--end::Body-->
         <!--begin::Aside-->
-        <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2 m-2 rounded border border-light-primary bg-light-primary" style="-background-image: url(<?= base_url()?>/public/assets/media/misc/auth-bg.png)">
+        <div class="d-none d-lg-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-2 m-5 rounded-4 bg-primary" 
+            style=" -background: rgb(23,157,73);
+                    -background: linear-gradient(135deg, rgba(23,157,73,1) 0%, rgba(32,53,106,1) 100%); 
+                    background-image: url('<?=base_url()?>/public/assets/media/misc/auth-bg.png');
+                ">
             <!--begin::Content-->
             <div class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 w-100">
                 <!--begin::Logo-->
-                <!-- <a href="../../demo1/dist/index.html" class="mb-0 mb-lg-12">
-                    <img alt="Logo" src="<?= base_url()?>/public/assets/media/logos/blink-09.png" class="h-60px h-lg-75px mb-10">
-                </a> -->
+                <a href="#" class="mb-0 text-center">
+                    <img alt="Logo" src="<?= base_url()?>/public/assets/media/logos/bessy-mini-logo.png" class="h-60px h-lg-300px" style="filter: brightness(200);">
+                </a>
                 <!--end::Logo-->
                 <!--begin::Image-->
-                <!-- <img class="d-none d-lg-block mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20" src="<?= base_url()?>/public/assets/media/misc/auth-screens.png" alt=""> -->
                 <!--end::Image-->
                 <!--begin::Title-->
-                <!-- <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Fast, Efficient and Productive</h1> -->
+                <h1 class="d-none d-lg-block text-white fw-semibold text-center display-5 mb-7">Baliwag e-Services System</h1>
                 <!--end::Title-->
                 <!--begin::Text-->
-                <!-- <div class="d-none d-lg-block text-white fs-base text-center">In this kind of post,
-                <a href="#" class="opacity-75-hover text-warning fw-bold me-1">the blogger</a>introduces a person they’ve interviewed
-                <br>and provides some background information about
-                <a href="#" class="opacity-75-hover text-warning fw-bold me-1">the interviewee</a>and their
-                <br>work following this is a transcript of the interview.</div> -->
+                <div class="d-none d-lg-block w-75 mx-auto text-white fs-base text-center">
+                    Baliwag e-Services System is a user-friendly system that allows individuals to engage in real-time 
+                    conversations with dedicated government employees. Whether citizens have inquiries about 
+                    existing services, need assistance in finding city informations, or wish to get in touch of city hall departments, 
+                    BESSY streamlines the entire experience for you.
+                </div>
                 <!--end::Text-->
             </div>
             <!--end::Content-->

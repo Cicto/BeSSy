@@ -17,7 +17,7 @@
                             <h1 class="text-gray-800 fw-bolder" style = "font-size: 30px">Sign up</h1>
                             <div class="text-gray-800 fw-semibold fs-6 mb-8">Baliwag e-Services System</div>
                         </div>
-
+   
                         <?= view('Myth\Auth\Views\_message_block') ?>
 
                         <div class="fv-row mb-5 fv-plugins-icon-container">
