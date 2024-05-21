@@ -78,6 +78,7 @@
     $(document).ready(function() {
 
         let table = $('#transactions-data-table').DataTable({
+            order: [[2, 'desc']],
             processing: true,
             serverSide: true,
             orderCellsTop: true,

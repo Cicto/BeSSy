@@ -77,18 +77,19 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Full Name</label>
                             <div class="col-lg-8">
                                 <div class="row">
-                                    <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="last_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" required>
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                    </div>
-
-                                    <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" required>
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                    </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                         <input type="text" name="first_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" required>
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    </div>
+
+                                    <div class="col-lg-12 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="middle_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name">
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                    </div>
+
+                                    <div class="col-lg-12 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="last_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
@@ -295,7 +296,7 @@ $is_viewing = isset($transaction_info);
             <div class="container col-lg-4 col-md-4 my-5 p-5 p-md-8">
 
 
-                <div class="alert alert-primary d-flex align-items-center p-5" data-kt-sticky="true" data-kt-sticky-name="docs-sticky-summary" data-kt-sticky-offset="{default: false, xl: '50px'}" data-kt-sticky-width="{lg: '250px', xl: '300px'}" data-kt-sticky-left="auto" data-kt-sticky-top="100px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95">
+                <div class="alert alert-primary d-flex align-items-center p-5">
                     <span class="svg-icon svg-icon-2hx svg-icon-primary me-4">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />

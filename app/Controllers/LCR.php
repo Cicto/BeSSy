@@ -45,6 +45,20 @@ class LCR extends BaseController
         }
     }
 
+    public function updateBirtCertificate($bc_id = 0)
+    {
+        if ($this->request->isAJAX()) {
+            $data = $this->request->getPost();
+            unset($data["service_id"]);
+
+            $update_result = $this->masterModel->update('birth_cert_request', $data, ["bc_id" => $bc_id]);
+            return json_encode($update_result);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
+
     public function addDeathCertificate()
     {
 
@@ -75,6 +89,19 @@ class LCR extends BaseController
             $transactions = $this->masterModel->insert('transactions', $transaction_data);
 
             return json_encode($transactions);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
+    public function updateDeathCertificate($dc_id = 0)
+    {
+        if ($this->request->isAJAX()) {
+            $data = $this->request->getPost();
+            unset($data["service_id"]);
+
+            $update_result = $this->masterModel->update('death_cert_request', $data, ["dc_id" => $dc_id]);
+            return json_encode($update_result);
         } else {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
@@ -115,11 +142,17 @@ class LCR extends BaseController
         }
     }
 
+    public function updateMarriageCertificate($mrg_id = 0)
+    {
+        if ($this->request->isAJAX()) {
+            $data = $this->request->getPost();
+            unset($data["service_id"]);
+
+            $update_result = $this->masterModel->update('marriage_cert_request', $data, ["mrg_id" => $mrg_id]);
+            return json_encode($update_result);
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+
 }
-
-
-
-
-
-
-

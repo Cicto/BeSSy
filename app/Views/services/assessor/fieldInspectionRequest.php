@@ -99,7 +99,7 @@ $is_viewing = isset($transaction_info);
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="" required>
+                                        <input type="text" name="middle_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="">
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
@@ -293,7 +293,7 @@ $is_viewing = isset($transaction_info);
             <div class="container col-lg-4 col-md-4 my-5 p-5 p-md-8">
 
 
-                <div class="alert alert-primary d-flex align-items-center p-5" data-kt-sticky="true" data-kt-sticky-name="docs-sticky-summary" data-kt-sticky-offset="{default: false, xl: '50px'}" data-kt-sticky-width="{lg: '250px', xl: '300px'}" data-kt-sticky-left="auto" data-kt-sticky-top="100px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95">
+                <div class="alert alert-primary d-flex align-items-center p-5">
                     <span class="svg-icon svg-icon-2hx svg-icon-primary me-4">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
@@ -339,7 +339,7 @@ $is_viewing = isset($transaction_info);
             e.preventDefault();
             <?php if ($is_viewing) : ?>
                 <?php if ($status->status == 0) : ?>
-                    let endpoint = "<?= base_url() ?>/assessor/addFieldInspectionRequest<?= $transaction_info->fir_id ?>";
+                    let endpoint = "<?= base_url() ?>/assessor/updateFieldInspectionRequest/<?= $transaction_info->fir_id ?>";
                     console.table($(this).serializeArray());
                     confirm(
                         'Wait!',
