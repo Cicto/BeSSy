@@ -70,15 +70,15 @@ $is_viewing = isset($transaction_info);
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="first_name" value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" required>
+                                        <input type="text" name="first_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" required>
+                                        <input type="text" name="middle_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name">
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="last_name" value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" required>
+                                        <input type="text" name="last_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@ $is_viewing = isset($transaction_info);
                                 Corporation/Business</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="company_name" value="<?= $is_viewing ? $transaction_info->company_name : "" ?>" id="company-name" class="form-control form-control-lg form-control-solid" placeholder="Corporation/Business Name" value="" required>
+                                <input type="text" name="company_name" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->company_name : "" ?>" id="company-name" class="form-control form-control-lg form-control-solid" placeholder="Corporation/Business Name" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@ $is_viewing = isset($transaction_info);
                                 Applicant</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="applicant_address" value="<?= $is_viewing ? $transaction_info->applicant_address : "" ?>" id="applicant-address" class="form-control form-control-lg form-control-solid" placeholder="Complete Address of Applicant" value="" required>
+                                <input type="text" name="applicant_address" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->applicant_address : "" ?>" id="applicant-address" class="form-control form-control-lg form-control-solid" placeholder="Complete Address of Applicant" value="" required>
                             </div>
                         </div>
 
@@ -109,7 +109,7 @@ $is_viewing = isset($transaction_info);
                                 Corporation/Business</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="business_address" value="<?= $is_viewing ? $transaction_info->business_address : "" ?>" id="business-address" class="form-control form-control-lg form-control-solid" placeholder="Complete Address of Corporation/Business" value="" required>
+                                <input type="text" name="business_address" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->business_address : "" ?>" id="business-address" class="form-control form-control-lg form-control-solid" placeholder="Complete Address of Corporation/Business" value="" required>
                             </div>
                         </div>
 
@@ -117,7 +117,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Project Type</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="project_type" value="<?= $is_viewing ? $transaction_info->project_type : "" ?>" id="project-type" class="form-control form-control-lg form-control-solid" placeholder="Type of Project" value="" required>
+                                <input type="text" name="project_type" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->project_type : "" ?>" id="project-type" class="form-control form-control-lg form-control-solid" placeholder="Type of Project" value="" required>
                             </div>
                         </div>
 
@@ -127,26 +127,26 @@ $is_viewing = isset($transaction_info);
                             <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                 <div class="d-flex align-items-center mt-3">
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="project_nature" value="New Development" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "New Development" ? 'checked' : '' ?> id="ifNo" type="radio">
+                                        <input class="form-check-input" name="project_nature" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="New Development" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "New Development" ? 'checked' : '' ?> id="ifNo" type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             New Development
                                         </span>
                                     </label>
 
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="project_nature" value="Improvement" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "Improvement" ? 'checked' : '' ?> id="ifNo1" type="radio">
+                                        <input class="form-check-input" name="project_nature" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Improvement" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "Improvement" ? 'checked' : '' ?> id="ifNo1" type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             Improvement
                                         </span>
                                     </label> <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                        <input class="form-check-input" name="project_nature" value="Others" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "Others" ? 'checked' : '' ?> id="if-others" type="radio">
+                                        <input class="form-check-input" name="project_nature" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Others" value="<?= $is_viewing ? $transaction_info->project_nature : "" ?>" <?= $is_viewing && $transaction_info->project_nature == "Others" ? 'checked' : '' ?> id="if-others" type="radio">
                                         <span class="fw-semibold ps-2 fs-6">
                                             Others
                                         </span>
                                     </label>
                                 </div>
                                 <div class="col-lg-12  col-form-label fw-semibold fs-6" id="if_others" style="display: none;">
-                                    <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='yesProject' name='project_nature_others' value="<?= $is_viewing ? $transaction_info->project_nature_others : "" ?>" placeholder="Specify" />
+                                    <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='yesProject' name='project_nature_others' <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->project_nature_others : "" ?>" placeholder="Specify" />
 
                                 </div>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
@@ -158,7 +158,7 @@ $is_viewing = isset($transaction_info);
                                 Location</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="project_location" value="<?= $is_viewing ? $transaction_info->project_location : "" ?>" id="project-location" class="form-control form-control-lg form-control-solid" placeholder="Location of Project" value="" required>
+                                <input type="text" name="project_location" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->project_location : "" ?>" id="project-location" class="form-control form-control-lg form-control-solid" placeholder="Location of Project" value="" required>
                             </div>
                         </div>
 
@@ -169,12 +169,12 @@ $is_viewing = isset($transaction_info);
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="project_area" value="<?= $is_viewing ? $transaction_info->project_area : "" ?>" id="project-area" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Lot" value="" required>
+                                        <input type="text" name="project_area" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->project_area : "" ?>" id="project-area" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Lot" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="build_imp" value="<?= $is_viewing ? $transaction_info->build_imp : "" ?>" id="build-imp" class="form-control form-control-lg form-control-solid" placeholder="Building(s) Improvement" value="" required>
+                                        <input type="text" name="build_imp" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->build_imp : "" ?>" id="build-imp" class="form-control form-control-lg form-control-solid" placeholder="Building(s) Improvement" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
                                 </div>
@@ -187,21 +187,21 @@ $is_viewing = isset($transaction_info);
                                 <div class="col-lg-8 fv-row fv-plugins-icon-container">
                                     <div class="d-flex align-items-center mt-4">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site[]" value="Residential" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Residential" ? 'checked' : '' ?> type="checkbox" >
+                                            <input class="form-check-input" name="site[]" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Residential" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Residential" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Residential
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site[]" value="Industrial" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Industrial" ? 'checked' : '' ?> type="checkbox" >
+                                            <input class="form-check-input" name="site[]" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Industrial" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Industrial" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Industrial
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site[]" value="Vacant/Idle"  value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Vacant/Idle" ? 'checked' : '' ?> type="checkbox" >
+                                            <input class="form-check-input" name="site[]" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Vacant/Idle"  value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Vacant/Idle" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Vacant/Idle
                                             </span>
@@ -209,14 +209,14 @@ $is_viewing = isset($transaction_info);
                                     </div>
                                     <div class="d-flex align-items-center mt-4">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site[]" value="Institutional" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Institutional" ? 'checked' : '' ?> type="checkbox" >
+                                            <input class="form-check-input" name="site[]" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Institutional" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Institutional" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Institutional
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="site[]" value="Commercial" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Commercial" ? 'checked' : '' ?> type="checkbox" >
+                                            <input class="form-check-input" name="site[]" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Commercial" value="<?= $is_viewing ? $transaction_info->site : "" ?>" <?= $is_viewing && $transaction_info->site == "Commercial" ? 'checked' : '' ?> type="checkbox" >
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Commercial
                                             </span>
@@ -225,12 +225,12 @@ $is_viewing = isset($transaction_info);
                                     <div class="col-lg-12 mt-5">
                                         <div class="row">
                                             <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                                <input type="text" name="agri_specify" value="<?= $is_viewing ? $transaction_info->agri_specify : "" ?>" id="agri-specify" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Agricultural (specify crops)" value="">
+                                                <input type="text" name="agri_specify" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->agri_specify : "" ?>" id="agri-specify" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Agricultural (specify crops)" value="">
                                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                                             </div>
 
                                             <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                                <input type="text" name="land_use_others" value="<?= $is_viewing ? $transaction_info->land_use_others : "" ?>" id="land-use-others" class="form-control form-control-lg form-control-solid" placeholder="Other/Specify" value="">
+                                                <input type="text" name="land_use_others" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->land_use_others : "" ?>" id="land-use-others" class="form-control form-control-lg form-control-solid" placeholder="Other/Specify" value="">
                                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                                             </div>
                                         </div>
@@ -244,7 +244,7 @@ $is_viewing = isset($transaction_info);
                                     Capitalization</label>
 
                                 <div class="col-lg-12 fv-row">
-                                    <input type="text" name="project_cost" value="<?= $is_viewing ? $transaction_info->project_cost : "" ?>" id="project-cost" class="form-control form-control-lg form-control-solid" placeholder="In pesos, written in words and figures" value="" required>
+                                    <input type="text" name="project_cost" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->project_cost : "" ?>" id="project-cost" class="form-control form-control-lg form-control-solid" placeholder="In pesos, written in words and figures" value="" required>
                                 </div>
                             </div>
 
@@ -260,14 +260,14 @@ $is_viewing = isset($transaction_info);
                                 <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                     <div class="d-flex align-items-center mt-3">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="written_notice" value="Yes" value="<?= $is_viewing ? $transaction_info->written_notice : "" ?>" <?= $is_viewing && $transaction_info->written_notice == "Yes" ? 'checked' : '' ?> id="yes-written-notice" type="radio" required>
+                                            <input class="form-check-input" name="written_notice" value="Yes" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->written_notice : "" ?>" <?= $is_viewing && $transaction_info->written_notice == "Yes" ? 'checked' : '' ?> id="yes-written-notice" type="radio" required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Yes
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="written_notice" value="No" value="<?= $is_viewing ? $transaction_info->written_notice : "" ?>" <?= $is_viewing && $transaction_info->written_notice == "No" ? 'checked' : '' ?>  id="no-written-notice" type="radio" required>
+                                            <input class="form-check-input" name="written_notice" value="No" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->written_notice : "" ?>" <?= $is_viewing && $transaction_info->written_notice == "No" ? 'checked' : '' ?>  id="no-written-notice" type="radio" required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 No
                                             </span>
@@ -277,11 +277,11 @@ $is_viewing = isset($transaction_info);
                                         following:
                                         <br><br>Name of HLRS Officers or Zoning Administrator who issued the
                                         notice(s)
-                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-officers' name='hlrs_officers'value="<?= $is_viewing ? $transaction_info->hlrs_officers : "" ?>" />
+                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-officers' name='hlrs_officers' <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->hlrs_officers : "" ?>" />
                                         <br>Date of Notice(s)
-                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='date' id='hlrs-dateNotice' name='hlrs_dateNotice'value="<?= $is_viewing ? $transaction_info->hlrs_dateNotice : "" ?>" />
+                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='date' id='hlrs-dateNotice' name='hlrs_dateNotice' <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->hlrs_dateNotice : "" ?>" />
                                         <br>Order/request indicated in the Notice(s)
-                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='text' id='request-indicated' name='request_indicated'value="<?= $is_viewing ? $transaction_info->request_indicated : "" ?>" />
+                                        <input class="form-control form-control-lg required form-control-solid mb-3 mb-lg-0" type='text' id='request-indicated' name='request_indicated' <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->request_indicated : "" ?>" />
                                     </div>
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>
@@ -295,14 +295,14 @@ $is_viewing = isset($transaction_info);
                                 <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                     <div class="d-flex align-items-center mt-3">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="project_applied" value="Yes" value="<?= $is_viewing ? $transaction_info->project_applied : "" ?>" <?= $is_viewing && $transaction_info->project_applied == "Yes" ? 'checked' : '' ?> id="yes-similar-app"  type="radio" required>
+                                            <input class="form-check-input" name="project_applied" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Yes" value="<?= $is_viewing ? $transaction_info->project_applied : "" ?>" <?= $is_viewing && $transaction_info->project_applied == "Yes" ? 'checked' : '' ?> id="yes-similar-app"  type="radio" required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Yes
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="project_applied" value="No" value="<?= $is_viewing ? $transaction_info->project_applied : "" ?>" <?= $is_viewing && $transaction_info->project_applied == "No" ? 'checked' : '' ?> id="no-similar-app"  type="radio" required>
+                                            <input class="form-check-input" name="project_applied" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="No" value="<?= $is_viewing ? $transaction_info->project_applied : "" ?>" <?= $is_viewing && $transaction_info->project_applied == "No" ? 'checked' : '' ?> id="no-similar-app"  type="radio" required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 No
                                             </span>
@@ -310,11 +310,11 @@ $is_viewing = isset($transaction_info);
                                     </div>
                                     <div class="col-lg-12  col-form-label fw-semibold fs-6" id="similar-app" style="display: none;">If Yes please answer the following:
                                         <br><br>Other HLRS Office(s) where similar applicant(s) was were filed at
-                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-office' name='hlrs_office' value="<?= $is_viewing ? $transaction_info->hlrs_office : "" ?>" />
+                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-office' name='hlrs_office' <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->hlrs_office : "" ?>" />
                                         <br>Date(s) Filed
-                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='date' id='hlrs-date' name='hlrs_date' value="<?= $is_viewing ? $transaction_info->hlrs_date : "" ?>" />
+                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='date' id='hlrs-date' name='hlrs_date' <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->hlrs_date : "" ?>" />
                                         <br>Action(s) taken by Office(s) mentioned in other HLRS Office(s)
-                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-action' name='hlrs_action' value="<?= $is_viewing ? $transaction_info->hlrs_action : "" ?>" />
+                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" type='text' id='hlrs-action' name='hlrs_action' <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->hlrs_action : "" ?>" />
                                     </div>
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>
@@ -328,28 +328,28 @@ $is_viewing = isset($transaction_info);
                                 <div class="col-lg-12 fv-row fv-plugins-icon-container">
                                     <div class="d-flex align-items-center mt-3">
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="mode" value="Pick-up" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Pick-up" ? 'checked' : '' ?> type="radio"  required>
+                                            <input class="form-check-input" name="mode" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Pick-up" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Pick-up" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Pick-up
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="mode" value="Applicant" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Applicant" ? 'checked' : '' ?> type="radio"  required>
+                                            <input class="form-check-input" name="mode" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Applicant" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Applicant" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Applicant
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="mode" value="By mail, address to:" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "By mail, address to:" ? 'checked' : '' ?> type="radio"  required>
+                                            <input class="form-check-input" name="mode" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="By mail, address to:" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "By mail, address to:" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 By mail, address to:
                                             </span>
                                         </label>
 
                                         <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-                                            <input class="form-check-input" name="mode" value="Authorized Representative" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Authorized Representative" ? 'checked' : '' ?> type="radio"  required>
+                                            <input class="form-check-input" name="mode" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Authorized Representative" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Authorized Representative" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Authorized Representative
                                             </span>
@@ -388,7 +388,7 @@ $is_viewing = isset($transaction_info);
 
                             <!--=============================================== FORM BUTTONS ======================================================-->
                             <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-success mx-1 flex-grow-1">Submit Request</button>
+                                <button type="submit" class="btn btn-success mx-1 flex-grow-1 <?= $is_viewing ? "update" : "submit" ?>-btn"<?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?>><?= $is_viewing ? "Update" : "Submit" ?> Request</button>
                             </div>
                             <!--=========================================== END OF FORM BUTTONS ===================================================-->
                     </form>
@@ -399,7 +399,7 @@ $is_viewing = isset($transaction_info);
         <div class="container col-lg-4 col-md-4 my-5 p-5 p-md-8">
 
 
-            <div class="alert alert-primary d-flex align-items-center p-5" data-kt-sticky="true" data-kt-sticky-name="docs-sticky-summary" data-kt-sticky-offset="{default: false, xl: '50px'}" data-kt-sticky-width="{lg: '250px', xl: '300px'}" data-kt-sticky-left="auto" data-kt-sticky-top="100px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95">
+            <div class="alert alert-primary d-flex align-items-center p-5">
                 <span class="svg-icon svg-icon-2hx svg-icon-primary me-4">
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
@@ -435,33 +435,64 @@ $is_viewing = isset($transaction_info);
 
 <script>
     $(document).ready(function() {
-
         $("#zp-form").submit(function(e) {
             e.preventDefault();
-            console.table($(this).serializeArray());
-            confirm(
-                'Wait!',
-                'Are you sure you want to submit the form?',
-                'question',
-                "<?= base_url() ?>/cpdc/addZoningPermit",
-                "POST",
-                $(this).serializeArray(),
-                function(response) {
-                    console.log(response);
-                    if (!response.error) {
-                        successAlert('Form successfully submitted.', 'Form successfully submitted.',
-                            'success');
-                        $("#zp-form")[0].reset();
-                    } else {
-                        errorAlert('Error',
-                            'There is an error during submitting the form.',
-                            'warning');
+            <?php if ($is_viewing) : ?>
+                <?php if ($status->status == 0) : ?>
+                    let endpoint = "<?= base_url() ?>/cpdc/updateZoningPermit/<?= $transaction_info->zp_id ?>";
+                    console.table($(this).serializeArray());
+                    confirm(
+                        'Wait!',
+                        'Are you sure you want to update the form?',
+                        'question', endpoint,
+                        "POST",
+                        $(this).serializeArray(),
+                        function(response) {
+                            console.log(response);
+                            if (!response.error) {
+                                successAlert('Form successfully updated.', 'Form successfully updated.',
+                                    'success');
+                            } else {
+                                errorAlert('Error',
+                                    'There is an error during updating the form.',
+                                    'warning');
+                            }
+                        }
+                    );
+                <?php endif; ?>
+
+            <?php else : ?>
+                let endpoint = "<?= base_url() ?>/cpdc/addZoningPermit";
+                console.table($(this).serializeArray());
+                confirm(
+                    'Wait!',
+                    'Are you sure you want to submit the form?',
+                    'question', endpoint,
+                    "POST",
+                    $(this).serializeArray(),
+                    function(response) {
+                        console.log(response);
+                        if (!response.error) {
+                            successAlert('Form successfully submitted.', 'Form successfully submitted.',
+                                'success');
+                            $("#mc-form")[0].reset();
+                        } else {
+                            errorAlert('Error',
+                                'There is an error during submitting the form.',
+                                'warning');
+                        }
                     }
-                });
+                );
+            <?php endif; ?>
 
         });
 
 
+
+
+
+
+        
         // PROJECT NATURE
         $("#if-others").click(function(e) {
             $("#if_others").show();

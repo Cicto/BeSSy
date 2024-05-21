@@ -42,4 +42,18 @@ class Assessor extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
     }
+
+    public function updateFieldInspectionRequest($fir_id = 0)
+    {
+        if ($this->request->isAJAX()) {
+            $data = $this->request->getPost();
+            unset($data["service_id"]);
+
+            $update_result = $this->masterModel->update('field_inspection_request', $data, ["fir_id" => $fir_id]);
+            return json_encode($update_result);
+
+        } else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
 }

@@ -71,17 +71,17 @@ $is_viewing = isset($transaction_info);
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="first_name" value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" value="" required>
+                                        <input type="text" name="first_name" value="<?= $is_viewing ? $transaction_info->first_name : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="first-name" class="form-control form-control-lg form-control-solid" placeholder="First Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="middle_name" value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="" required>
+                                        <input type="text" name="middle_name" value="<?= $is_viewing ? $transaction_info->middle_name : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="middle-name" class="form-control form-control-lg form-control-solid" placeholder="Middle Name" value="">
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
                                     <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="last_name" value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" required>
+                                        <input type="text" name="last_name" value="<?= $is_viewing ? $transaction_info->last_name : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="last-name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last Name" value="" required>
                                         <div class="fv-plugins-message-container invalid-feedback"></div>
                                     </div>
 
@@ -93,7 +93,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Place of Death</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="place_of_death" value="<?= $is_viewing ? $transaction_info->place_of_death : "" ?>" id="place-of-death" class="form-control form-control-lg form-control-solid" placeholder="Place of Death" value="" required>
+                                <input type="text" name="place_of_death" value="<?= $is_viewing ? $transaction_info->place_of_death : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="place-of-death" class="form-control form-control-lg form-control-solid" placeholder="Place of Death" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date of Death</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="date" name="date_of_death" value="<?= $is_viewing ? $transaction_info->date_of_death : "" ?>" id="date-of-death" class="form-control form-control-lg form-control-solid" placeholder="Date of Death" value="" required>
+                                <input type="date" name="date_of_death" value="<?= $is_viewing ? $transaction_info->date_of_death : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="date-of-death" class="form-control form-control-lg form-control-solid" placeholder="Date of Death" value="" required>
                             </div>
                         </div>
 
@@ -112,7 +112,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Requester Name:</label>
 
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="requester_name" value="<?= $is_viewing ? $transaction_info->requester_name : "" ?>" id="requester-name" class="form-control form-control-lg form-control-solid" placeholder="Requester's Full Name" value="" required>
+                                <input type="text" name="requester_name" value="<?= $is_viewing ? $transaction_info->requester_name : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="requester-name" class="form-control form-control-lg form-control-solid" placeholder="Requester's Full Name" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ $is_viewing = isset($transaction_info);
                                 Deceased:</label>
 
                             <div class="col-lg-8 fv-row">
-                                <select class="form-select form-select-solid" name="relationship" value="<?= $is_viewing ? $transaction_info->relationship : "" ?>" id="relationship" data-control="select2" data-placeholder="Relationship to the Deceased" required>
+                                <select class="form-select form-select-solid" name="relationship" value="<?= $is_viewing ? $transaction_info->relationship : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="relationship" data-control="select2" data-placeholder="Relationship to the Deceased" required>
                                     <option selected="" value="" disabled>Relationship to the Deceased</option>
                                     <option value="1" value="<?= $is_viewing ? $transaction_info->relationship : "" ?>" <?= $is_viewing && $transaction_info->relationship == "1" ? 'selected' : '' ?>>Spouse</option>
                                     <option value="2" value="<?= $is_viewing ? $transaction_info->relationship : "" ?>" <?= $is_viewing && $transaction_info->relationship == "2" ? 'selected' : '' ?>>Parent</option>
@@ -139,7 +139,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Purpose:</label>
 
                             <div class="col-lg-8 fv-row">
-                                <input type="text" name="purpose" value="<?= $is_viewing ? $transaction_info->purpose : "" ?>" id="purpose" class="form-control form-control-lg form-control-solid" placeholder="Purpose" value="" required>
+                                <input type="text" name="purpose" value="<?= $is_viewing ? $transaction_info->purpose : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="purpose" class="form-control form-control-lg form-control-solid" placeholder="Purpose" value="" required>
                             </div>
                         </div>
 
@@ -147,7 +147,7 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label fw-semibold fs-6">Remarks:</label>
 
                             <div class="col-lg-8 fv-row">
-                                <textarea name="remarks" value="" id="remarks" class="form-control form-control-lg form-control-solid w-100" rows="5" placeholder="Remarks...">
+                                <textarea name="remarks" value="" id="remarks" class="form-control form-control-lg form-control-solid w-100" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> rows="5" placeholder="Remarks...">
                                     <?= $is_viewing ? $transaction_info->remarks : "" ?>
                                 </textarea>
                             </div>
@@ -185,7 +185,7 @@ $is_viewing = isset($transaction_info);
 
                         <!--=============================================== FORM BUTTONS ======================================================-->
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-success mx-1 flex-grow-1">Submit Request</button>
+                            <button type="submit" class="btn btn-success mx-1 flex-grow-1 <?= $is_viewing ? "update" : "submit" ?>-btn"<?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?>><?= $is_viewing ? "Update" : "Submit" ?> Request</button>
                         </div>
                         <!--=========================================== END OF FORM BUTTONS ===================================================-->
                     </form>
@@ -240,31 +240,54 @@ $is_viewing = isset($transaction_info);
 
         $("#dc-form").submit(function(e) {
             e.preventDefault();
-            console.table($(this).serializeArray());
-            confirm(
-                'Wait!',
-                'Are you sure you want to submit the form?',
-                'question',
-                "<?= base_url() ?>/lcr/addDeathCertificate",
-                "POST",
-                $(this).serializeArray(),
-                function(response) {
-                    console.log(response);
-                    if (!response.error) {
-                        successAlert('Form successfully submitted.', 'Form successfully submitted.',
-                            'success');
-                        $("#dc-form")[0].reset();
-                    } else {
-                        errorAlert('Error',
-                            'There is an error during submitting the form.',
-                            'warning');
+            <?php if ($is_viewing) : ?>
+                <?php if ($status->status == 0) : ?>
+                    let endpoint = "<?= base_url() ?>/lcr/updateDeathCertificate/<?= $transaction_info->dc_id ?>";
+                    console.table($(this).serializeArray());
+                    confirm(
+                        'Wait!',
+                        'Are you sure you want to update the form?',
+                        'question', endpoint,
+                        "POST",
+                        $(this).serializeArray(),
+                        function(response) {
+                            console.log(response);
+                            if (!response.error) {
+                                successAlert('Form successfully updated.', 'Form successfully updated.',
+                                    'success');
+                            } else {
+                                errorAlert('Error',
+                                    'There is an error during updating the form.',
+                                    'warning');
+                            }
+                        }
+                    );
+                <?php endif; ?>
+
+            <?php else : ?>
+                let endpoint = "<?= base_url() ?>/lcr/addDeathCertificate";
+                console.table($(this).serializeArray());
+                confirm(
+                    'Wait!',
+                    'Are you sure you want to submit the form?',
+                    'question', endpoint,
+                    "POST",
+                    $(this).serializeArray(),
+                    function(response) {
+                        console.log(response);
+                        if (!response.error) {
+                            successAlert('Form successfully submitted.', 'Form successfully submitted.',
+                                'success');
+                            $("#mc-form")[0].reset();
+                        } else {
+                            errorAlert('Error',
+                                'There is an error during submitting the form.',
+                                'warning');
+                        }
                     }
-                });
-
+                );
+            <?php endif; ?>
         });
-
-
-
     });
 </script>
 <?= $this->endSection(); ?>

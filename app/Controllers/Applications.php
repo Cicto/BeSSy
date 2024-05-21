@@ -22,8 +22,36 @@ class Applications extends BaseController
 
     public function transactionsDataTables()
     {
-        $user_id =$this->userInformation['data'][0]->user_id;
-        $where = ['transactions.created_by'=> $user_id ];
+        // echo $this->userInformation['data'][0]->role;
+        switch ($this->userInformation['data'][0]->role) {
+          case 5:
+            $user_id =$this->userInformation['data'][0]->user_id;
+            $where = ['transactions.created_by'=> $user_id ];
+            break;
+          case 3:
+            $dept_id =$this->userInformation['data'][0]->dept_id;
+            $dept_services = $this->masterModel->get('services', 'service_id', ['dept_id' => $dept_id]);
+            
+            $where = "";
+            if(!$dept_services['error']){
+                foreach ($dept_services['data'] as $index => $dept_service) {
+                    $service_id = $dept_service->service_id;
+                    if(!$index){
+                        $where = "transactions.service_id = $service_id";
+                        continue;
+                    }
+                    $where = $where."OR transactions.service_id = $service_id";
+                }
+            }else{
+                $where = [];
+            }
+            
+            // print_r($where);
+            break;
+        default:
+            $where = [];
+        }
+        
         $join = [
             ['services','services.service_id = transactions.service_id', 'left']
         ];
@@ -39,7 +67,7 @@ class Applications extends BaseController
 
     public function transactionPreview($serviceId, $applicationId = 0){
         if(!($serviceId && $applicationId)){ throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(); }
-
+        
         $service_select = $this->masterModel->get("services", "*", ["service_id" => $serviceId]);
         $status = $this->masterModel->get("transactions", "status", ["application_id" => $applicationId]);
         if($service_select["error"]){
@@ -63,5 +91,17 @@ class Applications extends BaseController
                 return view('services/' . $service_info->service_view, $this->viewData);
             }
         }
+    }
+
+    public function transactionReject($transactionId = 0){
+        $update_result = $this->masterModel->update('transactions',["status"=>2 , "rejected_at" => date("Y-m-d H:i:s") ],["transaction_id"=>$transactionId]);
+        
+        return json_encode($update_result);
+    }
+
+    public function transactionApprove($transactionId = 0){
+        $update_result = $this->masterModel->update('transactions',["status"=>1 , "approved_at" => date("Y-m-d H:i:s")],["transaction_id"=>$transactionId]);
+        
+        return json_encode($update_result);
     }
 }

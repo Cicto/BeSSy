@@ -70,3 +70,45 @@ CRITICAL - 2024-05-03 10:42:48 --> Undefined variable $convoInfo
 #12 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #13 C:\xampp\htdocs\Bessy\index.php(38): CodeIgniter\CodeIgniter->run()
 #14 {main}
+ERROR - 2024-05-03 11:56:39 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+CRITICAL - 2024-05-03 11:56:43 --> Undefined variable $departmentInfo
+#0 C:\xampp\htdocs\Bessy\app\Views\partials\chatBox.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 10)
+#1 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatBo...', NULL, true)
+#4 C:\xampp\htdocs\Bessy\app\Views\chats\chatList.php(94): CodeIgniter\View\View->include('partials/chatBo...')
+#5 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('chats/chatList', Array, true)
+#8 C:\xampp\htdocs\Bessy\app\Controllers\Chats.php(14): view('chats/chatList', Array)
+#9 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Chats->index()
+#10 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#11 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Bessy\index.php(38): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-05-03 12:01:29 --> Undefined variable $status
+#0 C:\xampp\htdocs\Bessy\app\Views\services\lcr\birthCertificate.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 74)
+#1 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('services/lcr/bi...', Array, true)
+#4 C:\xampp\htdocs\Bessy\app\Controllers\Services.php(31): view('services/lcr/bi...', Array)
+#5 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Services->serviceView('2')
+#6 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Services))
+#7 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Bessy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-03 12:36:28 --> Undefined variable $departmentInfo
+#0 C:\xampp\htdocs\Bessy\app\Views\partials\chatBox.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 10)
+#1 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatBo...', NULL, true)
+#4 C:\xampp\htdocs\Bessy\app\Views\chats\chatList.php(94): CodeIgniter\View\View->include('partials/chatBo...')
+#5 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('chats/chatList', Array, true)
+#8 C:\xampp\htdocs\Bessy\app\Controllers\Chats.php(14): view('chats/chatList', Array)
+#9 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Chats->index()
+#10 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Chats))
+#11 C:\xampp\htdocs\Bessy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Bessy\index.php(38): CodeIgniter\CodeIgniter->run()
+#13 {main}
