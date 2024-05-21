@@ -19,7 +19,7 @@
                     <form action="<?= base_url().route_to('login') ?>" method="post" class = "form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" id="kt_sign_in_form">
                         <?= csrf_field() ?>
                         <div class="text-start mb-10">
-                            <a href="<?= base_url()?>" class="">
+                            <a href="<?= base_url()?>" class="">  
                                 <img alt="Logo" src="<?= base_url()?>/public/assets/media/logos/bessy-mini-logo.png" class="h-60px h-lg-100px h-l-75px mb-5">
                             </a>
                             <!-- <h1 class="text-dark fw-bold mb-0 display-5 ms-2 text-gray-900">Welcome</h1> -->
