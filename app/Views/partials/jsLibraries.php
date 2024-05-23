@@ -47,7 +47,9 @@
     }
     const base_url = "<?=base_url()?>";
     const current_url = window.location.href.split('#')[0];
-    const user_id = <?=$userInformation->user_id?>
+    <?php if(isset($userInformation)):?>
+        const user_id = <?=$userInformation->user_id?>
+    <?php endif;?>
 
     toastr.options = {
         "closeButton": true,

@@ -9,14 +9,18 @@ use Myth\Auth\Password;
 
 class Dashboard extends BaseController
 {
-    // public function __construct()
-    // {
-    //     $this->userInformation = TemplateLib::userInformation(user_id());
-    // }
+    public function __construct()
+    {
+        
+    }
 
 
     public function index()
     {   
+        if(!$this->userInformation["data"]){
+            return redirect()->to(base_url("users/newProfile"));
+        }
+
         switch ($this->userInformation['data'][0]->role) {
             
             case '1': // System Admin

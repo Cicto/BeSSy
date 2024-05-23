@@ -1,0 +1,339 @@
+ERROR - 2024-05-20 11:11:45 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-05-20 11:11:46 --> Unknown column 'department_name' in 'field list'
+CRITICAL - 2024-05-20 11:11:46 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BaseController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-05-20 11:17:10 --> Unknown column 'department_name' in 'field list'
+CRITICAL - 2024-05-20 11:17:10 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\Dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 24)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-05-20 11:17:22 --> Unknown column 'department_name' in 'field list'
+CRITICAL - 2024-05-20 11:17:22 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\Dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 24)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-05-20 11:17:23 --> Unknown column 'department_name' in 'field list'
+CRITICAL - 2024-05-20 11:17:23 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\Dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 24)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-05-20 11:18:01 --> Unknown column 'department_name' in 'field list'
+CRITICAL - 2024-05-20 11:18:01 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\Dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 24)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-05-20 11:18:12 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-05-20 11:18:19 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-05-20 11:18:22 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+ERROR - 2024-05-20 11:18:22 --> Unknown column 'department_name' in 'field list'
+CRITICAL - 2024-05-20 11:18:22 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\Dashboard.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 24)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2024-05-20 11:19:14 --> Table 'baliwagc_bessy_db.logs' doesn't exist
+CRITICAL - 2024-05-20 11:19:14 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\Dashboard.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 20)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 11:19:41 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\Dashboard.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 21)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 11:20:19 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BaseController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 11:20:25 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BaseController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 11:20:44 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BaseController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 11:21:01 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BaseController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 11:21:02 --> Trying to access array offset on value of type bool
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BaseController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to acces...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 11:21:13 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\newProfile.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 11:21:28 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\newProfile.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 11:22:01 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\newProfile.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 11:22:03 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\newProfile.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 11:22:18 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\newProfile.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 77)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 11:22:58 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\newProfile.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 103)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 11:22:59 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\newProfile.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 103)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 11:23:16 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\newProfile.php(152): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 152)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 11:23:39 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\partials\header.php(208): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 208)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/header', NULL, true)
+#4 C:\xampp\htdocs\BeSSy\app\Views\layouts\emptyMain.php(23): CodeIgniter\View\View->include('partials/header')
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/emptyMa...', Array, true)
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#9 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#10 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#11 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#12 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-05-20 11:27:19 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\partials\jsLibraries.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 49)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/jsLibr...', NULL, true)
+#4 C:\xampp\htdocs\BeSSy\app\Views\layouts\emptyMain.php(30): CodeIgniter\View\View->include('partials/jsLibr...')
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/emptyMa...', Array, true)
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#9 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#10 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#11 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#12 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-05-20 11:28:37 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\partials\jsLibraries.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 49)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/jsLibr...', NULL, true)
+#4 C:\xampp\htdocs\BeSSy\app\Views\layouts\emptyMain.php(30): CodeIgniter\View\View->include('partials/jsLibr...')
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/emptyMa...', Array, true)
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/newProfil...', Array, true)
+#9 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(48): view('users/newProfil...', Array)
+#10 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->newProfile()
+#11 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#12 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-05-20 11:51:22 --> Too few arguments to function App\Controllers\Users::uploadUserPhoto(), 0 passed in C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->uploadUserPhoto()
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-05-20 12:04:12 --> Too few arguments to function App\Controllers\Users::addUserInfo(), 0 passed in C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->addUserInfo()
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2024-05-20 12:52:44 --> Undefined array key "result"
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\BaseController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 72)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(810): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 12:57:28 --> Undefined array key "result"
+#0 C:\xampp\htdocs\BeSSy\app\Controllers\Dashboard.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 20)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Dashboard->index()
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2024-05-20 12:59:36 --> Undefined variable $departmentInfo
+#0 C:\xampp\htdocs\BeSSy\app\Views\partials\chatDrawer.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 C:\xampp\htdocs\BeSSy\app\Views\layouts\main.php(52): CodeIgniter\View\View->include('partials/chatDr...')
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/main', Array, true)
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/editProfi...', Array, true)
+#9 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(34): view('users/editProfi...', Array)
+#10 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->myProfile()
+#11 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#12 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-05-20 13:00:43 --> Undefined variable $userInformation
+#0 C:\xampp\htdocs\BeSSy\app\Views\users\editProfile.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/editProfi...', Array, true)
+#4 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(34): view('users/editProfi...', Array)
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->myProfile()
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-20 13:00:53 --> Undefined variable $departmentInfo
+#0 C:\xampp\htdocs\BeSSy\app\Views\partials\chatDrawer.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 C:\xampp\htdocs\BeSSy\app\Views\layouts\main.php(52): CodeIgniter\View\View->include('partials/chatDr...')
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/main', Array, true)
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/editProfi...', Array, true)
+#9 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(34): view('users/editProfi...', Array)
+#10 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->myProfile()
+#11 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#12 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-05-20 13:02:40 --> Undefined variable $departmentInfo
+#0 C:\xampp\htdocs\BeSSy\app\Views\partials\chatDrawer.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 C:\xampp\htdocs\BeSSy\app\Views\layouts\nonAdminContainer.php(67): CodeIgniter\View\View->include('partials/chatDr...')
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/editProfi...', Array, true)
+#9 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(34): view('users/editProfi...', Array)
+#10 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->myProfile()
+#11 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#12 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
+CRITICAL - 2024-05-20 13:03:05 --> Undefined variable $departmentInfo
+#0 C:\xampp\htdocs\BeSSy\app\Views\partials\chatDrawer.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12)
+#1 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(424): CodeIgniter\View\View->render('partials/chatDr...', NULL, true)
+#4 C:\xampp\htdocs\BeSSy\app\Views\layouts\nonAdminContainer.php(67): CodeIgniter\View\View->include('partials/chatDr...')
+#5 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#7 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\View\View.php(226): CodeIgniter\View\View->render('layouts/nonAdmi...', Array, true)
+#8 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('users/editProfi...', Array, true)
+#9 C:\xampp\htdocs\BeSSy\app\Controllers\Users.php(34): view('users/editProfi...', Array)
+#10 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Users->myProfile()
+#11 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#12 C:\xampp\htdocs\BeSSy\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\xampp\htdocs\BeSSy\index.php(38): CodeIgniter\CodeIgniter->run()
+#14 {main}
