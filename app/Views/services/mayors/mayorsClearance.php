@@ -34,7 +34,7 @@ $is_viewing = isset($transaction_info);
     <div id="kt_app_content_container" class="app-container container-fluid h-100">
 
         <!-- START OF FORM -->
-        <div class="row mx-3 m-md-0">
+        <div class="row m-md-0">
             <div class="card col-lg-8 col-md-8 my-5 p-5 p-md-10 border border-2 rounded">
                 <div class="form-container">
                     <!-- here -->

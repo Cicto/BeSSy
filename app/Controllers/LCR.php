@@ -155,4 +155,9 @@ class LCR extends BaseController
         }
     }
 
+
+    public function uploadFiles(){
+        
+    }
+
 }

@@ -94,13 +94,13 @@ class Applications extends BaseController
     }
 
     public function transactionReject($transactionId = 0){
-        $update_result = $this->masterModel->update('transactions',["status"=>2 , "rejected_at" => date("Y-m-d H:i:s") ],["transaction_id"=>$transactionId]);
+        $update_result = $this->masterModel->update('transactions',["status" => 2 , "rejected_at" => date("Y-m-d H:i:s"), "approved_at" => null ],["transaction_id"=>$transactionId]);
         
         return json_encode($update_result);
     }
 
     public function transactionApprove($transactionId = 0){
-        $update_result = $this->masterModel->update('transactions',["status"=>1 , "approved_at" => date("Y-m-d H:i:s")],["transaction_id"=>$transactionId]);
+        $update_result = $this->masterModel->update('transactions',["status" => 1 , "approved_at" => date("Y-m-d H:i:s"), "rejected_at" => null ],["transaction_id"=>$transactionId]);
         
         return json_encode($update_result);
     }

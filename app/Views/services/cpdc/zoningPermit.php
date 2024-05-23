@@ -34,7 +34,7 @@ $is_viewing = isset($transaction_info);
     <div id="kt_app_content_container" class="app-container container-fluid h-100">
 
         <!-- START OF FORM -->
-        <div class="row mx-3 m-md-0">
+        <div class="row m-md-0">
             <div class="card col-lg-8 col-md-8 my-5 p-5 p-md-10 border border-2 rounded">
 
                 <div class="form-container">
@@ -326,29 +326,29 @@ $is_viewing = isset($transaction_info);
                                     DECISION:</label>
 
                                 <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                    <div class="d-flex align-items-center mt-3">
-                                        <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
+                                    <div class="d-flex flex-column mt-3">
+                                        <label class="form-check form-check-custom form-check-inline form-check-solid p-2 me-5">
                                             <input class="form-check-input" name="mode" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Pick-up" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Pick-up" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Pick-up
                                             </span>
                                         </label>
 
-                                        <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
+                                        <label class="form-check form-check-custom form-check-inline form-check-solid p-2 me-5">
                                             <input class="form-check-input" name="mode" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Applicant" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Applicant" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Applicant
                                             </span>
                                         </label>
 
-                                        <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
+                                        <label class="form-check form-check-custom form-check-inline form-check-solid p-2 me-5">
                                             <input class="form-check-input" name="mode" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="By mail, address to:" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "By mail, address to:" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 By mail, address to:
                                             </span>
                                         </label>
 
-                                        <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
+                                        <label class="form-check form-check-custom form-check-inline form-check-solid p-2 me-5">
                                             <input class="form-check-input" name="mode" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="Authorized Representative" value="<?= $is_viewing ? $transaction_info->mode : "" ?>" <?= $is_viewing && $transaction_info->mode == "Authorized Representative" ? 'checked' : '' ?> type="radio"  required>
                                             <span class="fw-semibold ps-2 fs-6">
                                                 Authorized Representative
@@ -364,25 +364,6 @@ $is_viewing = isset($transaction_info);
                             <!--================================================ FORM ALERT ========================================================-->
 
                             <div class="separator my-10"></div>
-
-                            <!-- <div class="alert alert-primary d-flex align-items-center p-5">
-                                <span class="svg-icon svg-icon-2hx svg-icon-primary me-4">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"></rect>
-                                        <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor">
-                                        </rect>
-                                        <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor">
-                                        </rect>
-                                    </svg>
-                                </span>
-
-                                <div class="d-flex flex-column">
-                                    <h4 class="mb-1 text-primary">This is an alert</h4>
-                                    <span>The alert component can be used to highlight certain parts of your page
-                                        for higher
-                                        content visibility.</span>
-                                </div>
-                            </div> -->
 
                             <!--============================================= END OF FORM ALERT ====================================================-->
 

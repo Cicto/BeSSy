@@ -34,7 +34,7 @@ $is_viewing = isset($transaction_info);
     <div id="kt_app_content_container" class="app-container container-fluid h-100">
 
         <!-- START OF FORM -->
-        <div class="row mx-3 m-md-0">
+        <div class="row m-md-0">
             <div class="card col-lg-8 col-md-8 my-5 p-5 p-md-10 border border-2 rounded">
                 <div class="form-container">
                     <!-- here -->
@@ -52,7 +52,7 @@ $is_viewing = isset($transaction_info);
                                 <!--=============================================== HEADER TITLE ===============================================-->
                                 <h1 class="">Nutrition Counseling</h1>
                                 <span class="form-label text-muted">
-                                    City Population Office
+                                    City Nutrition Office
                                 </span>
                                 <!--=========================================== END OF HEADER TITLE ============================================-->
                             </div>
@@ -167,11 +167,11 @@ $is_viewing = isset($transaction_info);
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date and time you need
                                 the Service:</label>
 
-                            <div class="col-lg-4 fv-row">
+                            <div class="col-lg-4 p-2">
                                 <input type="date" name="date" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->date : "" ?>" id="date" class="form-control form-control-lg form-control-solid" placeholder="Date" value="" required>
                             </div>
 
-                            <div class="col-lg-4 fv-row fv-plugins-icon-container">
+                            <div class="col-lg-4 p-2">
                                 <input type="time" name="time" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->time : "" ?>" id="time" class="form-control form-control-lg form-control-solid" placeholder="Time" value="" required>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
@@ -192,7 +192,7 @@ $is_viewing = isset($transaction_info);
 
                         <!--=============================================== FORM BUTTONS ======================================================-->
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-success mx-1 flex-grow-1 <?= $is_viewing ? "update" : "submit" ?>-btn"<?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?>><?= $is_viewing ? "Update" : "Submit" ?> Request</button>
+                            <button type="submit" class="btn btn-success mx-1 flex-grow-1 <?= $is_viewing ? "update" : "submit" ?>-btn" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?>><?= $is_viewing ? "Update" : "Submit" ?> Request</button>
                         </div>
                         <!--=========================================== END OF FORM BUTTONS ===================================================-->
                     </form>
@@ -201,29 +201,28 @@ $is_viewing = isset($transaction_info);
             <div class="container col-lg-4 col-md-4 my-5 p-5 p-md-8">
 
 
-                <div class="alert alert-primary d-flex align-items-center p-5">
+                <div class="alert alert-primary d-flex p-5">
                     <span class="svg-icon svg-icon-2hx svg-icon-primary me-4">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
                             <path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="currentColor" />
                         </svg>
                     </span>
-
                     <div class="d-flex flex-column">
                         <h4 class="mb-1 text-primary">REQUIREMENTS: </h4>
                         <span> Requirements for requesting Nutrition Counseling:</span>
-                        <div class="d-flex flex-column">
+                        <div class="d-flex flex-column mt-3">
                             <li class="d-flex align-items-center py-2">
                                 <span class="bullet bg-primary me-5"></span>
-
+                                Letter requesting service for group counseling.
                             </li>
                             <li class="d-flex align-items-center py-2">
                                 <span class="bullet bg-primary me-5"></span>
-
+                                Documentation is not required if one person wishes to receive counseling.
                             </li>
                             <li class="d-flex align-items-center py-2">
                                 <span class="bullet bg-primary me-5"></span>
-
+                                Documentation is not required if one person wishes to receive counseling.
                             </li>
                         </div>
                     </div>
@@ -297,6 +296,7 @@ $is_viewing = isset($transaction_info);
             "mask": "9999-999-9999",
             "placeholder": "0900-000-0000",
         }).mask("#contact-number");
+
 
 
 
