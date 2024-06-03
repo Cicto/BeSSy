@@ -113,7 +113,7 @@ $is_viewing = isset($transaction_info);
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Place of
                                 Marriage</label>
@@ -123,7 +123,7 @@ $is_viewing = isset($transaction_info);
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Date of
                                 Marriage</label>
@@ -153,7 +153,25 @@ $is_viewing = isset($transaction_info);
                                 </div>
                             </div>
                         </div>
-                        
+
+                        <div class="row mb-6" style="display:none;" id="auth-person">
+                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Name of the Authorized Person:</label>
+
+                            <div class="col-lg-8 fv-row">
+                                <input type="text" name="authorized_person" value="<?= $is_viewing ? $transaction_info->purpose : "" ?>" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="authorized-person" class="form-control form-control-lg form-control-solid" placeholder="Name of Authorized Person" value="" required>
+                            </div>
+                        </div>
+
+                        <!-- UPLOADING FILE -->
+                        <div class="row mb-6" style="display:none;" id="file-upload">
+                            <label class="col-lg-4 col-form-label required fw-semibold fs-6">Upload a file:</label>
+                            <div class="col-lg-8 fv-row">
+                                <input type="file" name="file_upload" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="upload-file" accept="image/*" class="form-control" placeholder="">
+                                <img id="image-preview" src="<?= base_url() ?>/public/user_file_uploads/<?= $is_viewing ? $transaction_info->req_filename : "default-avatar.png" ?>" class="form-control form-control-transparent">
+                            </div>
+                        </div>
+                        <!-- END OF UPLOADING FILE -->
+
                         <div class="row mb-6">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Purpose:</label>
 
@@ -161,7 +179,7 @@ $is_viewing = isset($transaction_info);
                                 <input type="text" name="purpose" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $is_viewing ? $transaction_info->purpose : "" ?>" id="purpose" class="form-control form-control-lg form-control-solid" placeholder="Purpose" value="" required>
                             </div>
                         </div>
-                        
+
                         <div class="row mb-8">
                             <label class="col-lg-4 col-form-label fw-semibold fs-6">Remarks:</label>
 
@@ -171,8 +189,9 @@ $is_viewing = isset($transaction_info);
                                 </textarea>
                             </div>
                         </div>
-                        <input type="number" name="service_id" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $service->service_id ?>" class="d-none"required>
-                        
+                        <input type="text" name="service_id" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> value="<?= $service->service_id ?>" class="d-none" required>
+
+                        <input type="text" name="req_filename" value="<?= $is_viewing ? $transaction_info->req_filename : "" ?>" id="req-filename" class="d-none">
 
 
                         <!--=================================================== END OF YOUR CODE ==============================================-->
@@ -204,7 +223,7 @@ $is_viewing = isset($transaction_info);
 
                         <!--=============================================== FORM BUTTONS ======================================================-->
                         <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success mx-1 flex-grow-1 <?= $is_viewing ? "update" : "submit" ?>-btn"<?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?>><?= $is_viewing ? "Update" : "Submit" ?> Request</button>
+                            <button type="submit" class="btn btn-success mx-1 flex-grow-1 <?= $is_viewing ? "update" : "submit" ?>-btn" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?>><?= $is_viewing ? "Update" : "Submit" ?> Request</button>
                         </div>
                         <!--=========================================== END OF FORM BUTTONS ===================================================-->
                     </form>
@@ -252,58 +271,154 @@ $is_viewing = isset($transaction_info);
 <?= $this->section('javascript'); ?>
 
 <script>
+    let image_file;
+    var image = $("#image-preview");
     $(document).ready(function() {
+
+        $('#upload-file').change(function(e) {
+            const [file] = this.files;
+            const form_data = new FormData();
+            form_data.append("file", file);
+            image_file = form_data;
+        });
 
         $("#mrg-c").submit(function(e) {
             e.preventDefault();
             <?php if ($is_viewing) : ?>
                 <?php if ($status->status == 0) : ?>
+                    const form_data_update = $(this).serializeArray();
                     let endpoint = "<?= base_url() ?>/lcr/updateMarriageCertificate/<?= $transaction_info->mrg_id ?>";
                     console.table($(this).serializeArray());
-                    confirm(
-                        'Wait!',
-                        'Are you sure you want to update the form?',
-                        'question', endpoint,
-                        "POST",
-                        $(this).serializeArray(),
-                        function(response) {
-                            console.log(response);
-                            if (!response.error) {
-                                successAlert('Form successfully updated.', 'Form successfully updated.',
-                                    'success');
-                            } else {
-                                errorAlert('Error',
-                                    'There is an error during updating the form.',
-                                    'warning');
-                            }
-                        }
-                    );
+                    $.ajax({
+                        type: "post",
+                        url: "<?= base_url() ?>/lcr/uploadFiles",
+                        success: function(data) {
+                            const filename = data.filename;
+                            form_data_update.push({
+                                name: 'req_filename',
+                                value: filename
+                            });
+                            console.log(filename);
+                            confirm(
+                                'Wait!',
+                                'Are you sure you want to update the form?',
+                                'question', endpoint,
+                                "POST",
+                                form_data_update,
+                                function(response) {
+                                    console.log(response);
+                                    if (!response.error) {
+                                        successAlert('Form successfully updated.', 'Form successfully updated.',
+                                            'success');
+                                    } else {
+                                        errorAlert('Error',
+                                            'There is an error during updating the form.',
+                                            'warning');
+                                    }
+                                }
+                            );
+                        },
+                        error: function(error) {
+                            errorAlert('Error',
+                                error,
+                                'warning');
+                        },
+                        dataType: "JSON",
+                        data: image_file,
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
                 <?php endif; ?>
 
             <?php else : ?>
                 let endpoint = "<?= base_url() ?>/lcr/addMarriageCertificate";
+                const form_data = $(this).serializeArray();
                 console.table($(this).serializeArray());
-                confirm(
-                    'Wait!',
-                    'Are you sure you want to submit the form?',
-                    'question', endpoint,
-                    "POST",
-                    $(this).serializeArray(),
-                    function(response) {
-                        console.log(response);
-                        if (!response.error) {
-                            successAlert('Form successfully submitted.', 'Form successfully submitted.',
-                                'success');
-                            $("#mc-form")[0].reset();
-                        } else {
-                            errorAlert('Error',
-                                'There is an error during submitting the form.',
-                                'warning');
-                        }
-                    }
-                );
+                $.ajax({
+                    type: "post",
+                    url: "<?= base_url() ?>/lcr/uploadFiles",
+                    success: function(data) {
+                        const filename = data.filename;
+                        form_data.push({
+                            name: 'req_filename',
+                            value: filename
+                        });
+                        console.log(filename);
+                        confirm(
+                            'Wait!',
+                            'Are you sure you want to submit the form?',
+                            'question', endpoint,
+                            "POST",
+                            form_data,
+                            function(response) {
+                                console.log(response);
+                                if (!response.error) {
+                                    successAlert('Form successfully submitted.', 'Form successfully submitted.',
+                                        'success');
+                                    $("#mrg-c")[0].reset();
+                                    image.removeAttr('src');
+                                    image.show();
+                                } else {
+                                    errorAlert('Error',
+                                        'There is an error during submitting the form.',
+                                        'warning');
+                                }
+                            }
+                        );
+                    },
+                    error: function(error) {
+                        errorAlert('Error',
+                            error,
+                            'warning');
+                    },
+                    dataType: "JSON",
+                    data: image_file,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+
             <?php endif; ?>
+
+
+
+
+
+
         });
+
+        $("#requester").change(function(e) {
+            console.log($("#requester").val());
+            if ($('#requester').val() != "1") {
+                $("#auth-person").show();
+                $("#file-upload").show();
+                $("#auth-person").find("input, select").each(function() {
+                    $(this).attr("required", true);
+                });
+            } else {
+                $("#auth-person").hide();
+                $("#file-upload").hide();
+                $("#authorized-person").val("");
+                $("#auth-person").find("input, select").each(function() {
+                    $(this).removeAttr("required");
+                });
+            }
+            e.preventDefault();
+
+        });
+
+        var selected_option = $('#requester option:selected').val();
+        console.log(selected_option);
+        if (selected_option == "1" || selected_option == "") {
+            $("#auth-person").hide();
+            $("#file-upload").hide();
+        } else {
+
+            $("#auth-person").show();
+            $("#file-upload").show();
+        }
+
     });
 </script>
 <?= $this->endSection(); ?>

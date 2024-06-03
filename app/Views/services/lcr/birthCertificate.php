@@ -188,7 +188,8 @@ $is_viewing = isset($transaction_info);
                         <div class="row mb-6" style="display:none;" id="file-upload">
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Upload a file:</label>
                             <div class="col-lg-8 fv-row">
-                                <input type="file" name="file_upload" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="file-upload" class="form-control form-control-lg form-control-solid" placeholder="Name of Authorized Person" value="">
+                                <input type="file" name="file_upload" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])" <?= $is_viewing ? ($status->status == 0 ? " " : "disabled") : " " ?> id="upload-file" accept="image/*" class="form-control" placeholder="">
+                                <img id="image-preview"  src="<?= base_url() ?>/public/user_file_uploads/<?= $is_viewing ? $transaction_info->req_filename : "default-avatar.png" ?>" class="form-control form-control-transparent">
                             </div>
                         </div>
                         <!-- END OF UPLOADING FILE -->
@@ -211,7 +212,9 @@ $is_viewing = isset($transaction_info);
                             </div>
                         </div>
 
-                        <input type="number" name="service_id" value="<?= $service->service_id ?>" class="d-none" required>
+                        <input type="text" name="service_id" value="<?= $service->service_id ?>" class="d-none">
+
+                        <input type="text" name="req_filename" value="<?= $is_viewing ? $transaction_info->req_filename : "" ?>" id="req-filename" class="d-none">
 
 
 
@@ -295,56 +298,115 @@ $is_viewing = isset($transaction_info);
 <?= $this->section('javascript'); ?>
 
 <script>
+    let image_file;
+    var image = $("#image-preview");
     $(document).ready(function() {
+
+        $('#upload-file').change(function(e) {
+            const [file] = this.files;
+            const form_data = new FormData();
+            form_data.append("file", file);
+            image_file = form_data;
+        });
 
         $("#bc-form").submit(function(e) {
             e.preventDefault();
             <?php if ($is_viewing) : ?>
                 <?php if ($status->status == 0) : ?>
+                    const form_data_update = $(this).serializeArray();
                     let endpoint = "<?= base_url() ?>/lcr/updateBirtCertificate/<?= $transaction_info->bc_id ?>";
                     console.table($(this).serializeArray());
-                    confirm(
-                        'Wait!',
-                        'Are you sure you want to update the form?',
-                        'question', endpoint,
-                        "POST",
-                        $(this).serializeArray(),
-                        function(response) {
-                            console.log(response);
-                            if (!response.error) {
-                                successAlert('Form successfully updated.', 'Form successfully updated.',
-                                    'success');
-                            } else {
-                                errorAlert('Error',
-                                    'There is an error during updating the form.',
-                                    'warning');
-                            }
-                        }
-                    );
+                    $.ajax({
+                        type: "post",
+                        url: "<?= base_url() ?>/lcr/uploadFiles",
+                        success: function(data) {
+                            const filename = data.filename;
+                            form_data_update.push({
+                                name: 'req_filename',
+                                value: filename
+                            });
+                            console.log(filename);
+                            confirm(
+                                'Wait!',
+                                'Are you sure you want to update the form?',
+                                'question', endpoint,
+                                "POST",
+                                form_data_update,
+                                function(response) {
+                                    console.log(response);
+                                    if (!response.error) {
+                                        successAlert('Form successfully updated.', 'Form successfully updated.',
+                                            'success');
+                                    } else {
+                                        errorAlert('Error',
+                                            'There is an error during updating the form.',
+                                            'warning');
+                                    }
+                                }
+                            );
+                        },
+                        error: function(error) {
+                            errorAlert('Error',
+                                error,
+                                'warning');
+                        },
+                        dataType: "JSON",
+                        data: image_file,
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
                 <?php endif; ?>
+
 
             <?php else : ?>
                 let endpoint = "<?= base_url() ?>/lcr/addBirthCertificate";
+                const form_data = $(this).serializeArray();
                 console.table($(this).serializeArray());
-                confirm(
-                    'Wait!',
-                    'Are you sure you want to submit the form?',
-                    'question', endpoint,
-                    "POST",
-                    $(this).serializeArray(),
-                    function(response) {
-                        console.log(response);
-                        if (!response.error) {
-                            successAlert('Form successfully submitted.', 'Form successfully submitted.',
-                                'success');
-                            $("#mc-form")[0].reset();
-                        } else {
-                            errorAlert('Error',
-                                'There is an error during submitting the form.',
-                                'warning');
-                        }
-                    }
-                );
+                $.ajax({
+                    type: "post",
+                    url: "<?= base_url() ?>/lcr/uploadFiles",
+                    success: function(data) {
+                        const filename = data.filename;
+                        form_data.push({
+                            name: 'req_filename',
+                            value: filename
+                        });
+                        console.log(filename);
+                        confirm(
+                            'Wait!',
+                            'Are you sure you want to submit the form?',
+                            'question', endpoint,
+                            "POST",
+                            form_data,
+                            function(response) {
+                                console.log(response);
+                                if (!response.error) {
+                                    successAlert('Form successfully submitted.', 'Form successfully submitted.',
+                                        'success');
+                                    $("#bc-form")[0].reset();
+                                    image.removeAttr('src');
+                                    image.show();
+                                } else {
+                                    errorAlert('Error',
+                                        'There is an error during submitting the form.',
+                                        'warning');
+                                }
+                            }
+                        );
+                    },
+                    error: function(error) {
+                        errorAlert('Error',
+                            error,
+                            'warning');
+                    },
+                    dataType: "JSON",
+                    data: image_file,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+
             <?php endif; ?>
 
         });
@@ -369,32 +431,16 @@ $is_viewing = isset($transaction_info);
 
         });
 
-        $("#tile-file-input").change(function (e) { 
-                const tile_id = $('#selected-tile-id').val()
-                const tile_data = searchArrayById(tiles_table_data, tile_id, "tile_id");
-                const files = this.files;
-                files.forEach(async file => {
-                    await new Promise(resolve => setTimeout(resolve, 1000));
+        var selected_option = $('#requester option:selected').val();
+        console.log(selected_option);
+        if (selected_option == "1" || selected_option == "") {
+            $("#auth-person").hide();
+            $("#file-upload").hide();
+        } else {
 
-                    const form_data = new FormData();
-                    form_data.append("file", file);
-
-                    await AJAX({
-                        method: "POST",
-                        url: `<?=base_url()?>/tiles/uploadTileFiles/${tile_data.tile_qrcode}`,
-                        data: form_data,
-                        success: function(data){
-                            const response = JSON.parse(data);
-                            if(response.error){
-                                warningAlert("Error", response.message);
-                            }
-                            $("#tile-files-tab").trigger("click")
-                        }
-                    });
-                });
-                $(this).val(null)
-            });
-
+            $("#auth-person").show();
+            $("#file-upload").show();
+        }
 
     });
 </script>

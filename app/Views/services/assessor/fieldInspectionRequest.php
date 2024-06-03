@@ -405,7 +405,10 @@ $is_viewing = isset($transaction_info);
 
         });
 
-
+        var selected_option = $('#nature-of-request option:selected').val();
+        if(selected_option == "7"){
+            $("#others-div").show();
+        }
 
     });
 </script>
